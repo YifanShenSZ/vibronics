@@ -17,7 +17,8 @@ int main() {
     auto mvkernel = std::make_shared<Lanczos::MVKernel>(Hd, op, freq_files);
 
     v1 = 0.0;
-    v1[{0, 0, 0}] = 1.0;
+    v1[{0, 0, 0}] = 1.0 / sqrt(2.0);
+    v1[{0, 1, 0}] = 1.0 / sqrt(2.0);
 
     std::ofstream alpha_fs, beta_fs;
     alpha_fs.open("alpha.txt");

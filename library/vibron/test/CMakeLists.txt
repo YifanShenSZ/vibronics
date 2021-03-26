@@ -4,7 +4,7 @@ project(test)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CMAKE_BUILD_TYPE debug)
+set(CMAKE_BUILD_TYPE Release)
 
 # vibron
 set(CMAKE_PREFIX_PATH ~/Software/Mine/vibronics/library/vibron)

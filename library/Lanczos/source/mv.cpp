@@ -237,9 +237,9 @@ void MVKernel::operator()(const vibron::Wfn & wfn, vibron::Wfn & Hwfn) const {
     for (size_t iseg = 0; iseg < op_->NSegs; iseg++)
     for (size_t istate = 0; istate < op_->NStates; istate++)
     for (size_t ivib = 0; ivib < op_->stops[iseg][istate] - op_->starts[iseg][istate]; ivib++) {
-        Hwfn[{iseg, istate, ivib}] = 0.0;
+        Hwfn.select(iseg, istate, ivib) = 0.0;
         for (const auto & element : alloweds_[iseg][istate][ivib])
-        Hwfn[{iseg, istate, ivib}] += element.value * wfn[{element.seg, element.state, element.vib}];
+        Hwfn.select(iseg, istate, ivib) += element.value * wfn.select(element.seg, element.state, element.vib);
     }
 }
 

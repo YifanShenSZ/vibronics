@@ -5,19 +5,32 @@ namespace vibron {
 Wfn::Wfn() {}
 Wfn::Wfn(const std::shared_ptr<Options> & _op) : op_(_op) {
     data_.resize(_op->NSegs);
-    for (auto & datum : data_) datum.resize(_op->NStates);
-    for (size_t j = 0; j < _op->NSegs; j++)
-    for (size_t i = 0; i < _op->NStates; i++)
-    data_[j][i] = at::empty(_op->stops[j][i] - _op->starts[j][i],
-                            c10::TensorOptions().dtype(torch::kFloat64));
+    data_ptrs_.resize(_op->NSegs);
+    for (size_t i = 0; i < _op->NSegs; i++) {
+        data_[i].resize(_op->NStates);
+        data_ptrs_[i].resize(_op->NStates);
+    }
+    for (size_t i = 0; i < _op->NSegs; i++)
+    for (size_t j = 0; j < _op->NStates; j++) {
+       data_[i][j] = at::empty(_op->stops[i][j] - _op->starts[i][j],
+                     c10::TensorOptions().dtype(torch::kFloat64));
+       data_ptrs_[i][j] = data_[i][j].data_ptr<double>();
+    }
 }
 Wfn::~Wfn() {}
 
 const std::shared_ptr<Options> & Wfn::options() const {return op_;}
 
-const std::vector<at::Tensor> & Wfn::operator[](const size_t & index) const {return data_[index];}
-at::Tensor Wfn::operator[](const CL::utility::triple<size_t, size_t, size_t> & indices) const {
-    return data_[indices.first][indices.second][indices.third];
+const std::vector<at::Tensor> & Wfn::operator[](const size_t & seg) const {return data_[seg];}
+at::Tensor Wfn::operator[](const CL::utility::triple<size_t, size_t, size_t> & seg_state_vib) const {
+    return data_[seg_state_vib.first][seg_state_vib.second][seg_state_vib.third];
+}
+
+double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) {
+    return data_ptrs_[seg][state][vib];
+}
+const double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) const {
+    return data_ptrs_[seg][state][vib];
 }
 
 double Wfn::dot(const Wfn & other) const {
@@ -38,7 +51,7 @@ void Wfn::mul(const double & scalar, Wfn & result) const {
     #pragma omp parallel for
     for (size_t i = 0; i < op_->NSegs; i++)
     for (size_t j = 0; j < op_->NStates; j++)
-    result.data_[i][j] = scalar * data_[i][j];
+    result.data_[i][j].copy_(scalar * data_[i][j]);
 }
 void Wfn::operator*=(const double & scalar) {
     #pragma omp parallel for
