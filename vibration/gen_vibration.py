@@ -25,13 +25,15 @@ import numpy
 #)
 
 product_table = numpy.array([
-   [1,],
+   [1, 2],
+   [2, 1]
 ])
 
-NModes_per_irred = (3,)
+NModes_per_irred = (2, 1)
 
 max_phonons = (
-    (9, 9, 9),
+    (9, 9),
+    (9,)
 )
 ''' End of user input '''
 

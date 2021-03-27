@@ -69,14 +69,14 @@ void MVKernel::construct_nonzero() {
             // Map indices to modes of irreducibles
             std::vector<std::pair<size_t, size_t>> excited_modes(excitation);
             for (size_t i = 0; i < excitation; i++)
-            excited_modes[i] = op_->irred_mode(excited_indices[i]);
+            excited_modes[i] = op_->vib_irred_mode(excited_indices[i]);
             generate_all(iseg, istate, ivib, excited_modes);
             // Loop over possible excited modes as an excitation-nary counter, with ascending digits
             while (true) {
                 excited_indices.back() += 1;
                 // Carry to former digit
                 for (size_t i = excitation - 1; i > 0; i--)
-                if (excited_indices[i] >= op_->intdim() + 1 + i - excitation) {
+                if (excited_indices[i] > op_->intdim() + i - excitation) {
                     excited_indices[i - 1] += 1;
                     excited_indices[i] = 0;
                 }
@@ -89,7 +89,7 @@ void MVKernel::construct_nonzero() {
                 // Map indices to modes of irreducibles
                 std::vector<std::pair<size_t, size_t>> excited_modes(excitation);
                 for (size_t i = 0; i < excitation; i++)
-                excited_modes[i] = op_->irred_mode(excited_indices[i]);
+                excited_modes[i] = op_->vib_irred_mode(excited_indices[i]);
                 generate_all(iseg, istate, ivib, excited_modes);
             }
         }
@@ -117,7 +117,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
         jphonons[mode.first][mode.second] = min_phonons[i];
     }
     if (NDiff(iphonons, jphonons) == excited_modes.size()) {
-        size_t jirred = op_->determine_irreducible(jphonons);
+        size_t jirred = op_->vib_irred(jphonons);
         int64_t jvib_abs = op_->vib_sets[jirred].index_vibration(jphonons);
         if (jvib_abs >= 0)
         for (size_t jstate = 0; jstate < op_->NStates; jstate++)
@@ -147,7 +147,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
         if (jphonons[excited_modes.back().first][excited_modes.back().second] > max_phonons.back()) break;
         // Compute Hd element
         if (NDiff(iphonons, jphonons) == excited_modes.size()) {
-            size_t jirred = op_->determine_irreducible(jphonons);
+            size_t jirred = op_->vib_irred(jphonons);
             int64_t jvib_abs = op_->vib_sets[jirred].index_vibration(jphonons);
             if (jvib_abs >= 0)
             for (size_t jstate = 0; jstate < op_->NStates; jstate++)
@@ -178,9 +178,9 @@ const size_t & jseg, const size_t & jstate, const size_t & jvib) const {
             monomial.order,
             jphonons[monomial.irred][monomial.mode]
         });
+        // Assume other normal modes integrate to 1, i.e. i and j share a same phonon
         Hdelement += coeff_sap.first * Hdterm;
     }
-    // Assume other normal modes integrate to 1, i.e. i and j share a same phonon
     return Hdelement;
 }
 double MVKernel::Hdelement(
@@ -190,8 +190,9 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) const {
     double Hdelement = 0.0;
     const auto & iphonons = op_->vib_sets[op_->vib_irreds[istate]][ivib + op_->starts[iseg][istate]].phonons();
     const auto & jphonons = op_->vib_sets[op_->vib_irreds[jstate]][jvib + op_->starts[jseg][jstate]].phonons();
-    for (const auto & coeff_sap : (*Hd_)[{istate, jstate}]->excitation(excited_modes.size()))
-    if (coeff_sap->second.same_modes(excited_modes)) {
+    for (size_t ex = excited_modes.size(); ex <= (*Hd_)[{istate, jstate}]->max_excitation(); ex++)
+    for (const auto & coeff_sap : (*Hd_)[{istate, jstate}]->excitation(ex))
+    if (coeff_sap->second.include(excited_modes)) {
         double Hdterm = 1.0;
         for (const auto & monomial : coeff_sap->second)
         Hdterm *= integrators_[monomial.irred][monomial.mode]({

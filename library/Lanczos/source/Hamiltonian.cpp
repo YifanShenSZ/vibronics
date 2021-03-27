@@ -75,6 +75,20 @@ bool SAP::same_modes(const std::vector<std::pair<size_t, size_t>> & excited_mode
     }
     return same;
 }
+bool SAP::include(const std::vector<std::pair<size_t, size_t>> & excited_modes) const {
+    if (coords_.size() < excited_modes.size()) return false;
+    bool include = true;
+    for (size_t i = 0; i < excited_modes.size(); i++) {
+        size_t j;
+        for (j = 0; j < coords_.size(); j++)
+        if (coords_[j] == excited_modes[i]) break;
+        if (j >= coords_.size()) {
+            include = false;
+            break;
+        }
+    }
+    return include;
+}
 
 
 

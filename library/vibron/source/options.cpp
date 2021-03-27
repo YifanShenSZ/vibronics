@@ -110,15 +110,15 @@ void Options::pretty_print(std::ostream & stream) const {
 
 size_t Options::intdim() const {return std::accumulate(NModes.begin(), NModes.end(), 0);}
 // Given the index of a normal mode, return its irreducible and index within the irreducible
-std::pair<size_t, size_t> Options::irred_mode(const size_t & index) const {
+std::pair<size_t, size_t> Options::vib_irred_mode(const size_t & index) const {
     size_t irred, mode = index;
     for (irred = 0; irred < NIrreds; irred++)
     if (mode < NModes[irred]) return std::pair<size_t, size_t>(irred, mode);
     else mode -= NModes[irred];
-    throw std::invalid_argument("vibron::Options::irred_mode: index out of range");
+    throw std::invalid_argument("vibron::Options::vib_irred_mode: index out of range");
 }
 // Given the irreducible and the index within the irreducible of a normal mode, return its index
-size_t Options::index(const size_t & irred, const size_t & mode) const {
+size_t Options::vib_C1_index(const size_t & irred, const size_t & mode) const {
     size_t index = mode;
     for (size_t i = 0; i < irred; i++) index += NModes[i];
     return index;
@@ -131,13 +131,13 @@ size_t Options::NVibron() const {
 }
 
 // Given a vibrational basis function defined by phonons, return its irreducible
-size_t Options::determine_irreducible(const std::vector<std::vector<size_t>> & phonons) const {
+size_t Options::vib_irred(const std::vector<std::vector<size_t>> & phonons) const {
     if (phonons.size() != NIrreds) throw std::invalid_argument(
-    "vibron::Options::determine_irreducible: define phonons for every irreducible");
+    "vibron::Options::vib_irred: define phonons for every irreducible");
     size_t irred = 0;
     for (size_t i = 1; i < NIrreds; i++)
     if (phonons[i].size() != NModes[i]) throw std::invalid_argument(
-    "vibron::Options::determine_irreducible: define phonons for every mode");
+    "vibron::Options::vib_irred: define phonons for every mode");
     else {
         size_t order = 0;
         for (const size_t & phonon : phonons[i]) order += phonon;
@@ -148,7 +148,7 @@ size_t Options::determine_irreducible(const std::vector<std::vector<size_t>> & p
 
 // Given segment, electronic state, vibrational index in this segment,
 // return the vibrational index in the vibrational basis function set
-size_t Options::abs_vib_index(const size_t & seg, const size_t & state, const size_t & seg_vib) const {
+size_t Options::vib_index_abs(const size_t & seg, const size_t & state, const size_t & seg_vib) const {
     return seg_vib + starts[seg][state];
 }
 // Given electronic state, vibrational index in the vibrational basis function set

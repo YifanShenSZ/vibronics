@@ -11,9 +11,11 @@ int main() {
 
     std::cout << "Index a vibrational basis function:\n";
     srand((unsigned)time(NULL));
-    for (size_t i = 0; i < 20; i++) {
+    for (size_t i = 0; i < 10; i++) {
         size_t index = rand() % sets[0]->size();
         std::cout << sets[0]->index_vibration((*sets[0])[index]) - index << ' ';
+        index = rand() % sets[1]->size();
+        std::cout << sets[1]->index_vibration((*sets[1])[index]) - index << ' ';
     }
     std::cout << '\n';
 }

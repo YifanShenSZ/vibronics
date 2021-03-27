@@ -10,5 +10,5 @@ int main() {
     vibron::Wfn v(op);
 
     std::cout << v[0].size() - 2 << ' '
-              << v[{0, 1, 2}].item<double>() << '\n';
+              << v[{0, 1, 2}].item<double>() - v.select(0, 1, 2) << '\n';
 }

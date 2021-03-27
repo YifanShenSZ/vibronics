@@ -38,6 +38,7 @@ class SAP {
         std::vector<Monomial>::const_iterator end() const noexcept;
 
         bool same_modes(const std::vector<std::pair<size_t, size_t>> & excited_modes) const;
+        bool include(const std::vector<std::pair<size_t, size_t>> & excited_modes) const;
 };
 
 // An Hd elements is a linear combination of symmetry adapted polynomials
