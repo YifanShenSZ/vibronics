@@ -99,6 +99,16 @@ Options::Options(const std::string & wfn_file, const std::vector<std::string> & 
 Options::~Options() {}
 
 void Options::pretty_print(std::ostream & stream) const {
+    stream << "Number of irreducible representations: " << NIrreds << '\n';
+    stream << "Point group product table:\n";
+    product_table.pretty_print(stream);
+    stream << "Number of normal modes:\n";
+    for (size_t i = 0; i < NModes.size(); i++)
+    stream << "    irreducible "<< i << ": " << NModes[i] << '\n';
+    stream << "Number of electronic states " << NStates << '\n';
+    stream << "Vibrational irreducible:\n";
+    for (size_t i = 0; i < vib_irreds.size(); i++)
+    stream << "    state " << i << ": " << vib_irreds[i] << '\n';
     stream << "Number of segmentations = " << NSegs << '\n';
     for (size_t i = 0; i < NSegs; i++) {
         stream << "Segment " << i << " owns:\n";

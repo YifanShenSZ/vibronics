@@ -61,27 +61,29 @@ const Monomial & SAP::operator[](const size_t & index) const {return coords_[ind
 std::vector<Monomial>::const_iterator SAP::begin() const noexcept {return coords_.begin();}
 std::vector<Monomial>::const_iterator SAP::end() const noexcept {return coords_.end();}
 
-bool SAP::same_modes(const std::vector<std::pair<size_t, size_t>> & excited_modes) const {
-    if (coords_.size() != excited_modes.size()) return false;
+// Check if the monomials match the given normal modes
+bool SAP::operator==(const std::vector<std::pair<size_t, size_t>> & irred_modes) const {
+    if (coords_.size() != irred_modes.size()) return false;
     auto coords_copy = coords_;
     std::sort(coords_copy.begin(), coords_copy.end());
-    auto excited_modes_copy = excited_modes;
-    std::sort(excited_modes_copy.begin(), excited_modes_copy.end());
+    auto irred_modes_copy = irred_modes;
+    std::sort(irred_modes_copy.begin(), irred_modes_copy.end());
     bool same = true;
     for (size_t i = 0; i < coords_.size(); i++)
-    if (coords_copy[i] != excited_modes_copy[i]) {
+    if (coords_copy[i] != irred_modes_copy[i]) {
         same = false;
         break;
     }
     return same;
 }
-bool SAP::include(const std::vector<std::pair<size_t, size_t>> & excited_modes) const {
-    if (coords_.size() < excited_modes.size()) return false;
+// Check if the monomials include the given normal modes
+bool SAP::operator>=(const std::vector<std::pair<size_t, size_t>> & irred_modes) const {
+    if (coords_.size() < irred_modes.size()) return false;
     bool include = true;
-    for (size_t i = 0; i < excited_modes.size(); i++) {
+    for (size_t i = 0; i < irred_modes.size(); i++) {
         size_t j;
         for (j = 0; j < coords_.size(); j++)
-        if (coords_[j] == excited_modes[i]) break;
+        if (coords_[j] == irred_modes[i]) break;
         if (j >= coords_.size()) {
             include = false;
             break;

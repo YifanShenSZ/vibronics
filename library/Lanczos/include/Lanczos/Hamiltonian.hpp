@@ -37,15 +37,17 @@ class SAP {
         std::vector<Monomial>::const_iterator begin() const noexcept;
         std::vector<Monomial>::const_iterator end() const noexcept;
 
-        bool same_modes(const std::vector<std::pair<size_t, size_t>> & excited_modes) const;
-        bool include(const std::vector<std::pair<size_t, size_t>> & excited_modes) const;
+        // Check if the monomials match the given normal modes
+        bool operator==(const std::vector<std::pair<size_t, size_t>> & irred_modes) const;
+        // Check if the monomials include the given normal modes
+        bool operator>=(const std::vector<std::pair<size_t, size_t>> & irred_modes) const;
 };
 
 // An Hd elements is a linear combination of symmetry adapted polynomials
 class SAPSet {
     private:
         // 0th order term (constant) is more convenient to be treated separately
-        double constant_;
+        double constant_ = 0.0;
         // 1st and higher order terms
         std::vector<std::pair<double, SAP>> terms_;
 

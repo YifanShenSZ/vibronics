@@ -44,8 +44,9 @@ void MVKernel::construct_nonzero() {
         size_t iirred = op_->vib_irreds[istate],
                ivib_abs = ivib + op_->starts[iseg][istate];
         const auto & iphonons = op_->vib_sets[iirred][ivib_abs].phonons();
-        for (size_t mode = 0; mode < op_->NModes[iirred]; mode++)
-        value += integrators_[iirred][mode].frequency() * (0.5 + iphonons[iirred][mode]);
+        for (size_t irred = 0; irred < op_->NIrreds; irred++)
+        for (size_t mode = 0; mode < op_->NModes[irred]; mode++)
+        value += integrators_[irred][mode].frequency() * (0.5 + iphonons[irred][mode]);
         // append
         if (abs(value) > 1e-15)
         alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(iseg, istate, ivib, value));
@@ -95,6 +96,7 @@ void MVKernel::construct_nonzero() {
         }
     }
 }
+
 // Supports `construct_nonzero`
 // Given excited modes, generate all possible vibrations
 void MVKernel::generate_all(const size_t & iseg, const size_t & istate, const size_t & ivib,
@@ -162,6 +164,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
         }
     }
 }
+
 // Supports `construct_nonzero`
 // Return <basis[iseg, istate, ivib]|Hd|basis[jseg, jstate, jvib]>
 double MVKernel::Hdelement(
@@ -178,7 +181,7 @@ const size_t & jseg, const size_t & jstate, const size_t & jvib) const {
             monomial.order,
             jphonons[monomial.irred][monomial.mode]
         });
-        // Assume other normal modes integrate to 1, i.e. i and j share a same phonon
+        // Assume other normal modes integrate to 1, i.e. i and j share same phonons in the remaining modes
         Hdelement += coeff_sap.first * Hdterm;
     }
     return Hdelement;
@@ -190,9 +193,10 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) const {
     double Hdelement = 0.0;
     const auto & iphonons = op_->vib_sets[op_->vib_irreds[istate]][ivib + op_->starts[iseg][istate]].phonons();
     const auto & jphonons = op_->vib_sets[op_->vib_irreds[jstate]][jvib + op_->starts[jseg][jstate]].phonons();
+    // i and j have different phonons is the excited modes, so the Hd term must include these modes
     for (size_t ex = excited_modes.size(); ex <= (*Hd_)[{istate, jstate}]->max_excitation(); ex++)
     for (const auto & coeff_sap : (*Hd_)[{istate, jstate}]->excitation(ex))
-    if (coeff_sap->second.include(excited_modes)) {
+    if (coeff_sap->second >= excited_modes) {
         double Hdterm = 1.0;
         for (const auto & monomial : coeff_sap->second)
         Hdterm *= integrators_[monomial.irred][monomial.mode]({
@@ -200,6 +204,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) const {
             monomial.order,
             jphonons[monomial.irred][monomial.mode]
         });
+        // i and j share same phonons in the remaining modes
         Hdelement += coeff_sap->first * Hdterm;
     }
     return Hdelement;
@@ -230,6 +235,14 @@ const std::vector<std::string> & frequency_files) : Hd_(_Hd), op_(_op) {
     this->construct_nonzero();
 }
 MVKernel::~MVKernel() {}
+
+void MVKernel::pretty_print(std::ostream & ostream) const {
+    for (size_t iseg = 0; iseg < op_->NSegs; iseg++)
+    for (size_t istate = 0; istate < op_->NStates; istate++)
+    for (size_t ivib = 0; ivib < op_->stops[iseg][istate] - op_->starts[iseg][istate]; ivib++)
+    ostream << "Segment " << iseg << ", state " << istate << ", vibration " << ivib << ": "
+            << alloweds_[iseg][istate][ivib].size() << " non-trivial columns\n";
+}
 
 void MVKernel::operator()(const vibron::Wfn & wfn, vibron::Wfn & Hwfn) const {
     if (op_ != wfn.options() || op_ != Hwfn.options()) throw std::invalid_argument(

@@ -34,10 +34,12 @@ class MVKernel {
 
         // Construct `alloweds_` given constructed `Hd_`, `op_`, `integrator_`
         void construct_nonzero();
+
         // Supports `construct_nonzero`
         // Given excited modes, generate all possible vibrations
         void generate_all(const size_t & iseg, const size_t & istate, const size_t & ivib,
         const std::vector<std::pair<size_t, size_t>> & excited_modes);
+
         // Supports `construct_nonzero`
         // Return <basis[iseg, istate, ivib]|Hd|basis[jseg, jstate, jvib]>
         double Hdelement(const size_t & iseg, const size_t & istate, const size_t & ivib,
@@ -50,6 +52,8 @@ class MVKernel {
         MVKernel(const std::shared_ptr<Hd> & _Hd, const std::shared_ptr<vibron::Options> & _op,
         const std::vector<std::string> & frequency_files);
         ~MVKernel();
+
+        void pretty_print(std::ostream & stream) const;
 
         void operator()(const vibron::Wfn & wfn, vibron::Wfn & Hwfn) const;
 };
