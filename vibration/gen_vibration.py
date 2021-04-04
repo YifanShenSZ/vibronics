@@ -20,26 +20,10 @@ product_table = numpy.array([
 NModes_per_irred = (27, 21)
 
 max_phonons = (
-    (2, 2),
-    (2,)
+    (1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0),
+    (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 )
 ''' End of user input '''
-
-# Given index of a mode
-# Return its irreducible and its index in this irreducible
-def index2mode(index:int) -> (int, int):
-    index_copy = copy.deepcopy(index)
-    for i in range(len(NModes_per_irred)):
-        if index_copy < NModes_per_irred[i]: return (i, index_copy)
-        index_copy -= NModes_per_irred[i]
-    raise Exception("index out of number of normal modes")
-
-def determine_excitation(phonons:List) -> int:
-    excitation = 0
-    for irred in phonons:
-        for phonon in irred:
-            if phonon > 0: excitation += 1
-    return excitation
 
 def determine_irreducible(phonons:List) -> int:
     irred = 0
@@ -101,7 +85,14 @@ if __name__ == "__main__":
     for i in range(NIrreds): assert(NModes_per_irred[i] == len(max_phonons[i]))
     # Count
     NModes = sum(NModes_per_irred)
-    max_excitation = determine_excitation(max_phonons)
+    max_excitation = 0
+    possible_modes = []
+    excitation = 0
+    for i in range(len(max_phonons)):
+        for j in range(len(max_phonons[i])):
+            if (max_phonons[i][j] > 0):
+                max_excitation += 1
+                possible_modes.append((i, j))
     # Replace basis files
     files = []
     for i in range(NIrreds):
@@ -116,19 +107,19 @@ if __name__ == "__main__":
 
     # loop over excitation
     for excitation in range(1, max_excitation + 1):
-        # Select basic excited modes by indices: the leading excitation modes are excited
+        # Select basic excited modes by indices: the leading `excitation` modes in possible_modes are excited
         excited_indices = [*range(excitation)]
         # Map indices to modes of irreducibles
         excited_modes = []
         for index in excited_indices:
-            excited_modes.append(index2mode(index))
+            excited_modes.append(possible_modes[index])
         generate_all(excited_modes, files)
         # Loop over possible excited modes as an excitation-nary counter, with ascending digits
         while True:
             excited_indices[-1] += 1
             # Carry to former digit
             for i in range(-1, -excitation, -1):
-                if excited_indices[i] >= NModes + 1 + i:
+                if excited_indices[i] >= max_excitation + 1 + i:
                     excited_indices[i - 1] += 1
                     excited_indices[i] = 0
             # Guarantee ascendance
@@ -136,9 +127,9 @@ if __name__ == "__main__":
                 if excited_indices[i] >= excited_indices[i + 1]:
                     excited_indices[i + 1] = excited_indices[i] + 1
             # Finish when counter overflows
-            if excited_indices[-1] >= NModes: break
+            if excited_indices[-1] >= max_excitation: break
             # Map indices to modes of irreducibles
             excited_modes = []
             for index in excited_indices:
-                excited_modes.append(index2mode(index))
+                excited_modes.append(possible_modes[index])
             generate_all(excited_modes, files)

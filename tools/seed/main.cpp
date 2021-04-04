@@ -85,7 +85,7 @@ int main(size_t argc, const char ** argv) {
     for (size_t i = 0; i < op->NSegs; i++) {
         ofs[i].resize(op->NStates);
         for (size_t j = 0; j < op->NStates; j++)
-        ofs[i][j].open("seed-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn");
+        ofs[i][j].open("seed-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn", std::ofstream::binary);
     }
     wfn.write(ofs);
 

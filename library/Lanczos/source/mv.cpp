@@ -109,7 +109,8 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
         int64_t lower = iphonon - Hd_->max_order(mode),
                 upper = iphonon + Hd_->max_order(mode);
         min_phonons[i] = lower > 0 ? lower : 0;
-        const size_t & vib_max = op_->vib_sets[mode.first].max_phonon(mode);
+//        const size_t & vib_max = op_->vib_sets[mode.first].max_phonon(mode);
+const size_t & vib_max = op_->max_phonons[mode.first][mode.second];
         max_phonons[i] = upper < vib_max ? upper : vib_max;
     }
     // basic case: the excited modes have lowest possible phonons
