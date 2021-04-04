@@ -29,7 +29,7 @@ struct Options {
 
         // The highest phonon of each normal mode
         std::vector<std::vector<size_t>> max_phonons;
-    
+
         // number of segmentations
         size_t NSegs;
         // k in wfn[i, j, k] corresponds to VibrationSet[k + starts[i][j]] 

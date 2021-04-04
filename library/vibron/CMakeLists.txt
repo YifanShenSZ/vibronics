@@ -27,4 +27,4 @@ add_library(vibron STATIC
     source/wfn.cpp
 )
 
-target_link_libraries(vibron "${CL_LIBRARIES}" "${TORCH_LIBRARIES}")
+target_link_libraries(vibron ${CL_LIBRARIES} ${TORCH_LIBRARIES})

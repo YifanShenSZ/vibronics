@@ -5,7 +5,7 @@
 
 namespace seed {
 
-// Use initial state normal modes to define vibration
+// Use initial-state normal modes to define vibration
 class Initial {
     private:
         // One component or norm of transition dipole
@@ -20,6 +20,7 @@ class Initial {
                 const std::shared_ptr<vibron::Options> & _op, const std::vector<std::vector<size_t>> & _phonons);
         ~Initial();
 
+        // Generate seed vector, return the norm of the seed vector and the corresponding unit vector
         double generate_seed(vibron::Wfn & wfn) const;
 };
 

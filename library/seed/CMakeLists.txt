@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CMAKE_BUILD_TYPE debug)
+set(CMAKE_BUILD_TYPE Release)
 
 # OpenMP
 find_package(OpenMP REQUIRED)
@@ -22,6 +22,8 @@ include_directories(include)
 
 add_library(seed STATIC
     source/initial.cpp
+    source/overlap.cpp
+    source/final.cpp
 )
 
-target_link_libraries(seed "${vibron_LIBRARIES}" "${CL_LIBRARIES}")
+target_link_libraries(seed ${vibron_LIBRARIES} ${CL_LIBRARIES})

@@ -26,4 +26,4 @@ add_library(Lanczos STATIC
     source/Lanczos.cpp
 )
 
-target_link_libraries(Lanczos "${vibron_LIBRARIES}" "${CL_LIBRARIES}")
+target_link_libraries(Lanczos ${vibron_LIBRARIES} ${CL_LIBRARIES})

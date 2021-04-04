@@ -116,6 +116,10 @@ void Options::pretty_print(std::ostream & stream) const {
         stream << "Electronic state " << j << ": [" << starts[i][j]
                << ", " << stops[i][j] << ")\n";
     }
+    for (size_t i = 0; i < vib_sets.size(); i++) {
+        stream << "Vibrational basis functions of irreducible " << i << ":\n";
+        vib_sets[i].pretty_print(stream);
+    }
 }
 
 size_t Options::intdim() const {return std::accumulate(NModes.begin(), NModes.end(), 0);}

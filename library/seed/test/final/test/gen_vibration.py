@@ -13,15 +13,13 @@ import numpy
 ''' User input '''
 # point group product table, the totally symmetric irreducible must be 1
 product_table = numpy.array([
-   [1, 2],
-   [2, 1]
+   [1,],
 ])
 
-NModes_per_irred = (27, 21)
+NModes_per_irred = (39,)
 
 max_phonons = (
-    (2, 2),
-    (2,)
+    (12, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 )
 ''' End of user input '''
 

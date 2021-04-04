@@ -1,4 +1,5 @@
 #include <fstream>
+#include <numeric>
 
 #include <CppLibrary/utility.hpp>
 
@@ -84,6 +85,30 @@ void VibrationSet::construct_exciations_() {
     excitations_.resize(max_excitation_ + 1);
     for (const auto & vibration : vibrations_)
     excitations_[vibration.excitation()].push_back(& vibration);
+}
+
+// Support `VibrationSet(const std::vector<size_t> & max_phonons)`
+void VibrationSet::generate_all_(const std::vector<size_t> & excited_modes, const std::vector<size_t> & max_phonons) {
+    // quick return if there are no such excitations
+    for (const size_t & excited_mode : excited_modes)
+    if (max_phonons[excited_mode] == 0) return;
+    // basic case: the excited modes has |1>, others |0>
+    std::vector<size_t> phonons(max_phonons.size(), 0);
+    for (const size_t & excited_mode : excited_modes) phonons[excited_mode] = 1;
+    vibrations_.push_back(Vibration({phonons}));
+    // Loop as a excited_modes.size()-nary counter
+    while (true) {
+        phonons[excited_modes[0]]++;
+        // Carry to latter digit
+        for (size_t i = 1; i < excited_modes.size(); i++)
+        if (phonons[excited_modes[i - 1]] > max_phonons[excited_modes[i - 1]]) {
+            phonons[excited_modes[i - 1]] = 1;
+            phonons[excited_modes[i]]++;
+        }
+        // Finish when counter overflows
+        if (phonons[excited_modes.back()] > max_phonons[excited_modes.back()]) break;
+        vibrations_.push_back(Vibration({phonons}));
+    }
 }
 
 // Support `index_vibration`
@@ -178,6 +203,44 @@ VibrationSet::VibrationSet(const std::string & vib_file, const size_t & NIrreds)
         vibrations_.push_back(Vibration(lines));
     }
     ifs.close();
+    vibrations_.resize(vibrations_.size());
+    this->construct_exciations_();
+}
+// Generate all possible vibrational basis functions given the max phonon of each normal mode, assume C1 symmetry
+VibrationSet::VibrationSet(const std::vector<size_t> & max_phonons) {
+    size_t intdim = max_phonons.size(), NModes = max_phonons.size(),
+           size = 1, max_excitation = 0;
+    for (const size_t & max_phonon : max_phonons) {
+        size *= (max_phonon + 1);
+        if (max_phonon > 0) max_excitation++;
+    }
+    // |0>
+    vibrations_.push_back(Vibration({std::vector<size_t>(intdim, 0)}));
+    // excited ones
+    for (size_t excitation = 1; excitation < max_excitation + 1; excitation++) {
+        // basic case: the leading excitation modes are excited
+        std::vector<size_t> excited_modes(excitation);
+        std::iota(excited_modes.begin(), excited_modes.end(), 0);
+        generate_all_(excited_modes, max_phonons);
+        // Loop over possible excited modes as an excitation-nary counter, with ascending digits
+        while (true) {
+            excited_modes.back()++;
+            // Carry to former digit
+            for (int64_t i = - 1; i > -excitation; i--)
+            if (excited_modes[excitation + i] >= NModes + 1 + i) {
+                excited_modes[excitation + i - 1]++;
+                excited_modes[excitation + i] = 0;
+            }
+            // Guarantee ascendance
+            for (size_t i = 0; i < excitation - 1; i++)
+            if (excited_modes[i] >= excited_modes[i + 1])
+            excited_modes[i + 1] = excited_modes[i] + 1;
+            // Finish when counter overflows
+            if (excited_modes.back() >= NModes) break;
+            generate_all_(excited_modes, max_phonons);
+        }
+    }
+    vibrations_.resize(vibrations_.size());
     this->construct_exciations_();
 }
 VibrationSet::~VibrationSet() {}
@@ -189,6 +252,14 @@ const size_t & VibrationSet::max_phonon(const std::pair<size_t, size_t> & irred_
 const size_t & VibrationSet::max_excitation() const {return max_excitation_;}
 // A read-only accessor to vibrations_[index]
 const Vibration & VibrationSet::operator[](const size_t & index) const {return vibrations_[index];}
+
+void VibrationSet::pretty_print(std::ostream & stream) const {
+    stream << "Highest phonons among the vibrational basis functions:\n";
+    for (const auto & irred : max_phonons_) {
+        for (const auto & phonon : irred) stream << phonon << ", ";
+        stream << '\n';
+    }
+}
 
 // Given a vibrational basis function, return its index in this vibration set
 // Return -1 if not found

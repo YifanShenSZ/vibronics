@@ -25,10 +25,11 @@ set(vibron_INCLUDE_DIRS ${vibronROOT}/include)
 add_library(vibron STATIC IMPORTED)
 set(vibron_LIBRARIES vibron)
 
-# dependency 1: openmp
-if(NOT OPENMP_FOUND)
-    find_package(OpenMP REQUIRED)
-    set(vibron_CXX_FLAGS "${OpenMP_CXX_FLAGS}")
+# dependency 3: Cpp-Library
+if(NOT CL_FOUND)
+    find_package(CL REQUIRED PATHS ~/Library/Cpp-Library)
+    list(APPEND vibron_INCLUDE_DIRS ${CL_INCLUDE_DIRS})
+    list(APPEND vibron_LIBRARIES ${CL_LIBRARIES})
 endif()
 
 # dependency 2: libtorch
@@ -39,11 +40,10 @@ if(NOT TORCH_FOUND)
     set(vibron_CXX_FLAGS "${vibron_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 endif()
 
-# dependency 3: Cpp-Library
-if(NOT CL_FOUND)
-    find_package(CL REQUIRED PATHS ~/Library/Cpp-Library)
-    list(APPEND vibron_INCLUDE_DIRS ${CL_INCLUDE_DIRS})
-    list(APPEND vibron_LIBRARIES ${CL_LIBRARIES})
+# dependency 1: openmp
+if(NOT OPENMP_FOUND)
+    find_package(OpenMP REQUIRED)
+    set(vibron_CXX_FLAGS "${OpenMP_CXX_FLAGS}")
 endif()
 
 # import location

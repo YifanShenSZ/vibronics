@@ -66,6 +66,9 @@ class VibrationSet {
         // Construct `max_phonons_`, `max_excitation_` and `excitations_` based on constructed `vibrations_`
         void construct_exciations_();
 
+        // Support `VibrationSet(const std::vector<size_t> & max_phonons)`
+        void generate_all_(const std::vector<size_t> & excited_modes, const std::vector<size_t> & max_phonons);
+
         // Support `index_vibration`
         // Given a vibrational basis function, try to locate its index within [lower, upper]
         // index = -1 if not found
@@ -74,6 +77,8 @@ class VibrationSet {
         VibrationSet();
         // `vib_file` contains one Vibration per NIrreds lines
         VibrationSet(const std::string & vib_file, const size_t & NIrreds);
+        // Generate all possible vibrational basis functions given the max phonon of each normal mode, assume C1 symmetry
+        VibrationSet(const std::vector<size_t> & max_phonons);
         ~VibrationSet();
 
         size_t size() const;
@@ -83,6 +88,8 @@ class VibrationSet {
         const size_t & max_excitation() const;
         // A read-only accessor to vibrations_[index]
         const Vibration & operator[](const size_t & index) const;
+
+        void pretty_print(std::ostream & stream) const;
 
         // Given a vibrational basis function, return its index in this vibration set
         // Return -1 if not found

@@ -16,9 +16,10 @@ const std::shared_ptr<vibron::Options> & _op, const std::vector<std::vector<size
 }
 Initial::~Initial() {}
 
+// Generate seed vector, return the norm of the seed vector and the corresponding unit vector
 double Initial::generate_seed(vibron::Wfn & wfn) const {
     wfn = 0.0;
-    size_t irred = op_->determine_irreducible(phonons_);
+    size_t irred = op_->vib_irred(phonons_);
     int64_t abs_vib = op_->vib_sets[irred].index_vibration(phonons_);
     if (abs_vib < 0) throw std::invalid_argument(
     "seed::Initial::generate_seed: the initial vibrational state is not included in the vibrational basis set");

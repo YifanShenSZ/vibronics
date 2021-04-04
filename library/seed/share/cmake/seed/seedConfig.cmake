@@ -25,10 +25,12 @@ set(seed_INCLUDE_DIRS ${seedROOT}/include)
 add_library(seed STATIC IMPORTED)
 set(seed_LIBRARIES seed)
 
-# dependency 1: openmp
-if(NOT OPENMP_FOUND)
-    find_package(OpenMP REQUIRED)
-    set(seed_CXX_FLAGS "${OpenMP_CXX_FLAGS}")
+# dependency 3: vibron
+if(NOT vibron_FOUND)
+    find_package(vibron REQUIRED PATHS ~/Software/Mine/vibronics/library/vibron)
+    list(APPEND seed_INCLUDE_DIRS ${vibron_INCLUDE_DIRS})
+    list(APPEND seed_LIBRARIES ${vibron_LIBRARIES})
+    set(seed_CXX_FLAGS "${seed_CXX_FLAGS} ${vibron_CXX_FLAGS}")
 endif()
 
 # dependency 2: Cpp-Library
@@ -38,12 +40,10 @@ if(NOT CL_FOUND)
     list(APPEND seed_LIBRARIES ${CL_LIBRARIES})
 endif()
 
-# dependency 3: vibron
-if(NOT vibron_FOUND)
-    find_package(vibron REQUIRED PATHS ~/Software/Mine/vibronics/library/vibron)
-    list(APPEND seed_INCLUDE_DIRS ${vibron_INCLUDE_DIRS})
-    list(APPEND seed_LIBRARIES ${vibron_LIBRARIES})
-    set(seed_CXX_FLAGS "${seed_CXX_FLAGS} ${vibron_CXX_FLAGS}")
+# dependency 1: openmp
+if(NOT OPENMP_FOUND)
+    find_package(OpenMP REQUIRED)
+    set(seed_CXX_FLAGS "${OpenMP_CXX_FLAGS}")
 endif()
 
 # import location

@@ -25,10 +25,12 @@ set(Lanczos_INCLUDE_DIRS ${LanczosROOT}/include)
 add_library(Lanczos STATIC IMPORTED)
 set(Lanczos_LIBRARIES Lanczos)
 
-# dependency 1: openmp
-if(NOT OPENMP_FOUND)
-    find_package(OpenMP REQUIRED)
-    set(Lanczos_CXX_FLAGS "${OpenMP_CXX_FLAGS}")
+# dependency 3: vibron
+if(NOT vibron_FOUND)
+    find_package(vibron REQUIRED PATHS ~/Software/Mine/vibronics/library/vibron)
+    list(APPEND Lanczos_INCLUDE_DIRS ${vibron_INCLUDE_DIRS})
+    list(APPEND Lanczos_LIBRARIES ${vibron_LIBRARIES})
+    set(Lanczos_CXX_FLAGS "${Lanczos_CXX_FLAGS} ${vibron_CXX_FLAGS}")
 endif()
 
 # dependency 2: Cpp-Library
@@ -38,12 +40,10 @@ if(NOT CL_FOUND)
     list(APPEND Lanczos_LIBRARIES ${CL_LIBRARIES})
 endif()
 
-# dependency 3: vibron
-if(NOT vibron_FOUND)
-    find_package(vibron REQUIRED PATHS ~/Software/Mine/vibronics/library/vibron)
-    list(APPEND Lanczos_INCLUDE_DIRS ${vibron_INCLUDE_DIRS})
-    list(APPEND Lanczos_LIBRARIES ${vibron_LIBRARIES})
-    set(Lanczos_CXX_FLAGS "${Lanczos_CXX_FLAGS} ${vibron_CXX_FLAGS}")
+# dependency 1: openmp
+if(NOT OPENMP_FOUND)
+    find_package(OpenMP REQUIRED)
+    set(Lanczos_CXX_FLAGS "${OpenMP_CXX_FLAGS}")
 endif()
 
 # import location
