@@ -6,15 +6,17 @@ Wfn::Wfn() {}
 Wfn::Wfn(const std::shared_ptr<Options> & _op) : op_(_op) {
     data_.resize(_op->NSegs);
     data_ptrs_.resize(_op->NSegs);
+    lengthes_.resize(_op->NSegs);
     for (size_t i = 0; i < _op->NSegs; i++) {
         data_[i].resize(_op->NStates);
         data_ptrs_[i].resize(_op->NStates);
+        lengthes_[i].resize(_op->NStates);
     }
     for (size_t i = 0; i < _op->NSegs; i++)
     for (size_t j = 0; j < _op->NStates; j++) {
-       data_[i][j] = at::empty(_op->stops[i][j] - _op->starts[i][j],
-                     c10::TensorOptions().dtype(torch::kFloat64));
-       data_ptrs_[i][j] = data_[i][j].data_ptr<double>();
+        lengthes_[i][j] = _op->stops[i][j] - _op->starts[i][j];
+        data_[i][j] = at::empty(lengthes_[i][j], c10::TensorOptions().dtype(torch::kFloat64));
+        data_ptrs_[i][j] = data_[i][j].data_ptr<double>();
     }
 }
 Wfn::~Wfn() {}
@@ -31,6 +33,31 @@ double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vi
 }
 const double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) const {
     return data_ptrs_[seg][state][vib];
+}
+
+// Read the vibronic wave function from files
+void Wfn::read(std::vector<std::vector<std::ifstream>> & ifs) {
+    if (ifs.size() != op_->NSegs) throw std::invalid_argument(
+    "vibron::Wfn::read: one set of files per segmentation");
+    #pragma omp parallel for
+    for (size_t i = 0; i < op_->NSegs; i++) {
+        if (ifs[i].size() != op_->NStates) throw std::invalid_argument(
+        "vibron::Wfn::read: one file per electronic state");
+        for (size_t j = 0; j < op_->NStates; j++)
+        ifs[i][j].read((char *)data_ptrs_[i][j], lengthes_[i][j] * sizeof(double));
+    }
+}
+// Write the vibronic wave function to files
+void Wfn::write(std::vector<std::vector<std::ofstream>> & ofs) const {
+    if (ofs.size() != op_->NSegs) throw std::invalid_argument(
+    "vibron::Wfn::write: one set of files per segmentation");
+    #pragma omp parallel for
+    for (size_t i = 0; i < op_->NSegs; i++) {
+        if (ofs[i].size() != op_->NStates) throw std::invalid_argument(
+        "vibron::Wfn::write: one file per electronic state");
+        for (size_t j = 0; j < op_->NStates; j++)
+        ofs[i][j].write((char *)data_ptrs_[i][j], lengthes_[i][j] * sizeof(double));
+    }
 }
 
 double Wfn::dot(const Wfn & other) const {

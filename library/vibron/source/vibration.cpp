@@ -66,6 +66,12 @@ Vibration Vibration::create(const size_t & irred, const size_t & mode, const int
 
 // Construct `max_phonons_`, `max_excitation_` and `excitations_` based on constructed `vibrations_`
 void VibrationSet::construct_exciations_() {
+    // quick return if possible
+    if (vibrations_.empty()) {
+        max_excitation_ = 0;
+        excitations_.resize(max_excitation_ + 1);
+        return;
+    }
     // Find out the highest phonons and excitation among the vibrational basis functions
     max_phonons_ = vibrations_[0].phonons();
     max_excitation_ = 0;
@@ -208,35 +214,42 @@ VibrationSet::VibrationSet(const std::string & vib_file, const size_t & NIrreds)
 }
 // Generate all possible vibrational basis functions given the max phonon of each normal mode, assume C1 symmetry
 VibrationSet::VibrationSet(const std::vector<size_t> & max_phonons) {
-    size_t intdim = max_phonons.size(), NModes = max_phonons.size(),
-           size = 1, max_excitation = 0;
-    for (const size_t & max_phonon : max_phonons) {
-        size *= (max_phonon + 1);
-        if (max_phonon > 0) max_excitation++;
+    size_t intdim = max_phonons.size();
+    size_t size = 1, max_excitation = 0;
+    std::vector<size_t> possible_modes;
+    for (size_t i = 0; i < max_phonons.size(); i++) {
+        size *= max_phonons[i] + 1;
+        if (max_phonons[i] > 0) {
+            max_excitation++;
+            possible_modes.push_back(i);
+        }
     }
     // |0>
     vibrations_.push_back(Vibration({std::vector<size_t>(intdim, 0)}));
     // excited ones
     for (size_t excitation = 1; excitation < max_excitation + 1; excitation++) {
         // basic case: the leading excitation modes are excited
+        std::vector<size_t> excited_indices(excitation);
+        std::iota(excited_indices.begin(), excited_indices.end(), 0);
         std::vector<size_t> excited_modes(excitation);
-        std::iota(excited_modes.begin(), excited_modes.end(), 0);
+        for (size_t i = 0; i < excitation; i++) excited_modes[i] = possible_modes[excited_indices[i]];
         generate_all_(excited_modes, max_phonons);
         // Loop over possible excited modes as an excitation-nary counter, with ascending digits
         while (true) {
-            excited_modes.back()++;
+            excited_indices.back()++;
             // Carry to former digit
             for (int64_t i = - 1; i > -excitation; i--)
-            if (excited_modes[excitation + i] >= NModes + 1 + i) {
-                excited_modes[excitation + i - 1]++;
-                excited_modes[excitation + i] = 0;
+            if (excited_indices[excitation + i] >= max_excitation + 1 + i) {
+                excited_indices[excitation + i - 1]++;
+                excited_indices[excitation + i] = 0;
             }
             // Guarantee ascendance
             for (size_t i = 0; i < excitation - 1; i++)
-            if (excited_modes[i] >= excited_modes[i + 1])
-            excited_modes[i + 1] = excited_modes[i] + 1;
+            if (excited_indices[i] >= excited_indices[i + 1])
+            excited_indices[i + 1] = excited_indices[i] + 1;
             // Finish when counter overflows
-            if (excited_modes.back() >= NModes) break;
+            if (excited_indices.back() >= max_excitation) break;
+            for (size_t i = 0; i < excitation; i++) excited_modes[i] = possible_modes[excited_indices[i]];
             generate_all_(excited_modes, max_phonons);
         }
     }

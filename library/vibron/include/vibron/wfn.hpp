@@ -19,6 +19,7 @@ class Wfn {
         // data_[i][j][k] = wfn[i, j, k] is the k-th vibrational element on the j-th electronic state in the i-th segment
         std::vector<std::vector<at::Tensor>> data_;
         std::vector<std::vector<double *>> data_ptrs_;
+        std::vector<std::vector<size_t>> lengthes_;
     public:
         Wfn();
         Wfn(const std::shared_ptr<Options> & _op);
@@ -31,6 +32,11 @@ class Wfn {
 
         double & select(const size_t & seg, const size_t & state, const size_t & vib);
         const double & select(const size_t & seg, const size_t & state, const size_t & vib) const;
+
+        // Read the vibronic wave function from files
+        void read(std::vector<std::vector<std::ifstream>> & ifs);
+        // Write the vibronic wave function to files
+        void write(std::vector<std::vector<std::ofstream>> & ofs) const;
 
         double dot(const Wfn & other) const;
         void operator=(const double & scalar);

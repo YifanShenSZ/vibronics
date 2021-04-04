@@ -15,6 +15,7 @@ void Options::construct_phonons() {
     max_phonons = vib_sets[0].max_phonons();
     for (size_t i = 1; i < NIrreds; i++) {
         const auto & ith_max = vib_sets[i].max_phonons();
+        if (ith_max.empty()) continue;
         for (size_t irred = 0; irred < NIrreds; irred++)
         for (size_t mode = 0; mode < NModes[irred]; mode++)
         if (ith_max[irred][mode] > max_phonons[irred][mode])
@@ -91,6 +92,8 @@ Options::Options(const std::string & wfn_file, const std::vector<std::string> & 
     }
     ifs.close();
     // vibrational basis function details
+    if (vib_files.size() != NIrreds) throw std::invalid_argument(
+    "vibron::Options: The number of vibrational basis files must equal to the number of irreducible representations");
     for (const auto & file : vib_files) vib_sets.push_back(VibrationSet(file, NIrreds));
     // Infer the rest
     this->construct_phonons();
@@ -101,14 +104,17 @@ Options::~Options() {}
 void Options::pretty_print(std::ostream & stream) const {
     stream << "Number of irreducible representations: " << NIrreds << '\n';
     stream << "Point group product table:\n";
-    product_table.pretty_print(stream);
+    for (const auto & row : product_table) {
+        for (const size_t & el : row) stream << "    " << el + 1;
+        stream << '\n';
+    }
     stream << "Number of normal modes:\n";
     for (size_t i = 0; i < NModes.size(); i++)
     stream << "    irreducible "<< i << ": " << NModes[i] << '\n';
     stream << "Number of electronic states " << NStates << '\n';
     stream << "Vibrational irreducible:\n";
     for (size_t i = 0; i < vib_irreds.size(); i++)
-    stream << "    state " << i << ": " << vib_irreds[i] << '\n';
+    stream << "    state " << i + 1 << ": " << vib_irreds[i] + 1 << '\n';
     stream << "Number of segmentations = " << NSegs << '\n';
     for (size_t i = 0; i < NSegs; i++) {
         stream << "Segment " << i << " owns:\n";

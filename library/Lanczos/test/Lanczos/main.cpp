@@ -12,7 +12,7 @@ int main() {
     vibron::Wfn v1(op), v2(op), w(op);
 
     std::vector<std::string> Hd_files({"Hd_1-1.in", "Hd_1-2.in", "Hd_2-2.in"});
-    auto Hd = std::make_shared<Lanczos::Hd>(2, op->NModes, Hd_files);
+    auto Hd = std::make_shared<Lanczos::Hd>(op->NStates, op->NModes, Hd_files);
     std::vector<std::string> freq_files = {"frequency.in"};
     auto mvkernel = std::make_shared<Lanczos::MVKernel>(Hd, op, freq_files);
 
