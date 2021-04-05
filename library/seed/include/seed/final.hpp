@@ -23,6 +23,8 @@ class Final {
               const at::Tensor & tran_matrix, const at::Tensor & shift_vector);
         ~Final();
 
+        void pretty_print(std::ostream & stream) const;
+
         // Generate seed vector, return the norm of the seed vector and the corresponding unit vector
         double generate_seed(vibron::Wfn & wfn) const;
 };

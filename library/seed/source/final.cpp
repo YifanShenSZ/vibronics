@@ -13,8 +13,14 @@ const at::Tensor & tran_matrix, const at::Tensor & shift_vector)
 }
 Final::~Final() {}
 
+void Final::pretty_print(std::ostream & stream) const {
+    ifoverlap_->pretty_print(stream);
+}
+
 // Generate seed vector, return the norm of the seed vector and the corresponding unit vector
 double Final::generate_seed(vibron::Wfn & wfn) const {
+    if (op_ != wfn.options()) throw std::invalid_argument(
+    "seed::Final::generate_seed: inconsistent vibronic wave function definition");
     size_t intdim = op_->intdim();
     #pragma omp parallel for
     for (size_t iseg = 0; iseg < op_->NSegs; iseg++)

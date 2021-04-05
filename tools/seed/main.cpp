@@ -77,7 +77,10 @@ int main(size_t argc, const char ** argv) {
         "the number of dipole elements must match the number of electronic states");
     }
 
+    std::cout << '\n';
     seed::Final final_bias(dipole, op, init_freq, final_freq, tran_matrix, shift_vector);
+    final_bias.pretty_print(std::cout);
+    
     double norm = final_bias.generate_seed(wfn);
     std::cout << "\nNorm of the seed vector = " << norm << '\n';
     std::cout << "The seed vector can be found in seed-*-*.wfn\n";

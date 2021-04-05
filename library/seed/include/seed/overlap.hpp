@@ -31,6 +31,8 @@ class IFOverlap {
 
         const double & operator()(const size_t & index) const;
         const double & operator()(const vibron::Vibration &vibration) const;
+
+        void pretty_print(std::ostream & stream) const;
 };
 
 }; // namespace seed

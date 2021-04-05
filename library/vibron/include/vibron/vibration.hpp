@@ -89,6 +89,9 @@ class VibrationSet {
         // A read-only accessor to vibrations_[index]
         const Vibration & operator[](const size_t & index) const;
 
+        std::vector<Vibration>::const_iterator begin() const noexcept {return vibrations_.begin();}
+        std::vector<Vibration>::const_iterator end() const noexcept {return vibrations_.end();}
+
         void pretty_print(std::ostream & stream) const;
 
         // Given a vibrational basis function, return its index in this vibration set

@@ -1,0 +1,242 @@
+Vibronics version 0
+Yifan Shen 2021
+
+Echo of user command line input:
+/home/yshen/Software/Mine/vibronics/v0/vibronics.exe -w wfn.in -v vibration1.in vibration2.in -H Hd_1-1.txt Hd_1-2.txt Hd_2-2.txt -f final-freq-1.txt final-freq-2.txt -p seed
+
+Sun Apr  4 22:59:34 2021
+
+Number of irreducible representations: 2
+Point group product table:
+    1    2
+    2    1
+Number of normal modes:
+    irreducible 0: 27
+    irreducible 1: 21
+Number of electronic states 2
+Vibrational irreducible:
+    state 1: 2
+    state 2: 1
+Number of segmentations = 4
+Segment 0 owns:
+Electronic state 0: [0, 0)
+Electronic state 1: [0, 1152)
+Segment 1 owns:
+Electronic state 0: [0, 0)
+Electronic state 1: [1152, 2304)
+Segment 2 owns:
+Electronic state 0: [0, 0)
+Electronic state 1: [2304, 3456)
+Segment 3 owns:
+Electronic state 0: [0, 0)
+Electronic state 1: [3456, 4608)
+Vibrational basis functions of irreducible 0:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+Vibrational basis functions of irreducible 1:
+Highest phonons among the vibrational basis functions:
+
+Initial iteration
+Sun Apr  4 22:59:35 2021
+
+Iteration 1
+Sun Apr  4 22:59:35 2021
+Iteration 2
+Sun Apr  4 22:59:35 2021
+Iteration 3
+Sun Apr  4 22:59:35 2021
+Iteration 4
+Sun Apr  4 22:59:35 2021
+Iteration 5
+Sun Apr  4 22:59:35 2021
+Iteration 6
+Sun Apr  4 22:59:35 2021
+Iteration 7
+Sun Apr  4 22:59:35 2021
+Iteration 8
+Sun Apr  4 22:59:35 2021
+Iteration 9
+Sun Apr  4 22:59:35 2021
+Iteration 10
+Sun Apr  4 22:59:35 2021
+Iteration 11
+Sun Apr  4 22:59:35 2021
+Iteration 12
+Sun Apr  4 22:59:35 2021
+Iteration 13
+Sun Apr  4 22:59:35 2021
+Iteration 14
+Sun Apr  4 22:59:35 2021
+Iteration 15
+Sun Apr  4 22:59:35 2021
+Iteration 16
+Sun Apr  4 22:59:35 2021
+Iteration 17
+Sun Apr  4 22:59:35 2021
+Iteration 18
+Sun Apr  4 22:59:35 2021
+Iteration 19
+Sun Apr  4 22:59:35 2021
+Iteration 20
+Sun Apr  4 22:59:35 2021
+Iteration 21
+Sun Apr  4 22:59:35 2021
+Iteration 22
+Sun Apr  4 22:59:35 2021
+Iteration 23
+Sun Apr  4 22:59:35 2021
+Iteration 24
+Sun Apr  4 22:59:35 2021
+Iteration 25
+Sun Apr  4 22:59:35 2021
+Iteration 26
+Sun Apr  4 22:59:35 2021
+Iteration 27
+Sun Apr  4 22:59:35 2021
+Iteration 28
+Sun Apr  4 22:59:35 2021
+Iteration 29
+Sun Apr  4 22:59:35 2021
+Iteration 30
+Sun Apr  4 22:59:35 2021
+Iteration 31
+Sun Apr  4 22:59:35 2021
+Iteration 32
+Sun Apr  4 22:59:35 2021
+Iteration 33
+Sun Apr  4 22:59:35 2021
+Iteration 34
+Sun Apr  4 22:59:35 2021
+Iteration 35
+Sun Apr  4 22:59:35 2021
+Iteration 36
+Sun Apr  4 22:59:35 2021
+Iteration 37
+Sun Apr  4 22:59:35 2021
+Iteration 38
+Sun Apr  4 22:59:35 2021
+Iteration 39
+Sun Apr  4 22:59:35 2021
+Iteration 40
+Sun Apr  4 22:59:35 2021
+Iteration 41
+Sun Apr  4 22:59:35 2021
+Iteration 42
+Sun Apr  4 22:59:35 2021
+Iteration 43
+Sun Apr  4 22:59:35 2021
+Iteration 44
+Sun Apr  4 22:59:35 2021
+Iteration 45
+Sun Apr  4 22:59:35 2021
+Iteration 46
+Sun Apr  4 22:59:35 2021
+Iteration 47
+Sun Apr  4 22:59:35 2021
+Iteration 48
+Sun Apr  4 22:59:35 2021
+Iteration 49
+Sun Apr  4 22:59:35 2021
+Iteration 50
+Sun Apr  4 22:59:35 2021
+Iteration 51
+Sun Apr  4 22:59:35 2021
+Iteration 52
+Sun Apr  4 22:59:35 2021
+Iteration 53
+Sun Apr  4 22:59:35 2021
+Iteration 54
+Sun Apr  4 22:59:35 2021
+Iteration 55
+Sun Apr  4 22:59:35 2021
+Iteration 56
+Sun Apr  4 22:59:35 2021
+Iteration 57
+Sun Apr  4 22:59:35 2021
+Iteration 58
+Sun Apr  4 22:59:35 2021
+Iteration 59
+Sun Apr  4 22:59:35 2021
+Iteration 60
+Sun Apr  4 22:59:35 2021
+Iteration 61
+Sun Apr  4 22:59:35 2021
+Iteration 62
+Sun Apr  4 22:59:35 2021
+Iteration 63
+Sun Apr  4 22:59:35 2021
+Iteration 64
+Sun Apr  4 22:59:35 2021
+Iteration 65
+Sun Apr  4 22:59:35 2021
+Iteration 66
+Sun Apr  4 22:59:35 2021
+Iteration 67
+Sun Apr  4 22:59:35 2021
+Iteration 68
+Sun Apr  4 22:59:35 2021
+Iteration 69
+Sun Apr  4 22:59:35 2021
+Iteration 70
+Sun Apr  4 22:59:35 2021
+Iteration 71
+Sun Apr  4 22:59:35 2021
+Iteration 72
+Sun Apr  4 22:59:35 2021
+Iteration 73
+Sun Apr  4 22:59:35 2021
+Iteration 74
+Sun Apr  4 22:59:35 2021
+Iteration 75
+Sun Apr  4 22:59:35 2021
+Iteration 76
+Sun Apr  4 22:59:35 2021
+Iteration 77
+Sun Apr  4 22:59:35 2021
+Iteration 78
+Sun Apr  4 22:59:35 2021
+Iteration 79
+Sun Apr  4 22:59:35 2021
+Iteration 80
+Sun Apr  4 22:59:35 2021
+Iteration 81
+Sun Apr  4 22:59:35 2021
+Iteration 82
+Sun Apr  4 22:59:35 2021
+Iteration 83
+Sun Apr  4 22:59:35 2021
+Iteration 84
+Sun Apr  4 22:59:35 2021
+Iteration 85
+Sun Apr  4 22:59:35 2021
+Iteration 86
+Sun Apr  4 22:59:35 2021
+Iteration 87
+Sun Apr  4 22:59:35 2021
+Iteration 88
+Sun Apr  4 22:59:35 2021
+Iteration 89
+Sun Apr  4 22:59:35 2021
+Iteration 90
+Sun Apr  4 22:59:35 2021
+Iteration 91
+Sun Apr  4 22:59:35 2021
+Iteration 92
+Sun Apr  4 22:59:35 2021
+Iteration 93
+Sun Apr  4 22:59:35 2021
+Iteration 94
+Sun Apr  4 22:59:35 2021
+Iteration 95
+Sun Apr  4 22:59:35 2021
+Iteration 96
+Sun Apr  4 22:59:35 2021
+Iteration 97
+Sun Apr  4 22:59:35 2021
+Iteration 98
+Sun Apr  4 22:59:35 2021
+Iteration 99
+Sun Apr  4 22:59:35 2021
+Iteration 100
+Sun Apr  4 22:59:35 2021

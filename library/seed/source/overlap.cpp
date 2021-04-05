@@ -100,4 +100,20 @@ const double & IFOverlap::operator()(const vibron::Vibration &vibration) const {
     return integrals_[index];
 }
 
+void IFOverlap::pretty_print(std::ostream & stream) const {
+    stream << "The 10 most contributing vibrational basis functions are:\n";
+    at::Tensor integrals = at::from_blob(const_cast<double *>(integrals_.data()),
+        integrals_.size(), c10::TensorOptions().dtype(torch::kFloat64)).clone();
+    at::Tensor sorted_integrals, indices;
+    std::tie(sorted_integrals, indices) = at::sort(integrals, 0, true);
+    for (size_t i = 0; i < 10; i++) {
+        stream << "No. " << i + 1 << ". "
+               << "overlap = " << sorted_integrals[i].item<double>()
+               << ", phonons are:\n";
+        for (const auto & phonon : (*vib_set_)[indices[i].item<int64_t>()].phonons()[0])
+        stream << "    " << phonon;
+        stream << '\n';
+    }
+}
+
 }; // namespace seed
