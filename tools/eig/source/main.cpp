@@ -18,7 +18,8 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     parser.add_argument("-b","--beta",  1, false, "beta (subdiag)");
 
     // optional arguments
-    parser.add_argument("-v","--vector", 0, true, "require eigenvectors");
+    parser.add_argument("-v","--vector",    0, true, "require eigenvectors");
+    parser.add_argument("-t","--threshold", 1, true, "stength threshold (default = 1e-6)");
 
     parser.parse_args(argc, argv);
     return parser;
@@ -44,23 +45,40 @@ int main(size_t argc, const char ** argv) {
     if (info != 0) std::cerr << "Warning: diagonalization of the tridiagonal matrix failed, infomation = " << info << '\n';
 
     auto energy = alpha / 4.556335830019422e-6;
+
     CL::utility::matrix<double> eigvec(N);
     size_t count = 0;
     for (auto & row : eigvec) for (auto & el : row) {
         el = eigvec_ptr[count];
         count++;
     }
+
+    std::vector<double> convergence(N);
+    for (size_t i = 0; i < N; i++) convergence[i] = beta.back() * eigvec[i].back();
+
     std::vector<double> amplitude(N), strength(N);
     for (size_t i = 0; i < N; i++) {
         amplitude[i] = eigvec[i][0];
         strength [i] = amplitude[i] * amplitude[i];
     }
+
     auto normalized_strength = strength / *std::max_element(strength.begin(), strength.end());
 
-    std::cout << "Energy / cm^-1    amplitude     strength    normalized strength\n";
-    for (size_t i = 0; i < N; i++)
-    std::cout << std::fixed << std::setw(14) << std::setprecision(2) << energy   [i] << "    "
-              << std::fixed << std::setw( 9) << std::setprecision(6) << amplitude[i] << "    "
-              << std::fixed << std::setw( 9) << std::setprecision(6) << strength [i] << "    "
+    double threshold = 1e-6;
+    if (args.gotArgument("threshold")) threshold = args.retrieve<double>("threshold");
+    double E0;
+    for (size_t i = 0; i < N; i++) if (strength[i] > threshold) {
+        E0 = energy[i];
+        break;
+    }
+    energy -= E0;
+
+    std::cout << "Ground state energy = " << std::fixed << std::setprecision(2)  << E0 << " cm^-1\n"
+              << "ΔE / cm^-1    convergence    amplitude     strength    normalized strength\n";
+    for (size_t i = 0; i < N; i++) if (strength[i] > threshold)
+    std::cout << std::fixed << std::setw(10) << std::setprecision(2) << energy     [i] << "    "
+              << std::fixed << std::setw(11) << std::setprecision(6) << convergence[i] << "    "
+              << std::fixed << std::setw( 9) << std::setprecision(6) << amplitude  [i] << "    "
+              << std::fixed << std::setw( 9) << std::setprecision(6) << strength   [i] << "    "
               << std::fixed << std::setw( 9) << std::setprecision(6) << normalized_strength[i] << '\n';
 }

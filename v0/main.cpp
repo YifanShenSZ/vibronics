@@ -52,8 +52,12 @@ int main(size_t argc, const char ** argv) {
     std::vector<std::vector<std::ifstream>> ifs(op->NSegs);
     for (size_t i = 0; i < op->NSegs; i++) {
         ifs[i].resize(op->NStates);
-        for (size_t j = 0; j < op->NStates; j++)
-        ifs[i][j].open(prefix + "-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn", std::ifstream::binary);
+        for (size_t j = 0; j < op->NStates; j++) {
+            std::string file = prefix + "-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn";
+            ifs[i][j].open(file, std::ifstream::binary);
+            if (! ifs[i][j].good()) throw CL::utility::file_error(file);
+        }
+        
     }
     v1.read(ifs);
     for (auto & seg : ifs) for (auto & state : seg) state.close();
@@ -61,7 +65,7 @@ int main(size_t argc, const char ** argv) {
     std::cout << '\n';
     std::ofstream alpha_ofs, beta_ofs;
     if (args.gotArgument("alpha") && args.gotArgument("beta") && args.gotArgument("wprefix")) {
-        std::cout << "Continue from check point\n";
+        std::cout << "Continue from check point" << std::endl;
         auto alpha_file = args.retrieve<std::string>("alpha"),
               beta_file = args.retrieve<std::string>( "beta");
         alpha_ofs.open(alpha_file, std::ofstream::app);
@@ -70,13 +74,16 @@ int main(size_t argc, const char ** argv) {
         std::vector<std::vector<std::ifstream>> ifs(op->NSegs);
         for (size_t i = 0; i < op->NSegs; i++) {
             ifs[i].resize(op->NStates);
-            for (size_t j = 0; j < op->NStates; j++)
-            ifs[i][j].open(wprefix + "-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn", std::ifstream::binary);
+            for (size_t j = 0; j < op->NStates; j++) {
+                std::string file = wprefix + "-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn";
+                ifs[i][j].open(file, std::ifstream::binary);
+                if (! ifs[i][j].good()) throw CL::utility::file_error(file);
+            }
         }
         w.read(ifs);
     }
     else {
-        std::cout << "Initial iteration\n";
+        std::cout << "Initial iteration" << std::endl;
         alpha_ofs.open("alpha.txt");
          beta_ofs.open( "beta.txt");
         CL::utility::show_time(std::cout);
@@ -89,12 +96,12 @@ int main(size_t argc, const char ** argv) {
     if (args.gotArgument("max_iteration")) max_iteration = args.retrieve<size_t>("max_iteration");
     for (size_t i = 0; i < max_iteration; i += 2) {
         double alpha, beta;
-        std::cout << "Iteration " << i + 1 << '\n';
+        std::cout << "Iteration " << i + 1 << std::endl;
         CL::utility::show_time(std::cout);
         std::tie(alpha, beta) = kernel.iterate(v1, v2, w);
         alpha_ofs << alpha << '\n';
          beta_ofs << beta  << '\n';
-         std::cout << "Iteration " << i + 2 << '\n';
+         std::cout << "Iteration " << i + 2 << std::endl;
         CL::utility::show_time(std::cout);
         std::tie(alpha, beta) = kernel.iterate(v2, v1, w);
         alpha_ofs << alpha << '\n';
@@ -107,8 +114,8 @@ int main(size_t argc, const char ** argv) {
         v_ofs[i].resize(op->NStates);
         w_ofs[i].resize(op->NStates);
         for (size_t j = 0; j < op->NStates; j++) {
-            v_ofs[i][j].open("v-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn", std::ifstream::binary);
-            w_ofs[i][j].open("w-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn", std::ifstream::binary);
+            v_ofs[i][j].open("v-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn", std::ofstream::binary);
+            w_ofs[i][j].open("w-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn", std::ofstream::binary);
         }
     }
     v1.write(v_ofs);
