@@ -94,6 +94,8 @@ void MVKernel::construct_nonzero() {
                 generate_all(iseg, istate, ivib, excited_modes);
             }
         }
+
+        alloweds_[iseg][istate][ivib].resize(alloweds_[iseg][istate][ivib].size());
     }
 }
 
@@ -236,12 +238,18 @@ const std::vector<std::string> & frequency_files) : Hd_(_Hd), op_(_op) {
 }
 MVKernel::~MVKernel() {}
 
-void MVKernel::pretty_print(std::ostream & ostream) const {
-    for (size_t iseg = 0; iseg < op_->NSegs; iseg++)
-    for (size_t istate = 0; istate < op_->NStates; istate++)
-    for (size_t ivib = 0; ivib < op_->stops[iseg][istate] - op_->starts[iseg][istate]; ivib++)
-    ostream << "Segment " << iseg << ", state " << istate << ", vibration " << ivib << ": "
-            << alloweds_[iseg][istate][ivib].size() << " non-trivial columns\n";
+void MVKernel::pretty_print(std::ostream & stream) const {
+    stream << "Non-trivial elements statistics for the vibronic Hamiltonian:\n";
+    for (size_t iseg = 0; iseg < op_->NSegs; iseg++) {
+        size_t Nel = 0, Nrows = 0;
+        for (size_t istate = 0; istate < op_->NStates; istate++) {
+            size_t state_length = op_->stops[iseg][istate] - op_->starts[iseg][istate];
+            Nrows += state_length;
+            for (size_t ivib = 0; ivib < state_length; ivib++) Nel += alloweds_[iseg][istate][ivib].size();
+        }
+        stream << "Segment " << iseg << " owns " << Nrows << " rows, "
+               << "on average " << (double)Nel / Nrows << " non-trivial elements per row\n";
+    }
 }
 
 void MVKernel::operator()(const vibron::Wfn & wfn, vibron::Wfn & Hwfn) const {

@@ -39,12 +39,15 @@ int main(size_t argc, const char ** argv) {
     auto vib_files = args.retrieve<std::vector<std::string>>("vibration");
     auto op = std::make_shared<vibron::Options>(wfn_file, vib_files);
     op->pretty_print(std::cout);
+    std::cout << std::endl;
 
     auto Hd_files = args.retrieve<std::vector<std::string>>("Hd");
     auto Hd = std::make_shared<Lanczos::Hd>(op->NStates, op->NModes, Hd_files);
     auto freq_files = args.retrieve<std::vector<std::string>>("frequency");
     auto mvkernel = std::make_shared<Lanczos::MVKernel>(Hd, op, freq_files);
     Lanczos::Kernel kernel(mvkernel);
+    kernel.pretty_print(std::cout);
+    std::cout << std::endl;
 
     vibron::Wfn v1(op), v2(op), w(op);
 
@@ -57,15 +60,13 @@ int main(size_t argc, const char ** argv) {
             ifs[i][j].open(file, std::ifstream::binary);
             if (! ifs[i][j].good()) throw CL::utility::file_error(file);
         }
-        
     }
     v1.read(ifs);
     for (auto & seg : ifs) for (auto & state : seg) state.close();
 
-    std::cout << '\n';
     std::ofstream alpha_ofs, beta_ofs;
     if (args.gotArgument("alpha") && args.gotArgument("beta") && args.gotArgument("wprefix")) {
-        std::cout << "Continue from check point" << std::endl;
+        std::cout << "Continue from check point\n";
         auto alpha_file = args.retrieve<std::string>("alpha"),
               beta_file = args.retrieve<std::string>( "beta");
         alpha_ofs.open(alpha_file, std::ofstream::app);
@@ -83,15 +84,15 @@ int main(size_t argc, const char ** argv) {
         w.read(ifs);
     }
     else {
-        std::cout << "Initial iteration" << std::endl;
+        std::cout << "Initial iteration\n";
         alpha_ofs.open("alpha.txt");
          beta_ofs.open( "beta.txt");
         CL::utility::show_time(std::cout);
         double alpha = kernel.initialize(v1, w);
         alpha_ofs << alpha << '\n';
     }
+    std::cout << std::endl;
 
-    std::cout << '\n';
     size_t max_iteration = 100;
     if (args.gotArgument("max_iteration")) max_iteration = args.retrieve<size_t>("max_iteration");
     for (size_t i = 0; i < max_iteration; i += 2) {
@@ -107,8 +108,10 @@ int main(size_t argc, const char ** argv) {
         alpha_ofs << alpha << '\n';
          beta_ofs << beta  << '\n';
     }
+    std::cout << '\n';
 
     // Write checkpoint
+    std::cout << "Restart Lanczos vectors are written to v*.wfn and w*.wfn\n";
     std::vector<std::vector<std::ofstream>> v_ofs(op->NSegs), w_ofs(op->NSegs);
     for (size_t i = 0; i < op->NSegs; i++) {
         v_ofs[i].resize(op->NStates);
@@ -125,4 +128,8 @@ int main(size_t argc, const char ** argv) {
 
     alpha_ofs.close();
      beta_ofs.close();
+
+    std::cout << '\n';
+    CL::utility::show_time(std::cout);
+    std::cout << "Mission success\n";
 }

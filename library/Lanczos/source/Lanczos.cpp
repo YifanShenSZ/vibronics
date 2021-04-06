@@ -6,6 +6,10 @@ Kernel::Kernel() {}
 Kernel::Kernel(const std::shared_ptr<MVKernel> & _mvkernel) : mvkernel_(_mvkernel) {}
 Kernel::~Kernel() {}
 
+void Kernel::pretty_print(std::ostream & stream) const {
+    mvkernel_->pretty_print(stream);
+}
+
 // w = H . v
 // alpha = w . v
 // w = w - alpha * v

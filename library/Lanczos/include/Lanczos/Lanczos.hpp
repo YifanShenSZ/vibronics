@@ -15,6 +15,8 @@ class Kernel {
         Kernel(const std::shared_ptr<MVKernel> & _mvkernel);
         ~Kernel();
 
+        void pretty_print(std::ostream & stream) const;
+
         // w = H . v
         // alpha = w . v
         // w = w - alpha * v
