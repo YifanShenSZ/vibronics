@@ -53,6 +53,7 @@ SAP::SAP(const std::string & line) {
     else {
         coords_.back().order += 1;
     }
+    coords_.shrink_to_fit();
 }
 SAP::~SAP() {}
 
@@ -105,6 +106,7 @@ void SAPSet::construct_excitation() {
     excitations_.resize(max_excitation_ + 1);
     for (const auto & term : terms_)
     excitations_[term.second.NMonomials()].push_back(& term);
+    for (auto & excitation : excitations_) excitation.shrink_to_fit();
 }
 
 SAPSet::SAPSet() {}
@@ -121,6 +123,7 @@ SAPSet::SAPSet(const std::string & Hd_file) {
         else terms_.push_back(std::pair<double, SAP>(std::stod(line2), SAP(line1)));
     }
     ifs.close();
+    terms_.shrink_to_fit();
     this->construct_excitation();
 }
 SAPSet::~SAPSet() {}

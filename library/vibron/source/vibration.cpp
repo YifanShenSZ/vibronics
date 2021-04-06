@@ -16,6 +16,7 @@ void Vibration::construct_excitation() {
         excitation_++;
         excited_modes_.push_back(std::pair<size_t, size_t>(irred, mode));
     }
+    excited_modes_.shrink_to_fit();
 }
 
 Vibration::Vibration() {}
@@ -91,7 +92,7 @@ void VibrationSet::construct_exciations_() {
     excitations_.resize(max_excitation_ + 1);
     for (const auto & vibration : vibrations_)
     excitations_[vibration.excitation()].push_back(& vibration);
-    for (auto & excitation : excitations_) excitation.resize(excitation.size());
+    for (auto & excitation : excitations_) excitation.shrink_to_fit();
 }
 
 // Support `VibrationSet(const std::vector<size_t> & max_phonons)`
@@ -210,7 +211,7 @@ VibrationSet::VibrationSet(const std::string & vib_file, const size_t & NIrreds)
         vibrations_.push_back(Vibration(lines));
     }
     ifs.close();
-    vibrations_.resize(vibrations_.size());
+    vibrations_.shrink_to_fit();
     this->construct_exciations_();
 }
 // Generate all possible vibrational basis functions given the max phonon of each normal mode, assume C1 symmetry
@@ -225,6 +226,7 @@ VibrationSet::VibrationSet(const std::vector<size_t> & max_phonons) {
             possible_modes.push_back(i);
         }
     }
+    possible_modes.shrink_to_fit();
     // |0>
     vibrations_.push_back(Vibration({std::vector<size_t>(intdim, 0)}));
     // excited ones
@@ -254,7 +256,7 @@ VibrationSet::VibrationSet(const std::vector<size_t> & max_phonons) {
             generate_all_(excited_modes, max_phonons);
         }
     }
-    vibrations_.resize(vibrations_.size());
+    vibrations_.shrink_to_fit();
     this->construct_exciations_();
 }
 VibrationSet::~VibrationSet() {}

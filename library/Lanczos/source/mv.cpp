@@ -95,7 +95,7 @@ void MVKernel::construct_nonzero() {
             }
         }
 
-        alloweds_[iseg][istate][ivib].resize(alloweds_[iseg][istate][ivib].size());
+        alloweds_[iseg][istate][ivib].shrink_to_fit();
     }
 }
 
