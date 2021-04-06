@@ -91,6 +91,7 @@ void VibrationSet::construct_exciations_() {
     excitations_.resize(max_excitation_ + 1);
     for (const auto & vibration : vibrations_)
     excitations_[vibration.excitation()].push_back(& vibration);
+    for (auto & excitation : excitations_) excitation.resize(excitation.size());
 }
 
 // Support `VibrationSet(const std::vector<size_t> & max_phonons)`

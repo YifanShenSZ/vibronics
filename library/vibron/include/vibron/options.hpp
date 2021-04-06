@@ -25,7 +25,7 @@ struct Options {
         // vibrational irreducible of each electronic state
         std::vector<size_t> vib_irreds;
         // vibrational basis function details of each irreducible
-        std::vector<VibrationSet> vib_sets;
+        std::vector<VibrationSet *> vib_sets;
 
         // The highest phonon of each normal mode
         std::vector<std::vector<size_t>> max_phonons;

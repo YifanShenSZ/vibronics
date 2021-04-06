@@ -12,9 +12,9 @@ namespace vibron {
 
 // Construct `max_phonons`
 void Options::construct_phonons() {
-    max_phonons = vib_sets[0].max_phonons();
+    max_phonons = vib_sets[0]->max_phonons();
     for (size_t i = 1; i < NIrreds; i++) {
-        const auto & ith_max = vib_sets[i].max_phonons();
+        const auto & ith_max = vib_sets[i]->max_phonons();
         if (ith_max.empty()) continue;
         for (size_t irred = 0; irred < NIrreds; irred++)
         for (size_t mode = 0; mode < NModes[irred]; mode++)
@@ -31,7 +31,7 @@ void Options::construct_segmentation() {
     // 1st segment
     std::fill(starts[0].begin(), starts[0].end(), 0);
     std::vector<size_t> lengths(NStates);
-    for (size_t i = 0; i < NStates; i++) lengths[i] = vib_sets[vib_irreds[i]].size() / NSegs;
+    for (size_t i = 0; i < NStates; i++) lengths[i] = vib_sets[vib_irreds[i]]->size() / NSegs;
     // 2nd to last segments
     for (size_t j = 1; j < NSegs; j++)
     for (size_t i = 0; i < NStates; i++)
@@ -42,7 +42,7 @@ void Options::construct_segmentation() {
     for (size_t j = 0; j < NSegs - 1; j++) stops[j] = starts[j + 1];
     // last segment
     stops.back().resize(NStates);
-    for (size_t i = 0; i < NStates; i++) stops.back()[i] = vib_sets[vib_irreds[i]].size();
+    for (size_t i = 0; i < NStates; i++) stops.back()[i] = vib_sets[vib_irreds[i]]->size();
 }
 
 Options::Options() {}
@@ -94,7 +94,9 @@ Options::Options(const std::string & wfn_file, const std::vector<std::string> & 
     // vibrational basis function details
     if (vib_files.size() != NIrreds) throw std::invalid_argument(
     "vibron::Options: The number of vibrational basis files must equal to the number of irreducible representations");
-    for (const auto & file : vib_files) vib_sets.push_back(VibrationSet(file, NIrreds));
+    vib_sets.resize(NIrreds);
+    #pragma omp parallel for
+    for (size_t i = 0; i < NIrreds; i++) vib_sets[i] = new VibrationSet(vib_files[i], NIrreds);
     // Infer the rest
     this->construct_phonons();
     this->construct_segmentation();
@@ -124,7 +126,7 @@ void Options::pretty_print(std::ostream & stream) const {
     }
     for (size_t i = 0; i < vib_sets.size(); i++) {
         stream << "Vibrational basis functions of irreducible " << i << ":\n";
-        vib_sets[i].pretty_print(stream);
+        vib_sets[i]->pretty_print(stream);
     }
 }
 
@@ -146,7 +148,7 @@ size_t Options::vib_C1_index(const size_t & irred, const size_t & mode) const {
 
 size_t Options::NVibron() const {
     size_t NVibron = 0;
-    for (size_t i = 0; i < NStates; i++) NVibron += vib_sets[vib_irreds[i]].size();
+    for (size_t i = 0; i < NStates; i++) NVibron += vib_sets[vib_irreds[i]]->size();
     return NVibron;
 }
 

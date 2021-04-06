@@ -30,7 +30,7 @@ double Final::generate_seed(vibron::Wfn & wfn) const {
         std::vector<std::vector<size_t>> C1_phonons(1);
         C1_phonons[0].resize(intdim);
         size_t count = 0;
-        for (const auto & irred : op_->vib_sets[op_->vib_irreds[istate]][abs_ivib].phonons())
+        for (const auto & irred : (*op_->vib_sets[op_->vib_irreds[istate]])[abs_ivib].phonons())
         for (const size_t & phonon : irred) {
             C1_phonons[0][count] = phonon;
             count++;

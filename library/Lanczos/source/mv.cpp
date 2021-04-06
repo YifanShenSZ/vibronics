@@ -43,7 +43,7 @@ void MVKernel::construct_nonzero() {
         // diagonal has harmonic oscillator eigenvalue term
         size_t iirred = op_->vib_irreds[istate],
                ivib_abs = ivib + op_->starts[iseg][istate];
-        const auto & iphonons = op_->vib_sets[iirred][ivib_abs].phonons();
+        const auto & iphonons = (*op_->vib_sets[iirred])[ivib_abs].phonons();
         for (size_t irred = 0; irred < op_->NIrreds; irred++)
         for (size_t mode = 0; mode < op_->NModes[irred]; mode++)
         value += integrators_[irred][mode].frequency() * (0.5 + iphonons[irred][mode]);
@@ -103,7 +103,7 @@ void MVKernel::construct_nonzero() {
 // Given excited modes, generate all possible vibrations
 void MVKernel::generate_all(const size_t & iseg, const size_t & istate, const size_t & ivib,
 const std::vector<std::pair<size_t, size_t>> & excited_modes) {
-    const auto & iphonons = op_->vib_sets[op_->vib_irreds[istate]][ivib + op_->starts[iseg][istate]].phonons();
+    const auto & iphonons = (*op_->vib_sets[op_->vib_irreds[istate]])[ivib + op_->starts[iseg][istate]].phonons();
     std::vector<size_t> min_phonons(excited_modes.size()), max_phonons(excited_modes.size());
     for (size_t i = 0; i < excited_modes.size(); i++) {
         const auto & mode = excited_modes[i];
@@ -122,7 +122,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
     }
     if (NDiff(iphonons, jphonons) == excited_modes.size()) {
         size_t jirred = op_->vib_irred(jphonons);
-        int64_t jvib_abs = op_->vib_sets[jirred].index_vibration(jphonons);
+        int64_t jvib_abs = op_->vib_sets[jirred]->index_vibration(jphonons);
         if (jvib_abs >= 0)
         for (size_t jstate = 0; jstate < op_->NStates; jstate++)
         if (op_->vib_irreds[jstate] == jirred) {
@@ -152,7 +152,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
         // Compute Hd element
         if (NDiff(iphonons, jphonons) == excited_modes.size()) {
             size_t jirred = op_->vib_irred(jphonons);
-            int64_t jvib_abs = op_->vib_sets[jirred].index_vibration(jphonons);
+            int64_t jvib_abs = op_->vib_sets[jirred]->index_vibration(jphonons);
             if (jvib_abs >= 0)
             for (size_t jstate = 0; jstate < op_->NStates; jstate++)
             if (op_->vib_irreds[jstate] == jirred) {
@@ -173,8 +173,8 @@ double MVKernel::Hdelement(
 const size_t & iseg, const size_t & istate, const size_t & ivib,
 const size_t & jseg, const size_t & jstate, const size_t & jvib) const {
     double Hdelement = 0.0;
-    const auto & iphonons = op_->vib_sets[op_->vib_irreds[istate]][ivib + op_->starts[iseg][istate]].phonons();
-    const auto & jphonons = op_->vib_sets[op_->vib_irreds[jstate]][jvib + op_->starts[jseg][jstate]].phonons();
+    const auto & iphonons = (*op_->vib_sets[op_->vib_irreds[istate]])[ivib + op_->starts[iseg][istate]].phonons();
+    const auto & jphonons = (*op_->vib_sets[op_->vib_irreds[jstate]])[jvib + op_->starts[jseg][jstate]].phonons();
     for (const auto & coeff_sap : *(*Hd_)[{istate, jstate}]) {
         double Hdterm = 1.0;
         for (const auto & monomial : coeff_sap.second)
@@ -193,8 +193,8 @@ const size_t & iseg, const size_t & istate, const size_t & ivib,
 const size_t & jseg, const size_t & jstate, const size_t & jvib,
 const std::vector<std::pair<size_t, size_t>> & excited_modes) const {
     double Hdelement = 0.0;
-    const auto & iphonons = op_->vib_sets[op_->vib_irreds[istate]][ivib + op_->starts[iseg][istate]].phonons();
-    const auto & jphonons = op_->vib_sets[op_->vib_irreds[jstate]][jvib + op_->starts[jseg][jstate]].phonons();
+    const auto & iphonons = (*op_->vib_sets[op_->vib_irreds[istate]])[ivib + op_->starts[iseg][istate]].phonons();
+    const auto & jphonons = (*op_->vib_sets[op_->vib_irreds[jstate]])[jvib + op_->starts[jseg][jstate]].phonons();
     // i and j have different phonons is the excited modes, so the Hd term must include these modes
     for (size_t ex = excited_modes.size(); ex <= (*Hd_)[{istate, jstate}]->max_excitation(); ex++)
     for (const auto & coeff_sap : (*Hd_)[{istate, jstate}]->excitation(ex))

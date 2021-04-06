@@ -20,7 +20,7 @@ Initial::~Initial() {}
 double Initial::generate_seed(vibron::Wfn & wfn) const {
     wfn = 0.0;
     size_t irred = op_->vib_irred(phonons_);
-    int64_t abs_vib = op_->vib_sets[irred].index_vibration(phonons_);
+    int64_t abs_vib = op_->vib_sets[irred]->index_vibration(phonons_);
     if (abs_vib < 0) throw std::invalid_argument(
     "seed::Initial::generate_seed: the initial vibrational state is not included in the vibrational basis set");
     for (size_t istate = 0; istate < op_->NStates; istate++)
