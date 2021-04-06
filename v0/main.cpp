@@ -64,11 +64,13 @@ int main(size_t argc, const char ** argv) {
     v1.read(ifs);
     for (auto & seg : ifs) for (auto & state : seg) state.close();
 
+    size_t start;
     std::ofstream alpha_ofs, beta_ofs;
     if (args.gotArgument("alpha") && args.gotArgument("beta") && args.gotArgument("wprefix")) {
         std::cout << "Continue from check point\n";
         auto alpha_file = args.retrieve<std::string>("alpha"),
               beta_file = args.retrieve<std::string>( "beta");
+        start = CL::utility::NLines(alpha_file);
         alpha_ofs.open(alpha_file, std::ofstream::app);
          beta_ofs.open( beta_file, std::ofstream::app);
         auto wprefix = args.retrieve<std::string>("wprefix");
@@ -85,6 +87,7 @@ int main(size_t argc, const char ** argv) {
     }
     else {
         std::cout << "Initial iteration\n";
+        start = 1;
         alpha_ofs.open("alpha.txt");
          beta_ofs.open( "beta.txt");
         CL::utility::show_time(std::cout);
@@ -95,7 +98,7 @@ int main(size_t argc, const char ** argv) {
 
     size_t max_iteration = 100;
     if (args.gotArgument("max_iteration")) max_iteration = args.retrieve<size_t>("max_iteration");
-    for (size_t i = 0; i < max_iteration; i += 2) {
+    for (size_t i = start; i < start + max_iteration; i += 2) {
         double alpha, beta;
         std::cout << "Iteration " << i + 1 << std::endl;
         CL::utility::show_time(std::cout);
