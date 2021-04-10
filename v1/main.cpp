@@ -41,6 +41,9 @@ int main(size_t argc, const char ** argv) {
 
     auto Hd_files = args.retrieve<std::vector<std::string>>("Hd");
     auto Hd = std::make_shared<Lanczos::Hd>(op->NStates, op->NModes, Hd_files);
+    Hd->pretty_print(std::cout);
+    std::cout << std::endl;
+
     auto freq_files = args.retrieve<std::vector<std::string>>("frequency");
     auto mvkernel = std::make_shared<Lanczos::MVKernel>(Hd, op, freq_files);
     Lanczos::Kernel kernel(mvkernel);

@@ -24,6 +24,12 @@ SegStateVibValue::~SegStateVibValue() {}
 
 // Construct `alloweds_` given constructed `Hd_`, `op_`, `integrator_`
 void MVKernel::construct_nonzero() {
+    // Prepare
+    std::vector<std::pair<size_t, size_t>> possible_modes;
+    for (size_t i = 0; i < op_->NIrreds; i++)
+    for (size_t j = 0; j < op_->max_phonons[i].size(); j++)
+    if (op_->max_phonons[i][j] > 0) possible_modes.push_back(std::pair<size_t, size_t>(i, j));
+    size_t max_excitation = possible_modes.size();
     // Shape vector
     alloweds_.resize(op_->NSegs);
     for (size_t iseg = 0; iseg < op_->NSegs; iseg++) {
@@ -48,7 +54,6 @@ void MVKernel::construct_nonzero() {
         for (size_t mode = 0; mode < op_->NModes[irred]; mode++)
         value += integrators_[irred][mode].frequency() * (0.5 + iphonons[irred][mode]);
         // append
-        if (abs(value) > 1e-15)
         alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(iseg, istate, ivib, value));
 
         // same vibration but different electronic state
@@ -57,40 +62,36 @@ void MVKernel::construct_nonzero() {
             double value = this->Hdelement(iseg, istate, ivib, iseg, jstate, ivib)
                          // same vibration can have Hd constant term
                          + (*Hd_)[{istate, jstate}]->constant();
-            if (abs(value) > 1e-15)
+            if (abs(value) > 1e-8)
             alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(iseg, jstate, ivib, value));
         }
 
         // remaining off-diagonals
         // Loop over excitations
         for (size_t excitation = 1; excitation <= Hd_->max_excitation(); excitation++) {
-            // Select basic excited modes by indices
+            // basic case: the leading `excitation` modes in `possible_modes` are excited
             std::vector<size_t> excited_indices(excitation);
             std::iota(excited_indices.begin(), excited_indices.end(), 0);
-            // Map indices to modes of irreducibles
             std::vector<std::pair<size_t, size_t>> excited_modes(excitation);
-            for (size_t i = 0; i < excitation; i++)
-            excited_modes[i] = op_->vib_irred_mode(excited_indices[i]);
+            for (size_t i = 0; i < excitation; i++) excited_modes[i] = possible_modes[excited_indices[i]];
             generate_all(iseg, istate, ivib, excited_modes);
             // Loop over possible excited modes as an excitation-nary counter, with ascending digits
             while (true) {
                 excited_indices.back() += 1;
                 // Carry to former digit
-                for (size_t i = excitation - 1; i > 0; i--)
-                if (excited_indices[i] > op_->intdim() + i - excitation) {
-                    excited_indices[i - 1] += 1;
-                    excited_indices[i] = 0;
+                for (int64_t i = - 1; i > -excitation; i--)
+                if (excited_indices[excitation + i] >= max_excitation + 1 + i) {
+                    excited_indices[excitation + i - 1]++;
+                    excited_indices[excitation + i] = 0;
                 }
                 // Guarantee ascendance
                 for (size_t i = 0; i < excitation - 1; i++)
                 if (excited_indices[i] >= excited_indices[i + 1])
                 excited_indices[i + 1] = excited_indices[i] + 1;
                 // Finish when counter overflows
-                if (excited_indices.back() >= op_->intdim()) break;
-                // Map indices to modes of irreducibles
+                if (excited_indices.back() >= max_excitation) break;
                 std::vector<std::pair<size_t, size_t>> excited_modes(excitation);
-                for (size_t i = 0; i < excitation; i++)
-                excited_modes[i] = op_->vib_irred_mode(excited_indices[i]);
+                for (size_t i = 0; i < excitation; i++) excited_modes[i] = possible_modes[excited_indices[i]];
                 generate_all(iseg, istate, ivib, excited_modes);
             }
         }
@@ -107,7 +108,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
     std::vector<size_t> min_phonons(excited_modes.size()), max_phonons(excited_modes.size());
     for (size_t i = 0; i < excited_modes.size(); i++) {
         const auto & mode = excited_modes[i];
-        int64_t iphonon = iphonons[mode.first][mode.second];
+        const int64_t & iphonon = iphonons[mode.first][mode.second];
         int64_t lower = iphonon - Hd_->max_order(mode),
                 upper = iphonon + Hd_->max_order(mode);
         min_phonons[i] = lower > 0 ? lower : 0;
@@ -130,7 +131,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
             size_t jseg = jseg_jvib.first, jvib = jseg_jvib.second;
             double value = this->Hdelement(iseg, istate, ivib, jseg, jstate, jvib, excited_modes);
             // append
-            if (abs(value) > 1e-15)
+            if (abs(value) > 1e-8)
             alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(jseg, jstate, jvib, value));
         }
     }
@@ -160,7 +161,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
                 size_t jseg = jseg_jvib.first, jvib = jseg_jvib.second;
                 double value = this->Hdelement(iseg, istate, ivib, jseg, jstate, jvib, excited_modes);
                 // append
-                if (abs(value) > 1e-15)
+                if (abs(value) > 1e-8)
                 alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(jseg, jstate, jvib, value));
             }
         }

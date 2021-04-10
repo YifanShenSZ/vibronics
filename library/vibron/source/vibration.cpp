@@ -217,21 +217,18 @@ VibrationSet::VibrationSet(const std::string & vib_file, const size_t & NIrreds)
 // Generate all possible vibrational basis functions given the max phonon of each normal mode, assume C1 symmetry
 VibrationSet::VibrationSet(const std::vector<size_t> & max_phonons) {
     size_t intdim = max_phonons.size();
-    size_t size = 1, max_excitation = 0;
+    size_t size = 1;
     std::vector<size_t> possible_modes;
     for (size_t i = 0; i < max_phonons.size(); i++) {
         size *= max_phonons[i] + 1;
-        if (max_phonons[i] > 0) {
-            max_excitation++;
-            possible_modes.push_back(i);
-        }
+        if (max_phonons[i] > 0) possible_modes.push_back(i);
     }
-    possible_modes.shrink_to_fit();
+    size_t max_excitation = possible_modes.size();
     // |0>
     vibrations_.push_back(Vibration({std::vector<size_t>(intdim, 0)}));
     // excited ones
     for (size_t excitation = 1; excitation < max_excitation + 1; excitation++) {
-        // basic case: the leading excitation modes are excited
+        // basic case: the leading `excitation` modes in `possible_modes` are excited
         std::vector<size_t> excited_indices(excitation);
         std::iota(excited_indices.begin(), excited_indices.end(), 0);
         std::vector<size_t> excited_modes(excitation);

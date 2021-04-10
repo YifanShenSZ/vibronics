@@ -113,7 +113,7 @@ void Options::pretty_print(std::ostream & stream) const {
     stream << "Number of normal modes:\n";
     for (size_t i = 0; i < NModes.size(); i++)
     stream << "    irreducible "<< i << ": " << NModes[i] << '\n';
-    stream << "Number of electronic states " << NStates << '\n';
+    stream << "Number of electronic states = " << NStates << '\n';
     stream << "Vibrational irreducible:\n";
     for (size_t i = 0; i < vib_irreds.size(); i++)
     stream << "    state " << i + 1 << ": " << vib_irreds[i] + 1 << '\n';

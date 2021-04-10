@@ -185,6 +185,21 @@ const size_t & Hd::max_excitation() const {return max_excitation_;}
 const size_t & Hd::max_order(const size_t & irred, const size_t & mode) const {return max_orders_[irred][mode];}
 const size_t & Hd::max_order(const std::pair<size_t, size_t> & irred_mode) const {return max_orders_[irred_mode.first][irred_mode.second];}
 
+void Hd::pretty_print(std::ostream & stream) const {
+    stream << "Summary of this anharmonic diabatic electronic Hamiltonian\n";
+    stream << "Highest possible excitation difference to couple = " << max_excitation_ << '\n';
+    stream << "The highest order of each normal mode:\n";
+    for (const auto & irred : max_orders_) {
+        stream << "    ";
+        for (const auto & max_order : irred) stream << max_order << ' ';
+        stream << '\n';
+    }
+    stream << "The number of expansion terms\n";
+    for (size_t i = 0; i < Hd_.size(); i++)
+    for (size_t j = i; j < Hd_.size(); j++)
+    stream << "    Hd" << i << ',' << j << ": " << Hd_[i][j]->size() << '\n';
+}
+
 const SAPSet * Hd::operator[](const std::pair<size_t, size_t> & indices) const {
     size_t row = std::min(indices.first, indices.second),
            col = std::max(indices.first, indices.second);

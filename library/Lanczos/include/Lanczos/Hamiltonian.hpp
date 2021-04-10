@@ -99,6 +99,8 @@ class Hd {
         const size_t & max_order(const size_t & irred, const size_t & mode) const;
         const size_t & max_order(const std::pair<size_t, size_t> & irred_mode) const;
 
+        void pretty_print(std::ostream & stream) const;
+
         const SAPSet * operator[](const std::pair<size_t, size_t> & indices) const;
 };
 

@@ -41,12 +41,15 @@ int main(size_t argc, const char ** argv) {
     op->pretty_print(std::cout);
     vibron::Wfn wfn(op);
 
+    std::cout << '\n';
     std::vector<double> data;
     std::vector<at::Tensor> tensors;
     // frequency of each initial-state normal mode
     auto init_freq_files = args.retrieve<std::vector<std::string>>("initial_frequency");
     tensors.resize(init_freq_files.size());
+    std::cout << "Read initial-state harmonic frequencies from:\n";
     for (size_t i = 0; i < tensors.size(); i++) {
+        std::cout << "    " << init_freq_files[i] << '\n';
         data = CL::utility::read_vector(init_freq_files[i]);
         tensors[i] = at::from_blob(data.data(), data.size(), at::TensorOptions().dtype(torch::kFloat64)).clone();
     }
@@ -54,7 +57,9 @@ int main(size_t argc, const char ** argv) {
     // frequency of each final-state normal mode
     auto final_freq_files = args.retrieve<std::vector<std::string>>("final_frequency");
     tensors.resize(final_freq_files.size());
+    std::cout << "Read final-state harmonic frequencies from:\n";
     for (size_t i = 0; i < tensors.size(); i++) {
+        std::cout << "    " << final_freq_files[i] << '\n';
         data = CL::utility::read_vector(final_freq_files[i]);
         tensors[i] = at::from_blob(data.data(), data.size(), at::TensorOptions().dtype(torch::kFloat64)).clone();
     }

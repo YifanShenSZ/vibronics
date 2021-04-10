@@ -107,7 +107,7 @@ if __name__ == "__main__":
 
     # loop over excitation
     for excitation in range(1, max_excitation + 1):
-        # Select basic excited modes by indices: the leading `excitation` modes in possible_modes are excited
+        # basic case: the leading `excitation` modes in `possible_modes` are excited
         excited_indices = [*range(excitation)]
         # Map indices to modes of irreducibles
         excited_modes = []
