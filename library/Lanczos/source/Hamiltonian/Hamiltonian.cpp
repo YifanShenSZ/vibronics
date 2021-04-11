@@ -30,9 +30,10 @@ void Hd::construct_max() {
         std::vector<std::vector<std::pair<size_t, size_t>>> excitation_vector;
         for (size_t i = 0; i < Hd_.size(); i++)
         for (size_t j = i; j < Hd_.size(); j++)
-        for (const auto & sap : Hd_[i][j]->excitation(excitation)) {
+        if (Hd_[i][j]->max_excitation() >= excitation)
+        for (const auto & coeff_sap : Hd_[i][j]->excitation(excitation)) {
             std::vector<std::pair<size_t, size_t>> excited_modes;
-            for (const auto & coord : sap->second) excited_modes.push_back({coord.irred, coord.mode});
+            for (const auto & coord : coeff_sap->second) excited_modes.push_back({coord.irred, coord.mode});
             excitation_vector.push_back(excited_modes);
         }
         excitations_[excitation] = new std::set<std::vector<std::pair<size_t, size_t>>>(excitation_vector.begin(), excitation_vector.end());
