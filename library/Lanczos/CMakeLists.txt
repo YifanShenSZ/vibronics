@@ -21,7 +21,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${vibron_CXX_FLAGS}")
 include_directories(include)
 
 add_library(Lanczos STATIC
-    source/Hamiltonian.cpp
+    source/Hamiltonian/monomial.cpp
+    source/Hamiltonian/SAP.cpp
+    source/Hamiltonian/SAPSet.cpp
+    source/Hamiltonian/Hamiltonian.cpp
     source/mv.cpp
     source/Lanczos.cpp
 )

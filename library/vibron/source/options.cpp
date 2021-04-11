@@ -119,13 +119,13 @@ void Options::pretty_print(std::ostream & stream) const {
     stream << "    state " << i + 1 << ": " << vib_irreds[i] + 1 << '\n';
     stream << "Number of segmentations = " << NSegs << '\n';
     for (size_t i = 0; i < NSegs; i++) {
-        stream << "Segment " << i << " owns:\n";
+        stream << "Segment " << i + 1 << " owns:\n";
         for (size_t j = 0; j < NStates; j++)
-        stream << "Electronic state " << j << ": [" << starts[i][j]
+        stream << "Electronic state " << j + 1 << ": [" << starts[i][j]
                << ", " << stops[i][j] << ")\n";
     }
     for (size_t i = 0; i < vib_sets.size(); i++) {
-        stream << "Vibrational basis functions of irreducible " << i << ":\n";
+        stream << "Vibrational basis functions of irreducible " << i + 1 << ":\n";
         vib_sets[i]->pretty_print(stream);
     }
 }

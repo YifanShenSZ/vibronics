@@ -24,7 +24,7 @@ SegStateVibValue::~SegStateVibValue() {}
 
 // Construct `alloweds_` given constructed `Hd_`, `op_`, `integrator_`
 void MVKernel::construct_nonzero() {
-    // Prepare
+    // Get the possible modes to excite
     std::vector<std::pair<size_t, size_t>> possible_modes;
     for (size_t i = 0; i < op_->NIrreds; i++)
     for (size_t j = 0; j < op_->max_phonons[i].size(); j++)
@@ -62,13 +62,13 @@ void MVKernel::construct_nonzero() {
             double value = this->Hdelement(iseg, istate, ivib, iseg, jstate, ivib)
                          // same vibration can have Hd constant term
                          + (*Hd_)[{istate, jstate}]->constant();
-            if (abs(value) > 1e-8)
+            if (abs(value) > 1e-15)
             alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(iseg, jstate, ivib, value));
         }
 
         // remaining off-diagonals
-        // Loop over excitations
-        for (size_t excitation = 1; excitation <= Hd_->max_excitation(); excitation++) {
+        // single and double excitations: usually all are coupled
+        for (size_t excitation = 1; excitation <= std::min(2ul, Hd_->max_excitation()); excitation++) {
             // basic case: the leading `excitation` modes in `possible_modes` are excited
             std::vector<size_t> excited_indices(excitation);
             std::iota(excited_indices.begin(), excited_indices.end(), 0);
@@ -95,6 +95,10 @@ void MVKernel::construct_nonzero() {
                 generate_all(iseg, istate, ivib, excited_modes);
             }
         }
+        // triple and higher excitations: usually only a few are coupled
+        for (size_t excitation = 3; excitation <= Hd_->max_excitation(); excitation++)
+        for (const auto & excited_modes : (*Hd_->excitation(excitation)))
+        generate_all(iseg, istate, ivib, excited_modes);
 
         alloweds_[iseg][istate][ivib].shrink_to_fit();
     }
@@ -131,7 +135,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
             size_t jseg = jseg_jvib.first, jvib = jseg_jvib.second;
             double value = this->Hdelement(iseg, istate, ivib, jseg, jstate, jvib, excited_modes);
             // append
-            if (abs(value) > 1e-8)
+            if (abs(value) > 1e-15)
             alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(jseg, jstate, jvib, value));
         }
     }
@@ -161,7 +165,7 @@ const std::vector<std::pair<size_t, size_t>> & excited_modes) {
                 size_t jseg = jseg_jvib.first, jvib = jseg_jvib.second;
                 double value = this->Hdelement(iseg, istate, ivib, jseg, jstate, jvib, excited_modes);
                 // append
-                if (abs(value) > 1e-8)
+                if (abs(value) > 1e-15)
                 alloweds_[iseg][istate][ivib].push_back(SegStateVibValue(jseg, jstate, jvib, value));
             }
         }
