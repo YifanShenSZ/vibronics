@@ -28,7 +28,8 @@ class Wfn {
         const std::shared_ptr<Options> & options() const;
 
         const std::vector<at::Tensor> & operator[](const size_t & seg) const;
-        at::Tensor operator[](const CL::utility::triple<size_t, size_t, size_t> & seg_state_vib) const;
+        at::Tensor & operator[](const std::pair<size_t, size_t> & seg_state);
+        const at::Tensor & operator[](const std::pair<size_t, size_t> & seg_state) const;
 
         double & select(const size_t & seg, const size_t & state, const size_t & vib);
         const double & select(const size_t & seg, const size_t & state, const size_t & vib) const;

@@ -27,7 +27,7 @@ double Initial::generate_seed(vibron::Wfn & wfn) const {
     if (op_->vib_irreds[istate] == irred) {
         size_t iseg, ivib;
         std::tie(iseg, ivib) = op_->vib_index(istate, abs_vib);
-        wfn[{iseg, istate, ivib}] = dipole_[istate];
+        wfn.select(iseg, istate, ivib) = dipole_[istate];
     }
     double norm = sqrt(wfn.dot(wfn));
     wfn *= 1.0 / norm;

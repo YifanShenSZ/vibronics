@@ -244,7 +244,7 @@ const std::vector<std::string> & frequency_files) : Hd_(_Hd), op_(_op) {
 MVKernel::~MVKernel() {}
 
 void MVKernel::pretty_print(std::ostream & stream) const {
-    stream << "Non-trivial elements statistics for the vibronic Hamiltonian:\n";
+    stream << "Non-trivial elements statistics for the vibronic Hamiltonian matrix:\n";
     for (size_t iseg = 0; iseg < op_->NSegs; iseg++) {
         size_t Nel = 0, Nrows = 0;
         for (size_t istate = 0; istate < op_->NStates; istate++) {
@@ -252,7 +252,7 @@ void MVKernel::pretty_print(std::ostream & stream) const {
             Nrows += state_length;
             for (size_t ivib = 0; ivib < state_length; ivib++) Nel += alloweds_[iseg][istate][ivib].size();
         }
-        stream << "Segment " << iseg << " owns " << Nrows << " rows, "
+        stream << "Segment " << iseg + 1 << " owns " << Nrows << " rows, "
                << "on average " << (double)Nel / Nrows << " non-trivial elements per row\n";
     }
 }

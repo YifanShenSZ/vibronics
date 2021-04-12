@@ -24,9 +24,8 @@ Wfn::~Wfn() {}
 const std::shared_ptr<Options> & Wfn::options() const {return op_;}
 
 const std::vector<at::Tensor> & Wfn::operator[](const size_t & seg) const {return data_[seg];}
-at::Tensor Wfn::operator[](const CL::utility::triple<size_t, size_t, size_t> & seg_state_vib) const {
-    return data_[seg_state_vib.first][seg_state_vib.second][seg_state_vib.third];
-}
+at::Tensor & Wfn::operator[](const std::pair<size_t, size_t> & seg_state) {return data_[seg_state.first][seg_state.second];}
+const at::Tensor & Wfn::operator[](const std::pair<size_t, size_t> & seg_state) const {return data_[seg_state.first][seg_state.second];}
 
 double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) {
     return data_ptrs_[seg][state][vib];

@@ -23,13 +23,13 @@ int main() {
     for (size_t istate = 0; istate < op->NStates; istate++)
     for (size_t ivib = 0; ivib < op->stops[iseg][istate] - op->starts[iseg][istate]; ivib++) {
         vi = 0.0;
-        vi[{iseg, istate, ivib}] = 1.0;
+        vi.select(iseg, istate, ivib) = 1.0;
         size_t j = 0;
         for (size_t jseg = 0; jseg < op->NSegs; jseg++)
         for (size_t jstate = 0; jstate < op->NStates; jstate++)
         for (size_t jvib = 0; jvib < op->stops[jseg][jstate] - op->starts[jseg][jstate]; jvib++) {
             vj = 0.0;
-            vj[{jseg, jstate, jvib}] = 1.0;
+            vj.select(jseg, jstate, jvib) = 1.0;
             mvkernel(vj, Hvj);
             Hvibronic[i][j] = vi.dot(Hvj);
             j++;
