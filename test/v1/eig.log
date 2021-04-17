@@ -1,0 +1,15 @@
+Vibronics version 0
+Yifan Shen 2021
+
+Echo of user command line input:
+/home/yshen/Software/Mine/vibronics/tools/eig/eig.exe -a alpha.txt -b beta.txt -V 10 -w wfn-1.in -v vibration1.in vibration2.in -p v
+
+Sat Apr 17 18:07:35 2021
+
+The energy levels and spectral intensities can be found in spectrum.txt
+
+Vibronic wave functions are written to wfn*.wfn
+Contribution of each basis can be found in population.txt
+
+Sat Apr 17 18:07:35 2021
+Mission success

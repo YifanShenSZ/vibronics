@@ -20,6 +20,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
 
     // optional arguments
     parser.add_argument("-m","--max_iteration", 1, true, "max number of iterations to perform (default = 100)");
+    parser.add_argument("-s","--save",          0, true, "save the Krylov vectors");
 
     parser.parse_args(argc, argv);
     return parser;
@@ -27,7 +28,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
 
 int main(size_t argc, const char ** argv) {
     std::cout << "Vibronics version 1\n"
-              << "This version reorthogonalizes the Krylov vectors in RAM\n"
+              << "This version reorthogonalizes the Krylov vectors in memory\n"
               << "Yifan Shen 2021\n\n";
     argparse::ArgumentParser args = parse_args(argc, argv);
     CL::utility::show_time(std::cout);
@@ -57,17 +58,7 @@ int main(size_t argc, const char ** argv) {
     for (auto & wfn : wfns) wfn = new vibron::Wfn(op);
 
     auto prefix = args.retrieve<std::string>("prefix");
-    std::vector<std::vector<std::ifstream>> ifs(op->NSegs);
-    for (size_t i = 0; i < op->NSegs; i++) {
-        ifs[i].resize(op->NStates);
-        for (size_t j = 0; j < op->NStates; j++) {
-            std::string file = prefix + "-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn";
-            ifs[i][j].open(file, std::ifstream::binary);
-            if (! ifs[i][j].good()) throw CL::utility::file_error(file);
-        }
-    }
-    wfns[0]->read(ifs);
-    for (auto & seg : ifs) for (auto & state : seg) state.close();
+    wfns[0]->read(prefix);
 
     size_t start;
     std::ofstream alpha_ofs, beta_ofs;
@@ -91,6 +82,21 @@ int main(size_t argc, const char ** argv) {
             double coeff = wfns[j]->dot(w);
             w.sub_(coeff, *wfns[j]);
         }
+    }
+
+    if (args.gotArgument("save")) {
+        std::cout << '\n'
+                  << "Krylove vectors are written to v*.wfn\n";
+        std::vector<std::vector<std::ofstream>> ofs(op->NSegs);
+        for (size_t i = 0; i < op->NSegs; i++) {
+            ofs[i].resize(op->NStates);
+            for (size_t j = 0; j < op->NStates; j++) {
+                std::string file = "v-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn";
+                ofs[i][j].open(file, std::ofstream::binary);
+            }
+        }
+        for (const auto & wfn : wfns) wfn->write(ofs);
+        for (auto & seg : ofs) for (auto & state : seg) state.close();
     }
 
     alpha_ofs.close();

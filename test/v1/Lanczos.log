@@ -1,0 +1,266 @@
+Vibronics version 1
+This version reorthogonalizes the Krylov vectors in memory
+Yifan Shen 2021
+
+Echo of user command line input:
+/home/yshen/Software/Mine/vibronics/v1/vibronics.exe -w wfn-1.in -v vibration1.in vibration2.in -H Hd_1-1.in Hd_1-2.in Hd_2-2.in -f final-freq-1.in final-freq-2.in -p seed -m 101 -s
+
+Sat Apr 17 18:07:13 2021
+
+Number of irreducible representations: 2
+Point group product table:
+    1    2
+    2    1
+Number of normal modes:
+    irreducible 0: 27
+    irreducible 1: 21
+Number of electronic states = 2
+Vibrational irreducible:
+    state 1: 1
+    state 2: 2
+Number of segmentations = 4
+Segment 1 owns:
+Electronic state 1: [0, 2304)
+Electronic state 2: [0, 1152)
+Segment 2 owns:
+Electronic state 1: [2304, 4608)
+Electronic state 2: [1152, 2304)
+Segment 3 owns:
+Electronic state 1: [4608, 6912)
+Electronic state 2: [2304, 3456)
+Segment 4 owns:
+Electronic state 1: [6912, 9216)
+Electronic state 2: [3456, 4608)
+Vibrational basis functions of irreducible 1:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+Vibrational basis functions of irreducible 2:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+Summary of this anharmonic diabatic electronic Hamiltonian
+Highest possible excitation difference to couple = 2
+The highest order of each normal mode:
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+The number of expansion terms
+    Hd0,0: 636
+    Hd0,1: 588
+    Hd1,1: 636
+
+Non-trivial elements statistics for the vibronic Hamiltonian matrix:
+Segment 1 owns 3456 rows, on average 91.0923 non-trivial elements per row
+Segment 2 owns 3456 rows, on average 92.9742 non-trivial elements per row
+Segment 3 owns 3456 rows, on average 94.0344 non-trivial elements per row
+Segment 4 owns 3456 rows, on average 95.2323 non-trivial elements per row
+
+Iteration 0
+Sat Apr 17 18:07:17 2021
+
+Iteration 1
+Sat Apr 17 18:07:17 2021
+Iteration 2
+Sat Apr 17 18:07:17 2021
+Iteration 3
+Sat Apr 17 18:07:17 2021
+Iteration 4
+Sat Apr 17 18:07:17 2021
+Iteration 5
+Sat Apr 17 18:07:17 2021
+Iteration 6
+Sat Apr 17 18:07:17 2021
+Iteration 7
+Sat Apr 17 18:07:17 2021
+Iteration 8
+Sat Apr 17 18:07:17 2021
+Iteration 9
+Sat Apr 17 18:07:17 2021
+Iteration 10
+Sat Apr 17 18:07:17 2021
+Iteration 11
+Sat Apr 17 18:07:17 2021
+Iteration 12
+Sat Apr 17 18:07:17 2021
+Iteration 13
+Sat Apr 17 18:07:17 2021
+Iteration 14
+Sat Apr 17 18:07:17 2021
+Iteration 15
+Sat Apr 17 18:07:17 2021
+Iteration 16
+Sat Apr 17 18:07:17 2021
+Iteration 17
+Sat Apr 17 18:07:17 2021
+Iteration 18
+Sat Apr 17 18:07:17 2021
+Iteration 19
+Sat Apr 17 18:07:17 2021
+Iteration 20
+Sat Apr 17 18:07:17 2021
+Iteration 21
+Sat Apr 17 18:07:17 2021
+Iteration 22
+Sat Apr 17 18:07:17 2021
+Iteration 23
+Sat Apr 17 18:07:17 2021
+Iteration 24
+Sat Apr 17 18:07:17 2021
+Iteration 25
+Sat Apr 17 18:07:17 2021
+Iteration 26
+Sat Apr 17 18:07:17 2021
+Iteration 27
+Sat Apr 17 18:07:17 2021
+Iteration 28
+Sat Apr 17 18:07:17 2021
+Iteration 29
+Sat Apr 17 18:07:17 2021
+Iteration 30
+Sat Apr 17 18:07:17 2021
+Iteration 31
+Sat Apr 17 18:07:17 2021
+Iteration 32
+Sat Apr 17 18:07:17 2021
+Iteration 33
+Sat Apr 17 18:07:17 2021
+Iteration 34
+Sat Apr 17 18:07:17 2021
+Iteration 35
+Sat Apr 17 18:07:17 2021
+Iteration 36
+Sat Apr 17 18:07:17 2021
+Iteration 37
+Sat Apr 17 18:07:17 2021
+Iteration 38
+Sat Apr 17 18:07:17 2021
+Iteration 39
+Sat Apr 17 18:07:17 2021
+Iteration 40
+Sat Apr 17 18:07:17 2021
+Iteration 41
+Sat Apr 17 18:07:17 2021
+Iteration 42
+Sat Apr 17 18:07:17 2021
+Iteration 43
+Sat Apr 17 18:07:17 2021
+Iteration 44
+Sat Apr 17 18:07:17 2021
+Iteration 45
+Sat Apr 17 18:07:17 2021
+Iteration 46
+Sat Apr 17 18:07:17 2021
+Iteration 47
+Sat Apr 17 18:07:17 2021
+Iteration 48
+Sat Apr 17 18:07:17 2021
+Iteration 49
+Sat Apr 17 18:07:17 2021
+Iteration 50
+Sat Apr 17 18:07:17 2021
+Iteration 51
+Sat Apr 17 18:07:17 2021
+Iteration 52
+Sat Apr 17 18:07:17 2021
+Iteration 53
+Sat Apr 17 18:07:17 2021
+Iteration 54
+Sat Apr 17 18:07:17 2021
+Iteration 55
+Sat Apr 17 18:07:17 2021
+Iteration 56
+Sat Apr 17 18:07:17 2021
+Iteration 57
+Sat Apr 17 18:07:17 2021
+Iteration 58
+Sat Apr 17 18:07:17 2021
+Iteration 59
+Sat Apr 17 18:07:17 2021
+Iteration 60
+Sat Apr 17 18:07:17 2021
+Iteration 61
+Sat Apr 17 18:07:17 2021
+Iteration 62
+Sat Apr 17 18:07:17 2021
+Iteration 63
+Sat Apr 17 18:07:17 2021
+Iteration 64
+Sat Apr 17 18:07:17 2021
+Iteration 65
+Sat Apr 17 18:07:17 2021
+Iteration 66
+Sat Apr 17 18:07:17 2021
+Iteration 67
+Sat Apr 17 18:07:17 2021
+Iteration 68
+Sat Apr 17 18:07:17 2021
+Iteration 69
+Sat Apr 17 18:07:17 2021
+Iteration 70
+Sat Apr 17 18:07:17 2021
+Iteration 71
+Sat Apr 17 18:07:17 2021
+Iteration 72
+Sat Apr 17 18:07:17 2021
+Iteration 73
+Sat Apr 17 18:07:17 2021
+Iteration 74
+Sat Apr 17 18:07:17 2021
+Iteration 75
+Sat Apr 17 18:07:17 2021
+Iteration 76
+Sat Apr 17 18:07:17 2021
+Iteration 77
+Sat Apr 17 18:07:17 2021
+Iteration 78
+Sat Apr 17 18:07:17 2021
+Iteration 79
+Sat Apr 17 18:07:17 2021
+Iteration 80
+Sat Apr 17 18:07:17 2021
+Iteration 81
+Sat Apr 17 18:07:17 2021
+Iteration 82
+Sat Apr 17 18:07:17 2021
+Iteration 83
+Sat Apr 17 18:07:17 2021
+Iteration 84
+Sat Apr 17 18:07:17 2021
+Iteration 85
+Sat Apr 17 18:07:17 2021
+Iteration 86
+Sat Apr 17 18:07:17 2021
+Iteration 87
+Sat Apr 17 18:07:17 2021
+Iteration 88
+Sat Apr 17 18:07:17 2021
+Iteration 89
+Sat Apr 17 18:07:17 2021
+Iteration 90
+Sat Apr 17 18:07:17 2021
+Iteration 91
+Sat Apr 17 18:07:17 2021
+Iteration 92
+Sat Apr 17 18:07:17 2021
+Iteration 93
+Sat Apr 17 18:07:17 2021
+Iteration 94
+Sat Apr 17 18:07:17 2021
+Iteration 95
+Sat Apr 17 18:07:17 2021
+Iteration 96
+Sat Apr 17 18:07:17 2021
+Iteration 97
+Sat Apr 17 18:07:17 2021
+Iteration 98
+Sat Apr 17 18:07:17 2021
+Iteration 99
+Sat Apr 17 18:07:17 2021
+Iteration 100
+Sat Apr 17 18:07:17 2021
+
+Krylove vectors are written to v*.wfn
+
+Sat Apr 17 18:07:17 2021
+Mission success

@@ -23,6 +23,22 @@ Wfn::~Wfn() {}
 
 const std::shared_ptr<Options> & Wfn::options() const {return op_;}
 
+at::Tensor Wfn::cat() const {
+    std::vector<at::Tensor> segs(op_->NStates);
+    for (size_t i = 0; i < op_->NStates; i++) segs[i] = at::cat(data_[i]);
+    return at::cat(segs);
+}
+CL::utility::triple<size_t, size_t, size_t> Wfn::seg_state_vib(const size_t & index) const {
+    size_t seg, state, vib;
+    vib = index;
+    for (seg = 0; seg < op_->NSegs; seg++)
+    for (state = 0; state < op_->NStates; state++) {
+        if (vib < lengthes_[seg][state]) return CL::utility::triple<size_t, size_t, size_t>(seg, state, vib);
+        else vib -= lengthes_[seg][state];
+    }
+    throw std::invalid_argument("vibron::Wfn::seg_state_vib: index out of range");
+}
+
 const std::vector<at::Tensor> & Wfn::operator[](const size_t & seg) const {return data_[seg];}
 at::Tensor & Wfn::operator[](const std::pair<size_t, size_t> & seg_state) {return data_[seg_state.first][seg_state.second];}
 const at::Tensor & Wfn::operator[](const std::pair<size_t, size_t> & seg_state) const {return data_[seg_state.first][seg_state.second];}
@@ -35,6 +51,18 @@ const double & Wfn::select(const size_t & seg, const size_t & state, const size_
 }
 
 // Read the vibronic wave function from files
+void Wfn::read(const std::string & prefix) {
+    #pragma omp parallel for
+    for (size_t i = 0; i < op_->NSegs; i++)
+    for (size_t j = 0; j < op_->NStates; j++) {
+        std::string file = prefix + "-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn";
+        std::ifstream ifs;
+        ifs.open(file, std::ifstream::binary);
+        if (! ifs.good()) throw CL::utility::file_error(file);
+        ifs.read((char *)data_ptrs_[i][j], lengthes_[i][j] * sizeof(double));
+        ifs.close();
+    }
+}
 void Wfn::read(std::vector<std::vector<std::ifstream>> & ifs) {
     if (ifs.size() != op_->NSegs) throw std::invalid_argument(
     "vibron::Wfn::read: one set of files per segmentation");
@@ -46,8 +74,41 @@ void Wfn::read(std::vector<std::vector<std::ifstream>> & ifs) {
         ifs[i][j].read((char *)data_ptrs_[i][j], lengthes_[i][j] * sizeof(double));
     }
 }
+void Wfn::read(std::vector<std::vector<std::fstream>> & ifs) {
+    if (ifs.size() != op_->NSegs) throw std::invalid_argument(
+    "vibron::Wfn::read: one set of files per segmentation");
+    #pragma omp parallel for
+    for (size_t i = 0; i < op_->NSegs; i++) {
+        if (ifs[i].size() != op_->NStates) throw std::invalid_argument(
+        "vibron::Wfn::read: one file per electronic state");
+        for (size_t j = 0; j < op_->NStates; j++)
+        ifs[i][j].read((char *)data_ptrs_[i][j], lengthes_[i][j] * sizeof(double));
+    }
+}
 // Write the vibronic wave function to files
+void Wfn::write(const std::string & prefix) const {
+    #pragma omp parallel for
+    for (size_t i = 0; i < op_->NSegs; i++)
+    for (size_t j = 0; j < op_->NStates; j++) {
+        std::string file = prefix + "-" + std::to_string(i + 1) + "-" + std::to_string(j + 1) + ".wfn";
+        std::ofstream ofs;
+        ofs.open(file, std::ofstream::binary);
+        ofs.write((char *)data_ptrs_[i][j], lengthes_[i][j] * sizeof(double));
+        ofs.close();
+    }
+}
 void Wfn::write(std::vector<std::vector<std::ofstream>> & ofs) const {
+    if (ofs.size() != op_->NSegs) throw std::invalid_argument(
+    "vibron::Wfn::write: one set of files per segmentation");
+    #pragma omp parallel for
+    for (size_t i = 0; i < op_->NSegs; i++) {
+        if (ofs[i].size() != op_->NStates) throw std::invalid_argument(
+        "vibron::Wfn::write: one file per electronic state");
+        for (size_t j = 0; j < op_->NStates; j++)
+        ofs[i][j].write((char *)data_ptrs_[i][j], lengthes_[i][j] * sizeof(double));
+    }
+}
+void Wfn::write(std::vector<std::vector<std::fstream>> & ofs) const {
     if (ofs.size() != op_->NSegs) throw std::invalid_argument(
     "vibron::Wfn::write: one set of files per segmentation");
     #pragma omp parallel for
@@ -84,6 +145,12 @@ void Wfn::operator*=(const double & scalar) {
     for (size_t i = 0; i < op_->NSegs; i++)
     for (size_t j = 0; j < op_->NStates; j++)
     data_[i][j].mul_(scalar);
+}
+void Wfn::add_(const double & c, const Wfn & add) {
+    #pragma omp parallel for
+    for (size_t i = 0; i < op_->NSegs; i++)
+    for (size_t j = 0; j < op_->NStates; j++)
+    data_[i][j] += c * add.data_[i][j];
 }
 void Wfn::sub_(const double & c, const Wfn & sub) {
     #pragma omp parallel for

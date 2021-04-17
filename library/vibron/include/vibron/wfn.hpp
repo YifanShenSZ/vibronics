@@ -27,6 +27,9 @@ class Wfn {
 
         const std::shared_ptr<Options> & options() const;
 
+        at::Tensor cat() const;
+        CL::utility::triple<size_t, size_t, size_t> seg_state_vib(const size_t & index) const;
+
         const std::vector<at::Tensor> & operator[](const size_t & seg) const;
         at::Tensor & operator[](const std::pair<size_t, size_t> & seg_state);
         const at::Tensor & operator[](const std::pair<size_t, size_t> & seg_state) const;
@@ -35,14 +38,19 @@ class Wfn {
         const double & select(const size_t & seg, const size_t & state, const size_t & vib) const;
 
         // Read the vibronic wave function from files
+        void read(const std::string & prefix);
         void read(std::vector<std::vector<std::ifstream>> & ifs);
+        void read(std::vector<std::vector<std:: fstream>> & ifs);
         // Write the vibronic wave function to files
+        void write(const std::string & prefix) const;
         void write(std::vector<std::vector<std::ofstream>> & ofs) const;
+        void write(std::vector<std::vector<std:: fstream>> & ofs) const;
 
         double dot(const Wfn & other) const;
         void operator=(const double & scalar);
         void mul(const double & scalar, Wfn & result) const;
         void operator*=(const double & scalar);
+        void add_(const double & c, const Wfn & add);
         void sub_(const double & c, const Wfn & sub);
         void sub2_(const double & c1, const Wfn & sub1, const double & c2, const Wfn & sub2);
 };

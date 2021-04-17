@@ -1,12 +1,22 @@
-#include <iomanip>
+#include <fstream>
+#include <cstring>
+#include <memory>
 
 #include <CppLibrary/argparse.hpp>
 #include <CppLibrary/utility.hpp>
 #include <CppLibrary/linalg.hpp>
 
+#include <vibron/options.hpp>
+
 namespace { extern "C" {
     int32_t my_dsteqr_(double * diag, double * subdiag, double * eigvec, const int32_t & N);
 } }
+
+void output_spectrum(const std::vector<double> & energy, const CL::utility::matrix<double> & eigvec,
+const double & last_beta, const double & threshold);
+
+void output_wfn(const size_t & NVecs, const CL::utility::matrix<double> & eigvec,
+const std::shared_ptr<vibron::Options> & op, const std::string & prefix);
 
 argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     CL::utility::echo_command(argc, argv, std::cout);
@@ -18,8 +28,13 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     parser.add_argument("-b","--beta",  1, false, "beta (subdiag)");
 
     // optional arguments
-    parser.add_argument("-v","--vector",    0, true, "require eigenvectors");
-    parser.add_argument("-t","--threshold", 1, true, "stength threshold (default = 1e-6)");
+    parser.add_argument("-t","--threshold", 1, true, "intensity threshold (default = 1e-6)");
+    parser.add_argument("-V","--vector",    1, true, "the number of lowest eigenvectors to compute (default = 0)");
+
+    // wave function definition, required if eigenvector requested
+    parser.add_argument("-w","--wfn",         1, true, "vibronic wave function definition file");
+    parser.add_argument("-v","--vibration", '+', true, "vibrational basis definition files");
+    parser.add_argument("-p","--prefix",      1, true, "prefix of the check point vector to continue with");
 
     parser.parse_args(argc, argv);
     return parser;
@@ -47,38 +62,29 @@ int main(size_t argc, const char ** argv) {
     auto energy = alpha / 4.556335830019422e-6;
 
     CL::utility::matrix<double> eigvec(N);
-    size_t count = 0;
-    for (auto & row : eigvec) for (auto & el : row) {
-        el = eigvec_ptr[count];
-        count++;
+    for (auto & row : eigvec) {
+        std::memcpy(row.data(), eigvec_ptr, N);
+        eigvec_ptr += N;
+        if (row[0] < 0.0) row *= -1.0;
     }
-
-    std::vector<double> convergence(N);
-    for (size_t i = 0; i < N; i++) convergence[i] = beta.back() * eigvec[i].back();
-
-    std::vector<double> amplitude(N), strength(N);
-    for (size_t i = 0; i < N; i++) {
-        amplitude[i] = eigvec[i][0];
-        strength [i] = amplitude[i] * amplitude[i];
-    }
-
-    auto normalized_strength = strength / *std::max_element(strength.begin(), strength.end());
 
     double threshold = 1e-6;
     if (args.gotArgument("threshold")) threshold = args.retrieve<double>("threshold");
-    double E0;
-    for (size_t i = 0; i < N; i++) if (strength[i] > threshold) {
-        E0 = energy[i];
-        break;
-    }
-    energy -= E0;
+    output_spectrum(energy, eigvec, beta.back(), threshold);
+    std::cout << '\n';
 
-    std::cout << "Ground state energy = " << std::fixed << std::setprecision(2)  << E0 << " cm^-1\n"
-              << "ΔE / cm^-1    convergence    amplitude     strength    normalized strength\n";
-    for (size_t i = 0; i < N; i++) if (strength[i] > threshold)
-    std::cout << std::fixed << std::setw(10) << std::setprecision(2) << energy     [i] << "    "
-              << std::fixed << std::setw(11) << std::setprecision(6) << convergence[i] << "    "
-              << std::fixed << std::setw( 9) << std::setprecision(6) << amplitude  [i] << "    "
-              << std::fixed << std::setw( 9) << std::setprecision(6) << strength   [i] << "    "
-              << std::fixed << std::setw( 9) << std::setprecision(6) << normalized_strength[i] << '\n';
+    if (args.gotArgument("vector")) {
+        size_t NVecs = args.retrieve<size_t>("vector");
+
+        auto wfn_file  = args.retrieve<std::string>("wfn");
+        auto vib_files = args.retrieve<std::vector<std::string>>("vibration");
+        auto op = std::make_shared<vibron::Options>(wfn_file, vib_files);
+
+        auto prefix = args.retrieve<std::string>("prefix");
+        output_wfn(NVecs, eigvec, op, prefix);
+    }
+
+    std::cout << '\n';
+    CL::utility::show_time(std::cout);
+    std::cout << "Mission success\n";
 }

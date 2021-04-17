@@ -1,0 +1,265 @@
+Vibronics version 2
+This version reorthogonalizes the Krylov vectors on hard disk
+Yifan Shen 2021
+
+Echo of user command line input:
+/home/yshen/Software/Mine/vibronics/v2/vibronics.exe -w wfn-1.in -v vibration1.in vibration2.in -H Hd_1-1.in Hd_1-2.in Hd_2-2.in -f final-freq-1.in final-freq-2.in -p v
+
+Fri Apr 16 20:05:44 2021
+
+Number of irreducible representations: 2
+Point group product table:
+    1    2
+    2    1
+Number of normal modes:
+    irreducible 0: 27
+    irreducible 1: 21
+Number of electronic states = 2
+Vibrational irreducible:
+    state 1: 1
+    state 2: 2
+Number of segmentations = 4
+Segment 1 owns:
+Electronic state 1: [0, 2304)
+Electronic state 2: [0, 1152)
+Segment 2 owns:
+Electronic state 1: [2304, 4608)
+Electronic state 2: [1152, 2304)
+Segment 3 owns:
+Electronic state 1: [4608, 6912)
+Electronic state 2: [2304, 3456)
+Segment 4 owns:
+Electronic state 1: [6912, 9216)
+Electronic state 2: [3456, 4608)
+Vibrational basis functions of irreducible 1:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+Vibrational basis functions of irreducible 2:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+Summary of this anharmonic diabatic electronic Hamiltonian
+Highest possible excitation difference to couple = 2
+The highest order of each normal mode:
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+The number of expansion terms
+    Hd0,0: 636
+    Hd0,1: 588
+    Hd1,1: 636
+
+Non-trivial elements statistics for the vibronic Hamiltonian matrix:
+Segment 1 owns 3456 rows, on average 91.0923 non-trivial elements per row
+Segment 2 owns 3456 rows, on average 92.9742 non-trivial elements per row
+Segment 3 owns 3456 rows, on average 94.0344 non-trivial elements per row
+Segment 4 owns 3456 rows, on average 95.2323 non-trivial elements per row
+
+Initial iteration
+Fri Apr 16 20:05:48 2021
+
+Iteration 2
+Fri Apr 16 20:05:48 2021
+Iteration 3
+Fri Apr 16 20:05:48 2021
+Iteration 4
+Fri Apr 16 20:05:48 2021
+Iteration 5
+Fri Apr 16 20:05:48 2021
+Iteration 6
+Fri Apr 16 20:05:48 2021
+Iteration 7
+Fri Apr 16 20:05:48 2021
+Iteration 8
+Fri Apr 16 20:05:48 2021
+Iteration 9
+Fri Apr 16 20:05:48 2021
+Iteration 10
+Fri Apr 16 20:05:48 2021
+Iteration 11
+Fri Apr 16 20:05:48 2021
+Iteration 12
+Fri Apr 16 20:05:48 2021
+Iteration 13
+Fri Apr 16 20:05:48 2021
+Iteration 14
+Fri Apr 16 20:05:48 2021
+Iteration 15
+Fri Apr 16 20:05:48 2021
+Iteration 16
+Fri Apr 16 20:05:48 2021
+Iteration 17
+Fri Apr 16 20:05:48 2021
+Iteration 18
+Fri Apr 16 20:05:48 2021
+Iteration 19
+Fri Apr 16 20:05:48 2021
+Iteration 20
+Fri Apr 16 20:05:48 2021
+Iteration 21
+Fri Apr 16 20:05:48 2021
+Iteration 22
+Fri Apr 16 20:05:48 2021
+Iteration 23
+Fri Apr 16 20:05:48 2021
+Iteration 24
+Fri Apr 16 20:05:48 2021
+Iteration 25
+Fri Apr 16 20:05:49 2021
+Iteration 26
+Fri Apr 16 20:05:49 2021
+Iteration 27
+Fri Apr 16 20:05:49 2021
+Iteration 28
+Fri Apr 16 20:05:49 2021
+Iteration 29
+Fri Apr 16 20:05:49 2021
+Iteration 30
+Fri Apr 16 20:05:49 2021
+Iteration 31
+Fri Apr 16 20:05:49 2021
+Iteration 32
+Fri Apr 16 20:05:49 2021
+Iteration 33
+Fri Apr 16 20:05:49 2021
+Iteration 34
+Fri Apr 16 20:05:49 2021
+Iteration 35
+Fri Apr 16 20:05:49 2021
+Iteration 36
+Fri Apr 16 20:05:49 2021
+Iteration 37
+Fri Apr 16 20:05:49 2021
+Iteration 38
+Fri Apr 16 20:05:49 2021
+Iteration 39
+Fri Apr 16 20:05:49 2021
+Iteration 40
+Fri Apr 16 20:05:49 2021
+Iteration 41
+Fri Apr 16 20:05:49 2021
+Iteration 42
+Fri Apr 16 20:05:49 2021
+Iteration 43
+Fri Apr 16 20:05:49 2021
+Iteration 44
+Fri Apr 16 20:05:49 2021
+Iteration 45
+Fri Apr 16 20:05:49 2021
+Iteration 46
+Fri Apr 16 20:05:49 2021
+Iteration 47
+Fri Apr 16 20:05:49 2021
+Iteration 48
+Fri Apr 16 20:05:49 2021
+Iteration 49
+Fri Apr 16 20:05:49 2021
+Iteration 50
+Fri Apr 16 20:05:49 2021
+Iteration 51
+Fri Apr 16 20:05:49 2021
+Iteration 52
+Fri Apr 16 20:05:49 2021
+Iteration 53
+Fri Apr 16 20:05:49 2021
+Iteration 54
+Fri Apr 16 20:05:49 2021
+Iteration 55
+Fri Apr 16 20:05:49 2021
+Iteration 56
+Fri Apr 16 20:05:49 2021
+Iteration 57
+Fri Apr 16 20:05:49 2021
+Iteration 58
+Fri Apr 16 20:05:49 2021
+Iteration 59
+Fri Apr 16 20:05:49 2021
+Iteration 60
+Fri Apr 16 20:05:49 2021
+Iteration 61
+Fri Apr 16 20:05:49 2021
+Iteration 62
+Fri Apr 16 20:05:49 2021
+Iteration 63
+Fri Apr 16 20:05:49 2021
+Iteration 64
+Fri Apr 16 20:05:49 2021
+Iteration 65
+Fri Apr 16 20:05:49 2021
+Iteration 66
+Fri Apr 16 20:05:49 2021
+Iteration 67
+Fri Apr 16 20:05:49 2021
+Iteration 68
+Fri Apr 16 20:05:49 2021
+Iteration 69
+Fri Apr 16 20:05:49 2021
+Iteration 70
+Fri Apr 16 20:05:49 2021
+Iteration 71
+Fri Apr 16 20:05:49 2021
+Iteration 72
+Fri Apr 16 20:05:49 2021
+Iteration 73
+Fri Apr 16 20:05:49 2021
+Iteration 74
+Fri Apr 16 20:05:49 2021
+Iteration 75
+Fri Apr 16 20:05:49 2021
+Iteration 76
+Fri Apr 16 20:05:49 2021
+Iteration 77
+Fri Apr 16 20:05:49 2021
+Iteration 78
+Fri Apr 16 20:05:49 2021
+Iteration 79
+Fri Apr 16 20:05:49 2021
+Iteration 80
+Fri Apr 16 20:05:49 2021
+Iteration 81
+Fri Apr 16 20:05:49 2021
+Iteration 82
+Fri Apr 16 20:05:49 2021
+Iteration 83
+Fri Apr 16 20:05:49 2021
+Iteration 84
+Fri Apr 16 20:05:49 2021
+Iteration 85
+Fri Apr 16 20:05:49 2021
+Iteration 86
+Fri Apr 16 20:05:49 2021
+Iteration 87
+Fri Apr 16 20:05:49 2021
+Iteration 88
+Fri Apr 16 20:05:49 2021
+Iteration 89
+Fri Apr 16 20:05:49 2021
+Iteration 90
+Fri Apr 16 20:05:49 2021
+Iteration 91
+Fri Apr 16 20:05:49 2021
+Iteration 92
+Fri Apr 16 20:05:49 2021
+Iteration 93
+Fri Apr 16 20:05:49 2021
+Iteration 94
+Fri Apr 16 20:05:49 2021
+Iteration 95
+Fri Apr 16 20:05:49 2021
+Iteration 96
+Fri Apr 16 20:05:49 2021
+Iteration 97
+Fri Apr 16 20:05:49 2021
+Iteration 98
+Fri Apr 16 20:05:49 2021
+Iteration 99
+Fri Apr 16 20:05:49 2021
+Iteration 100
+Fri Apr 16 20:05:49 2021
+Iteration 101
+Fri Apr 16 20:05:49 2021
+
+
+Fri Apr 16 20:05:49 2021
+Mission success

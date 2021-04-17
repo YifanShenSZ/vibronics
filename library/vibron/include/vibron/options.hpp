@@ -57,6 +57,7 @@ struct Options {
         // Given segment, electronic state, vibrational index in this segment,
         // return the vibrational index in the vibrational basis function set
         size_t vib_index_abs(const size_t & seg, const size_t & state, const size_t & vib) const;
+        size_t vib_index_abs(const CL::utility::triple<size_t, size_t, size_t> & seg_state_vib) const;
         // Given electronic state, vibrational index in the vibrational basis function set
         // return segment and vibrational index in this segment
         std::pair<size_t, size_t> vib_index(const size_t & state, const size_t & abs_vib) const;

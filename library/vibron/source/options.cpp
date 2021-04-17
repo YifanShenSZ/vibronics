@@ -173,6 +173,9 @@ size_t Options::vib_irred(const std::vector<std::vector<size_t>> & phonons) cons
 size_t Options::vib_index_abs(const size_t & seg, const size_t & state, const size_t & seg_vib) const {
     return seg_vib + starts[seg][state];
 }
+size_t Options::vib_index_abs(const CL::utility::triple<size_t, size_t, size_t> & seg_state_vib) const {
+    return seg_state_vib.third + starts[seg_state_vib.first][seg_state_vib.second];
+}
 // Given electronic state, vibrational index in the vibrational basis function set
 // return segment and vibrational index in this segment
 std::pair<size_t, size_t> Options::vib_index(const size_t & state, const size_t & abs_vib) const {

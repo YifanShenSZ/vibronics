@@ -35,3 +35,10 @@ __pycache__/
 *.app
 build/
 lib/
+
+# Back up
+BAK
+
+# Large intermediate files
+vibration*.in
+*.wfn

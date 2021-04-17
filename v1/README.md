@@ -1,2 +1,2 @@
 # Version 1
-Lanczos iteration + reorthogonalization in RAM
+Lanczos iteration + reorthogonalization in memory
