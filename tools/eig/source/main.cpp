@@ -15,7 +15,7 @@ namespace { extern "C" {
 void output_spectrum(const std::vector<double> & energy, const CL::utility::matrix<double> & eigvec,
 const double & last_beta, const double & threshold);
 
-void output_wfn(const size_t & NVecs, const CL::utility::matrix<double> & eigvec,
+void output_wfn(const std::vector<size_t> & vec_requests, const CL::utility::matrix<double> & eigvec,
 const std::shared_ptr<vibron::Options> & op, const std::string & prefix);
 
 argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
@@ -29,7 +29,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
 
     // optional arguments
     parser.add_argument("-t","--threshold", 1, true, "intensity threshold (default = 1e-6)");
-    parser.add_argument("-V","--vector",    1, true, "the number of lowest eigenvectors to compute (default = 0)");
+    parser.add_argument("-V","--vector",  '+', true, "eigenvectors to compute");
 
     // wave function definition, required if eigenvector requested
     parser.add_argument("-w","--wfn",         1, true, "vibronic wave function definition file");
@@ -74,14 +74,14 @@ int main(size_t argc, const char ** argv) {
     std::cout << '\n';
 
     if (args.gotArgument("vector")) {
-        size_t NVecs = args.retrieve<size_t>("vector");
+        auto vec_requests = args.retrieve<std::vector<size_t>>("vector");
 
         auto wfn_file  = args.retrieve<std::string>("wfn");
         auto vib_files = args.retrieve<std::vector<std::string>>("vibration");
         auto op = std::make_shared<vibron::Options>(wfn_file, vib_files);
 
         auto prefix = args.retrieve<std::string>("prefix");
-        output_wfn(NVecs, eigvec, op, prefix);
+        output_wfn(vec_requests, eigvec, op, prefix);
     }
 
     std::cout << '\n';

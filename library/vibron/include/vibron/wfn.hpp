@@ -28,7 +28,6 @@ class Wfn {
         const std::shared_ptr<Options> & options() const;
 
         at::Tensor cat() const;
-        CL::utility::triple<size_t, size_t, size_t> seg_state_vib(const size_t & index) const;
 
         const std::vector<at::Tensor> & operator[](const size_t & seg) const;
         at::Tensor & operator[](const std::pair<size_t, size_t> & seg_state);

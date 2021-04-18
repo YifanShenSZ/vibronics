@@ -28,16 +28,6 @@ at::Tensor Wfn::cat() const {
     for (size_t i = 0; i < op_->NStates; i++) segs[i] = at::cat(data_[i]);
     return at::cat(segs);
 }
-CL::utility::triple<size_t, size_t, size_t> Wfn::seg_state_vib(const size_t & index) const {
-    size_t seg, state, vib;
-    vib = index;
-    for (seg = 0; seg < op_->NSegs; seg++)
-    for (state = 0; state < op_->NStates; state++) {
-        if (vib < lengthes_[seg][state]) return CL::utility::triple<size_t, size_t, size_t>(seg, state, vib);
-        else vib -= lengthes_[seg][state];
-    }
-    throw std::invalid_argument("vibron::Wfn::seg_state_vib: index out of range");
-}
 
 const std::vector<at::Tensor> & Wfn::operator[](const size_t & seg) const {return data_[seg];}
 at::Tensor & Wfn::operator[](const std::pair<size_t, size_t> & seg_state) {return data_[seg_state.first][seg_state.second];}

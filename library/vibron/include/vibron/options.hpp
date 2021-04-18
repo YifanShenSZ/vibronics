@@ -61,6 +61,10 @@ struct Options {
         // Given electronic state, vibrational index in the vibrational basis function set
         // return segment and vibrational index in this segment
         std::pair<size_t, size_t> vib_index(const size_t & state, const size_t & abs_vib) const;
+
+        // Given the index in the concatenated wave function vector,
+        // return segment, electronic state, vibrational index in this segment
+        CL::utility::triple<size_t, size_t, size_t> seg_state_vib(const size_t & index) const;
 };
 
 } // namespace vibron

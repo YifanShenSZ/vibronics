@@ -186,4 +186,17 @@ std::pair<size_t, size_t> Options::vib_index(const size_t & state, const size_t 
     throw std::invalid_argument("vibron::Options::vib_index: absolute vibrational index out of range");
 }
 
+// Given the index in the concatenated wave function vector,
+// return segment, electronic state, vibrational index in this segment
+CL::utility::triple<size_t, size_t, size_t> Options::seg_state_vib(const size_t & index) const {
+    size_t seg, state, vib;
+    vib = index;
+    for (seg = 0; seg < NSegs; seg++)
+    for (state = 0; state < NStates; state++) {
+        if (vib < stops[seg][state] - starts[seg][state]) return CL::utility::triple<size_t, size_t, size_t>(seg, state, vib);
+        else vib -= stops[seg][state] - starts[seg][state];
+    }
+    throw std::invalid_argument("vibron::Options::seg_state_vib: index out of range");
+}
+
 } // namespace vibron
