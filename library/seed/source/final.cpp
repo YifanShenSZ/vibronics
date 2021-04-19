@@ -23,21 +23,21 @@ double Final::generate_seed(vibron::Wfn & wfn) const {
     "seed::Final::generate_seed: inconsistent vibronic wave function definition");
     size_t intdim = op_->intdim();
     #pragma omp parallel for
-    for (size_t iseg = 0; iseg < op_->NSegs; iseg++)
-    for (size_t istate = 0; istate < op_->NStates; istate++) {
-        for (size_t ivib = 0; ivib < op_->stops[iseg][istate] - op_->starts[iseg][istate]; ivib++) {
-            size_t abs_ivib = op_->vib_index_abs(iseg, istate, ivib);
+    for (size_t seg = 0; seg < op_->NSegs; seg++)
+    for (size_t state = 0; state < op_->NStates; state++) {
+        const auto & vib_set = op_->vib_sets[op_->vib_irreds[state]];
+        for (size_t vib = 0; vib < op_->stops[seg][state] - op_->starts[seg][state]; vib++) {
             std::vector<std::vector<size_t>> C1_phonons(1);
             C1_phonons[0].resize(intdim);
             size_t count = 0;
-            for (const auto & irred : (*op_->vib_sets[op_->vib_irreds[istate]])[abs_ivib].phonons())
+            for (const auto & irred : (*vib_set)[op_->vib_index_abs(seg, state, vib)].phonons())
             for (const size_t & phonon : irred) {
                 C1_phonons[0][count] = phonon;
                 count++;
             }
-            wfn.select(iseg, istate, ivib) = (*ifoverlap_)(C1_phonons);
+            wfn.select(seg, state, vib) = (*ifoverlap_)(C1_phonons);
         }
-        wfn[{iseg, istate}].mul_(dipole_[istate]);
+        wfn[{seg, state}].mul_(dipole_[state]);
     }
     double norm = sqrt(wfn.dot(wfn));
     wfn *= 1.0 / norm;

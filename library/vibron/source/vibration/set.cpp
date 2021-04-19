@@ -3,67 +3,9 @@
 
 #include <CppLibrary/utility.hpp>
 
-#include <vibron/vibration.hpp>
+#include <vibron/vibration/set.hpp>
 
 namespace vibron {
-
-void Vibration::construct_excitation() {
-    excitation_ = 0;
-    excited_modes_.clear();
-    for (size_t irred = 0; irred < phonons_.size(); irred++)
-    for (size_t mode = 0; mode < phonons_[irred].size(); mode++)
-    if (phonons_[irred][mode] > 0) {
-        excitation_++;
-        excited_modes_.push_back(std::pair<size_t, size_t>(irred, mode));
-    }
-    excited_modes_.shrink_to_fit();
-}
-
-Vibration::Vibration() {}
-Vibration::Vibration(const std::vector<std::vector<size_t>> & _phonons)
-: phonons_(_phonons) {this->construct_excitation();}
-Vibration::Vibration(const std::vector<std::string> & lines) {
-    phonons_.resize(lines.size());
-    for (size_t i = 0; i < lines.size(); i++) {
-        std::vector<std::string> strs = CL::utility::split(lines[i]);
-        phonons_[i].resize(strs.size());
-        for (size_t j = 0; j < strs.size(); j++)
-        phonons_[i][j] = std::stoul(strs[j]);
-    }
-    this->construct_excitation();
-}
-Vibration::~Vibration() {}
-
-const std::vector<std::vector<size_t>> & Vibration::phonons() const {return phonons_;}
-const size_t & Vibration::excitation() const {return excitation_;}
-const std::vector<std::pair<size_t, size_t>> & Vibration::excited_modes() const {return excited_modes_;}
-
-void Vibration::pretty_print(std::ostream & stream) const {
-    for (size_t i = 0; i < phonons_.size(); i++) {
-        stream << "Irreducible " << i + 1 << ":\n";
-        for (const auto & phonon : phonons_[i]) stream << phonon << ' ';
-        stream << '\n';
-    }
-}
-
-Vibration Vibration::create(const size_t & irred, const size_t & mode, const int64_t & phonon) const {
-    if (irred >= this->phonons_.size()) throw std::invalid_argument(
-        "vibron::vib::Vibration::create: irred out of range"
-    );
-    if (mode >= this->phonons_[irred].size()) throw std::invalid_argument(
-        "vibron::vib::Vibration::create: mode out of range"
-    );
-    Vibration vibration(this->phonons_);
-    vibration.phonons_[irred][mode] += phonon;
-    if (vibration.phonons_[irred][mode] < 0) throw std::invalid_argument(
-        "vibron::vib::Vibration::create: phonon out of range"
-    );
-    return vibration;
-}
-
-
-
-
 
 // Construct `max_phonons_`, `max_excitation_` and `excitations_` based on constructed `vibrations_`
 void VibrationSet::construct_exciations_() {

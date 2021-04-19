@@ -1,0 +1,199 @@
+     1    1.000000    stretching     7     5
+     2    1.000000    stretching     7     6
+     3    1.000000    stretching     5     3
+     4    1.000000    stretching     6     4
+     5    1.000000    stretching     2     3
+     6    1.000000    stretching     2     4
+     7    1.000000    stretching     7    17
+     8    1.000000    stretching     7    18
+     9    1.000000    stretching     5    13
+    10    1.000000    stretching     6    14
+    11    1.000000    stretching     5    15
+    12    1.000000    stretching     6    16
+    13    1.000000    stretching     3     9
+    14    1.000000    stretching     4    10
+    15    1.000000    stretching     3    11
+    16    1.000000    stretching     4    12
+    17    1.000000    stretching     2     8
+    18    1.000000    stretching     2     1
+    19    1.000000       bending     5     7     6          # A1, 9
+    20    1.000000       bending     7     5     3          # A1, 10
+          1.000000       bending     7     6     4
+    21    4.000000       bending    17     7    18          # A1, 11
+         -1.000000       bending    17     7     5
+         -1.000000       bending    17     7     6
+         -1.000000       bending    18     7     5
+         -1.000000       bending    18     7     6
+    22    4.000000       bending    13     5    15          # A1, 12
+         -1.000000       bending    13     5     7
+         -1.000000       bending    13     5     3
+         -1.000000       bending    15     5     7
+         -1.000000       bending    15     5     3
+          4.000000       bending    14     6    16
+         -1.000000       bending    14     6     7
+         -1.000000       bending    14     6     4
+         -1.000000       bending    16     6     7
+         -1.000000       bending    16     6     4
+    23    1.000000       bending    13     5     7          # A1, 13
+         -1.000000       bending    13     5     3
+          1.000000       bending    15     5     7
+         -1.000000       bending    15     5     3
+          1.000000       bending    14     6     7
+         -1.000000       bending    14     6     4
+          1.000000       bending    16     6     7
+         -1.000000       bending    16     6     4
+    24    4.000000       bending     9     3    11          # A1, 14
+         -1.000000       bending     9     3     2
+         -1.000000       bending     9     3     5
+         -1.000000       bending    11     3     2
+         -1.000000       bending    11     3     5
+          4.000000       bending    10     4    12
+         -1.000000       bending    10     4     2
+         -1.000000       bending    10     4     6
+         -1.000000       bending    12     4     2
+         -1.000000       bending    12     4     6
+    25    1.000000       bending     9     3     2          # A1, 15
+         -1.000000       bending     9     3     5
+          1.000000       bending    11     3     2
+         -1.000000       bending    11     3     5
+          1.000000       bending    10     4     2
+         -1.000000       bending    10     4     6
+          1.000000       bending    12     4     2
+         -1.000000       bending    12     4     6
+    26    4.000000       bending     1     2     8          # A1, 16
+         -1.000000       bending     1     2     3
+         -1.000000       bending     1     2     4
+         -1.000000       bending     8     2     3
+         -1.000000       bending     8     2     4
+    27    1.000000       torsion     3     5     7     6    # B1, 4
+         -1.000000       torsion     4     6     7     5
+    28    1.000000       torsion     2     3     5     7    # B1, 5
+         -1.000000       torsion     2     4     6     7
+    29    1.000000       bending    17     7     5          # B1, 6
+          1.000000       bending    17     7     6
+         -1.000000       bending    18     7     5
+         -1.000000       bending    18     7     6
+    30    1.000000       bending    13     5     7          # B1, 7
+          1.000000       bending    13     5     3
+         -1.000000       bending    15     5     7
+         -1.000000       bending    15     5     3
+          1.000000       bending    14     6     7
+          1.000000       bending    14     6     4
+         -1.000000       bending    16     6     7
+         -1.000000       bending    16     6     4
+    31    1.000000       bending    13     5     7          # B1, 8
+         -1.000000       bending    13     5     3
+         -1.000000       bending    15     5     7
+          1.000000       bending    15     5     3
+          1.000000       bending    14     6     7
+         -1.000000       bending    14     6     4
+         -1.000000       bending    16     6     7
+          1.000000       bending    16     6     4
+    32    1.000000       bending     9     3     2          # B1, 9
+          1.000000       bending     9     3     5
+         -1.000000       bending    11     3     2
+         -1.000000       bending    11     3     5
+          1.000000       bending    10     4     2
+          1.000000       bending    10     4     6
+         -1.000000       bending    12     4     2
+         -1.000000       bending    12     4     6
+    33    1.000000       bending     9     3     2          # B1, 10
+         -1.000000       bending     9     3     5
+         -1.000000       bending    11     3     2
+          1.000000       bending    11     3     5
+          1.000000       bending    10     4     2
+         -1.000000       bending    10     4     6
+         -1.000000       bending    12     4     2
+          1.000000       bending    12     4     6
+    34    1.000000       bending     1     2     3          # B1, 11
+          1.000000       bending     1     2     4
+         -1.000000       bending     8     2     3
+         -1.000000       bending     8     2     4
+    35    1.000000       bending     7     5     3          # B2, 6
+         -1.000000       bending     7     6     4
+    36    1.000000       bending    17     7     5          # B2, 7
+         -1.000000       bending    17     7     6
+          1.000000       bending    18     7     5
+         -1.000000       bending    18     7     6
+    37    4.000000       bending    13     5    15          # B2, 8
+         -1.000000       bending    13     5     7
+         -1.000000       bending    13     5     3
+         -1.000000       bending    15     5     7
+         -1.000000       bending    15     5     3
+         -4.000000       bending    14     6    16
+          1.000000       bending    14     6     7
+          1.000000       bending    14     6     4
+          1.000000       bending    16     6     7
+          1.000000       bending    16     6     4
+    38    1.000000       bending    13     5     7          # B2, 9
+         -1.000000       bending    13     5     3
+          1.000000       bending    15     5     7
+         -1.000000       bending    15     5     3
+         -1.000000       bending    14     6     7
+          1.000000       bending    14     6     4
+         -1.000000       bending    16     6     7
+          1.000000       bending    16     6     4
+    39    4.000000       bending     9     3    11          # B2, 10
+         -1.000000       bending     9     3     2
+         -1.000000       bending     9     3     5
+         -1.000000       bending    11     3     2
+         -1.000000       bending    11     3     5
+         -4.000000       bending    10     4    12
+          1.000000       bending    10     4     2
+          1.000000       bending    10     4     6
+          1.000000       bending    12     4     2
+          1.000000       bending    12     4     6
+    40    1.000000       bending     9     3     2          # B2, 11
+         -1.000000       bending     9     3     5
+          1.000000       bending    11     3     2
+         -1.000000       bending    11     3     5
+         -1.000000       bending    10     4     2
+          1.000000       bending    10     4     6
+         -1.000000       bending    12     4     2
+          1.000000       bending    12     4     6
+    41    1.000000       bending     1     2     3          # B2, 12
+         -1.000000       bending     1     2     4
+          1.000000       bending     8     2     3
+         -1.000000       bending     8     2     4
+    42    1.000000       torsion     3     5     7     6    # A2, 3
+          1.000000       torsion     4     6     7     5
+    43    1.000000       bending    17     7     5          # A2, 4
+         -1.000000       bending    17     7     6
+         -1.000000       bending    18     7     5
+          1.000000       bending    18     7     6
+    44    1.000000       bending    13     5     7          # A2, 5
+          1.000000       bending    13     5     3
+         -1.000000       bending    15     5     7
+         -1.000000       bending    15     5     3
+         -1.000000       bending    14     6     7
+         -1.000000       bending    14     6     4
+          1.000000       bending    16     6     7
+          1.000000       bending    16     6     4
+    45    1.000000       bending    13     5     7          # A2, 6
+         -1.000000       bending    13     5     3
+         -1.000000       bending    15     5     7
+          1.000000       bending    15     5     3
+         -1.000000       bending    14     6     7
+          1.000000       bending    14     6     4
+          1.000000       bending    16     6     7
+         -1.000000       bending    16     6     4
+    46    1.000000       bending     9     3     2          # A2, 7
+          1.000000       bending     9     3     5
+         -1.000000       bending    11     3     2
+         -1.000000       bending    11     3     5
+         -1.000000       bending    10     4     2
+         -1.000000       bending    10     4     6
+          1.000000       bending    12     4     2
+          1.000000       bending    12     4     6
+    47    1.000000       bending     9     3     2          # A2, 8
+         -1.000000       bending     9     3     5
+         -1.000000       bending    11     3     2
+          1.000000       bending    11     3     5
+         -1.000000       bending    10     4     2
+          1.000000       bending    10     4     6
+          1.000000       bending    12     4     2
+         -1.000000       bending    12     4     6
+    48    1.000000       bending     1     2     3          # A2, 9
+         -1.000000       bending     1     2     4
+         -1.000000       bending     8     2     3
+          1.000000       bending     8     2     4

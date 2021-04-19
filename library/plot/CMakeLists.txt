@@ -5,6 +5,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_BUILD_TYPE Release)
 
+# OpenMP
+find_package(OpenMP REQUIRED)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+
 # Cpp-Library
 set(CMAKE_PREFIX_PATH ~/Library/Cpp-Library)
 find_package(CL REQUIRED)
@@ -14,15 +18,10 @@ set(CMAKE_PREFIX_PATH ~/Software/Mine/vibronics/library/vibron)
 find_package(vibron REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${vibron_CXX_FLAGS}")
 
-# seed
-set(CMAKE_PREFIX_PATH ~/Software/Mine/vibronics/library/seed)
-find_package(seed REQUIRED)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${seed_CXX_FLAGS}")
+include_directories(include)
 
-add_executable(seed.exe main.cpp)
-
-target_link_libraries(seed.exe
-    ${seed_LIBRARIES}
-    ${vibron_LIBRARIES}
-    ${CL_LIBRARIES}
+add_library(plot STATIC
+    source/wfn.cpp
 )
+
+target_link_libraries(plot ${vibron_LIBRARIES} ${CL_LIBRARIES})

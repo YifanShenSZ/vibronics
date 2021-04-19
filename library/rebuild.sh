@@ -1,4 +1,4 @@
-for directory in vibron seed Lanczos; do
+for directory in vibron seed Lanczos plot; do
     echo
     echo "Entre "$directory
     cd $directory/build

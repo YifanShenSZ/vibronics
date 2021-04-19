@@ -23,22 +23,24 @@ Wfn::~Wfn() {}
 
 const std::shared_ptr<Options> & Wfn::options() const {return op_;}
 
+// Concatenate the segmented vibronic wave function into a whole vector
 at::Tensor Wfn::cat() const {
     std::vector<at::Tensor> segs(op_->NStates);
     for (size_t i = 0; i < op_->NStates; i++) segs[i] = at::cat(data_[i]);
     return at::cat(segs);
 }
 
+// Read-only (constant) reference to the segment
 const std::vector<at::Tensor> & Wfn::operator[](const size_t & seg) const {return data_[seg];}
+// Read/write reference to the vibrational data
 at::Tensor & Wfn::operator[](const std::pair<size_t, size_t> & seg_state) {return data_[seg_state.first][seg_state.second];}
+// Read-only (constant) reference to the vibrational data
 const at::Tensor & Wfn::operator[](const std::pair<size_t, size_t> & seg_state) const {return data_[seg_state.first][seg_state.second];}
 
-double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) {
-    return data_ptrs_[seg][state][vib];
-}
-const double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) const {
-    return data_ptrs_[seg][state][vib];
-}
+// Read/write reference to data
+double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) {return data_ptrs_[seg][state][vib];}
+// Read-only (constant) reference to data
+const double & Wfn::select(const size_t & seg, const size_t & state, const size_t & vib) const {return data_ptrs_[seg][state][vib];}
 
 // Read the vibronic wave function from files
 void Wfn::read(const std::string & prefix) {

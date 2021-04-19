@@ -22,7 +22,8 @@ include_directories(include)
 
 add_library(vibron STATIC
     source/harmonic.cpp
-    source/vibration.cpp
+    source/vibration/vibration.cpp
+    source/vibration/set.cpp
     source/options.cpp
     source/wfn.cpp
 )

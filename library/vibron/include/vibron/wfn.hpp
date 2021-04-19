@@ -13,7 +13,7 @@ namespace vibron {
 // i.e. every segment (wfn[i]) contains all electronic states,
 // but only a piece of vibration (wfn[i, j]) on each electronic state
 class Wfn {
-    private:
+    protected:
         std::shared_ptr<Options> op_;
         // data_ holds the underlying data of wfn
         // data_[i][j][k] = wfn[i, j, k] is the k-th vibrational element on the j-th electronic state in the i-th segment
@@ -27,13 +27,19 @@ class Wfn {
 
         const std::shared_ptr<Options> & options() const;
 
+        // Concatenate the segmented vibronic wave function into a whole vector
         at::Tensor cat() const;
 
+        // Read-only (constant) reference to the segment
         const std::vector<at::Tensor> & operator[](const size_t & seg) const;
+        // Read/write reference to the vibrational data
         at::Tensor & operator[](const std::pair<size_t, size_t> & seg_state);
+        // Read-only (constant) reference to the vibrational data
         const at::Tensor & operator[](const std::pair<size_t, size_t> & seg_state) const;
 
+        // Read/write reference to data
         double & select(const size_t & seg, const size_t & state, const size_t & vib);
+        // Read-only (constant) reference to data
         const double & select(const size_t & seg, const size_t & state, const size_t & vib) const;
 
         // Read the vibronic wave function from files
