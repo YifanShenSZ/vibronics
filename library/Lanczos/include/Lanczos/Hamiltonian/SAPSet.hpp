@@ -35,6 +35,9 @@ class SAPSet {
 
         const size_t & max_excitation() const;
         const std::vector<const std::pair<double, SAP> *> & excitation(const size_t & ex) const;
+
+        // Return the symmetry adapted polynomial set value given normal coordinate Q
+        double operator()(const std::vector<std::vector<double>> & Q) const;
 };
 
 } // namespace Lanczos

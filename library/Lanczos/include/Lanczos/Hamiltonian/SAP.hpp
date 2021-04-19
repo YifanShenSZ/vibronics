@@ -27,6 +27,9 @@ class SAP {
         bool operator==(const std::vector<std::pair<size_t, size_t>> & irred_modes) const;
         // Check if the monomials include the given normal modes
         bool operator>=(const std::vector<std::pair<size_t, size_t>> & irred_modes) const;
+
+        // Return the symmetry adapted polynomial value given normal coordinate Q
+        double operator()(const std::vector<std::vector<double>> & Q) const;
 };
 
 } // namespace Lanczos

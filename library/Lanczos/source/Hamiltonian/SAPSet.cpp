@@ -47,4 +47,11 @@ std::vector<std::pair<double, SAP>>::const_iterator SAPSet::end() const noexcept
 const size_t & SAPSet::max_excitation() const {return max_excitation_;}
 const std::vector<const std::pair<double, SAP> *> & SAPSet::excitation(const size_t & ex) const {return excitations_[ex];}
 
+// Return the symmetry adapted polynomial set value given normal coordinate Q
+double SAPSet::operator()(const std::vector<std::vector<double>> & Q) const {
+    double result = constant_;
+    for (const auto & term : terms_) result += term.first * term.second(Q);
+    return result;
+}
+
 } // namespace Lanczos

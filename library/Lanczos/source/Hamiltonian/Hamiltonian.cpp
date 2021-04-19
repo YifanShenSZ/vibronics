@@ -85,4 +85,13 @@ const SAPSet * Hd::operator[](const std::pair<size_t, size_t> & indices) const {
     return Hd_[row][col];
 }
 
+// Return the Hanharmonic value given normal coordinate Q
+CL::utility::matrix<double> Hd::operator()(const std::vector<std::vector<double>> & Q) const {
+    CL::utility::matrix<double> result(NStates_);
+    for (size_t i = 0; i < NStates_; i++)
+    for (size_t j = i; j < NStates_; j++)
+    result[i][j] = (*Hd_[i][j])(Q);
+    return result;
+}
+
 } // namespace Lanczos

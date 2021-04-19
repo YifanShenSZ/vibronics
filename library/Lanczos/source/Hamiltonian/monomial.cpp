@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include <Lanczos/Hamiltonian/monomial.hpp>
 
 namespace Lanczos {
@@ -24,6 +26,11 @@ bool Monomial::operator==(const std::pair<size_t, size_t> & irred_mode) const {
 }
 bool Monomial::operator!=(const std::pair<size_t, size_t> & irred_mode) const {
     return irred != irred_mode.first || mode != irred_mode.second;
+}
+
+// Return the monomial value given normal coordinate Q
+double Monomial::operator()(const std::vector<std::vector<double>> & Q) const {
+    return pow(Q[irred][mode], order);
 }
 
 } // namespace Lanczos

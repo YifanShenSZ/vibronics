@@ -49,6 +49,9 @@ class Hd {
         void pretty_print(std::ostream & stream) const;
 
         const SAPSet * operator[](const std::pair<size_t, size_t> & indices) const;
+
+        // Return the Hanharmonic value given normal coordinate Q
+        CL::utility::matrix<double> operator()(const std::vector<std::vector<double>> & Q) const;
 };
 
 } // namespace Lanczos

@@ -65,4 +65,11 @@ bool SAP::operator>=(const std::vector<std::pair<size_t, size_t>> & irred_modes)
     return include;
 }
 
+// Return the symmetry adapted polynomial value given normal coordinate Q
+double SAP::operator()(const std::vector<std::vector<double>> & Q) const {
+    double result = 1.0;
+    for (const Monomial & coord : coords_) result *= coord(Q);
+    return result;
+}
+
 } // namespace Lanczos

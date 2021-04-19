@@ -4,6 +4,8 @@
 #include <tchem/utility.hpp>
 #include <tchem/intcoord.hpp>
 
+#include <Lanczos/Hamiltonian.hpp>
+
 #include <plot/wfn.hpp>
 
 argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
@@ -27,11 +29,34 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     parser.add_argument("-y","--y",      1, false, "y direction");
 
     // Optional argumentes
-    parser.add_argument("-1","--stepx", 2, true, "x direction number of steps and step length (default = 10, 0.01)");
-    parser.add_argument("-2","--stepy", 2, true, "y direction number of steps and step length (default = 10, 0.01)");
+    parser.add_argument("-1","--stepx",    2, true, "x direction number of steps and step length (default = 10, 0.01)");
+    parser.add_argument("-2","--stepy",    2, true, "y direction number of steps and step length (default = 10, 0.01)");
+    parser.add_argument("-a","--adiabatz", 0, true, "use adiabatic representation");
+    parser.add_argument("-H","--Hd",     '+', true, "anharmonic diabatic Hamiltonian definition files, required if want adiabatz");
 
     parser.parse_args(argc, argv);
     return parser;
+}
+
+at::Tensor compute_Hd(const std::vector<std::vector<double>> & freqs, const Lanczos::Hd & Hanharmonic, const std::vector<std::vector<double>> & Qs) {
+    double harmonicity = 0.0;
+    for (size_t irred = 0; irred < Qs.size(); irred++)
+    for (size_t mode = 0; mode < Qs[irred].size(); mode++) {
+        double temp = freqs[irred][mode] * Qs[irred][mode];
+        harmonicity += temp * temp;
+    }
+    harmonicity /= 2.0;
+
+    int64_t NStates = Hanharmonic.NStates();
+    at::Tensor Hd = at::empty({NStates, NStates}, c10::TensorOptions().dtype(torch::kFloat64));
+    auto anharmonicity = Hanharmonic(Qs);
+
+    for (size_t i = 0; i < NStates; i++) {
+        Hd[i][i] = harmonicity + anharmonicity[i][i];
+        for (size_t j = i + 1; j < NStates; j++) Hd[i][j].fill_(anharmonicity[i][j]);
+    }
+
+    return Hd;
 }
 
 int main(size_t argc, const char ** argv) {
@@ -99,6 +124,40 @@ int main(size_t argc, const char ** argv) {
     std::vector<std::ofstream> ofs(op->NStates);
     for (size_t i = 0; i < op->NStates; i++) ofs[i].open("state-" + std::to_string(i + 1) + ".txt");
 
+    if (args.gotArgument("adiabatz")) {
+        auto Hd_files = args.retrieve<std::vector<std::string>>("Hd");
+        Lanczos::Hd Hanharmonic(op->NStates, op->NModes, Hd_files);
+
+        for (int64_t i = -NSteps_x; i <= NSteps_x; i++)
+        for (int64_t j = -NSteps_y; j <= NSteps_y; j++) {
+            at::Tensor r = r0 + i * dx * x + j * dy * y;
+            auto qs = (*sasicset)(sasicset->tchem::IC::IntCoordSet::operator()(r));
+            std::vector<std::vector<double>> Qs(qs.size());
+            for (size_t irred = 0; irred < qs.size(); irred++) {
+                at::Tensor Q = Linvs[irred].mv(qs[irred]);
+                Qs[irred].resize(Q.numel());
+                std::memcpy(Qs[irred].data(), Q.data_ptr<double>(), Q.numel() * sizeof(double));
+            }
+
+            auto wfn_d = wfn(Qs);
+            at::Tensor Hd = compute_Hd(freqs, Hanharmonic, Qs);
+            at::Tensor energy, state;
+            std::tie(energy, state) = Hd.symeig(true);
+            state.transpose_(0, 1);
+            for (size_t row = 0; row < op->NStates; row++) {
+                at::Tensor abs = state[row].abs();
+                at::Tensor index = at::argmax(abs);
+std::cerr << index << '\n';
+                if (state[row][index].item<double>() < 0.0) state[row].neg_(); 
+            }
+            at::Tensor wfn_d_tensor = Hd.new_empty(op->NStates);
+            for (size_t state = 0; state < op->NStates; state++) wfn_d_tensor[state].fill_(wfn_d[state]);
+            at::Tensor wfn_a = state.mv(wfn_d_tensor);
+
+            for (size_t state = 0; state < op->NStates; state++) ofs[state] << wfn_a[state].item<double>() << '\n';
+        }
+    }
+    else
     for (int64_t i = -NSteps_x; i <= NSteps_x; i++)
     for (int64_t j = -NSteps_y; j <= NSteps_y; j++) {
         at::Tensor r = r0 + i * dx * x + j * dy * y;

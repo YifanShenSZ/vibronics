@@ -14,9 +14,9 @@ set(CMAKE_PREFIX_PATH ~/Library/Torch-Chemistry)
 find_package(tchem REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TCHEM_CXX_FLAGS}")
 
-# vibron
-set(CMAKE_PREFIX_PATH ~/Software/Mine/vibronics/library/vibron)
-find_package(vibron REQUIRED)
+# Lanczos
+set(CMAKE_PREFIX_PATH ~/Software/Mine/vibronics/library/Lanczos)
+find_package(Lanczos REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${vibron_CXX_FLAGS}")
 
 # plot
@@ -27,7 +27,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${plot_CXX_FLAGS}")
 add_executable(plot2D.exe main.cpp)
 
 target_link_libraries(plot2D.exe
-    ${plot_LIBRARIES}
-    ${vibron_LIBRARIES}
+    ${plot_LIBRARIES} ${Lanczos_LIBRARIES}
     ${tchem_LIBRARIES} ${CL_LIBRARIES}
 )
