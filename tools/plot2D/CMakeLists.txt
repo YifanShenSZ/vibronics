@@ -24,7 +24,13 @@ set(CMAKE_PREFIX_PATH ~/Software/Mine/vibronics/library/plot)
 find_package(plot REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${plot_CXX_FLAGS}")
 
-add_executable(plot2D.exe main.cpp)
+add_executable(plot2D.exe
+    source/HdKernel.cpp
+    source/NCKernel.cpp
+    source/main.cpp
+)
+
+include_directories(include)
 
 target_link_libraries(plot2D.exe
     ${plot_LIBRARIES} ${Lanczos_LIBRARIES}
