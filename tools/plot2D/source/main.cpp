@@ -13,13 +13,13 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     std::cout << '\n';
     argparse::ArgumentParser parser("Plot vibronic wave function along 2 directions");
 
-    // Vibronic wave function definition
+    // vibronic wave function definition
     parser.add_argument("-w","--wfn",         1, false, "vibronic wave function definition file");
     parser.add_argument("-v","--vibration", '+', false, "vibrational basis definition files");
     parser.add_argument("-f","--frequency", '+', false, "frequency of each normal mode");
-    parser.add_argument("-p","--prefix",      1, false, "prefix of the seed or the check point vector to continue with");
+    parser.add_argument("-p","--prefix",      1, false, "prefix of the stored wave function vector");
 
-    // Coordiante definition
+    // coordiante definition
     parser.add_argument("-F","--format", 1, false, "internal coordinate definition format (Columbus7, default)");
     parser.add_argument("-i","--IC",     1, false, "internal coordinate definition file");
     parser.add_argument("-s","--SAS",    1, false, "symmetry adaptation and scale definition file");
@@ -28,7 +28,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     parser.add_argument("-x","--x",      1, false, "x direction");
     parser.add_argument("-y","--y",      1, false, "y direction");
 
-    // Optional argumentes
+    // optional argumentes
     parser.add_argument("-1","--stepx",    2, true, "x direction number of steps and step length (default = 10, 0.01)");
     parser.add_argument("-2","--stepy",    2, true, "y direction number of steps and step length (default = 10, 0.01)");
     parser.add_argument("-a","--adiabatz", 0, true, "use adiabatic representation");

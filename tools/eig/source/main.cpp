@@ -34,7 +34,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     // wave function definition, required if eigenvector requested
     parser.add_argument("-w","--wfn",         1, true, "vibronic wave function definition file");
     parser.add_argument("-v","--vibration", '+', true, "vibrational basis definition files");
-    parser.add_argument("-p","--prefix",      1, true, "prefix of the check point vector to continue with");
+    parser.add_argument("-p","--prefix",      1, true, "prefix of the stored Krylov vectors");
 
     parser.parse_args(argc, argv);
     return parser;
@@ -59,8 +59,6 @@ int main(size_t argc, const char ** argv) {
     int32_t info = my_dsteqr_(alpha.data(), beta.data(), eigvec_ptr, N);
     if (info != 0) std::cerr << "Warning: diagonalization of the tridiagonal matrix failed, infomation = " << info << '\n';
 
-    auto energy = alpha / 4.556335830019422e-6;
-
     CL::utility::matrix<double> eigvec(N);
     for (auto & row : eigvec) {
         std::memcpy(row.data(), eigvec_ptr, N);
@@ -70,10 +68,11 @@ int main(size_t argc, const char ** argv) {
 
     double threshold = 1e-6;
     if (args.gotArgument("threshold")) threshold = args.retrieve<double>("threshold");
-    output_spectrum(energy, eigvec, beta.back(), threshold);
-    std::cout << '\n';
+    output_spectrum(alpha, eigvec, beta.back(), threshold);
 
     if (args.gotArgument("vector")) {
+        std::cout << '\n';
+
         auto vec_requests = args.retrieve<std::vector<size_t>>("vector");
 
         auto wfn_file  = args.retrieve<std::string>("wfn");

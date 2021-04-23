@@ -4,8 +4,9 @@ Yifan Shen 2021
 Echo of user command line input:
 /home/yshen/Software/Mine/vibronics/tools/plot2D/build/plot2D.exe -w wfn-1.in -v vibration1.in vibration2.in -f final-freq-1.in final-freq-2.in -p wfn1 -F default -i IntCoordDef -s SAS.in -l Linv-1.txt Linv-2.txt -g surface-mex.xyz -x g.cart -y h.cart
 
-Tue Apr 20 14:02:53 2021
+Wed Apr 21 10:38:51 2021
 
+The mesh grids employed can be found in xy.txt
 
-Tue Apr 20 14:02:58 2021
+Wed Apr 21 10:38:57 2021
 Mission success

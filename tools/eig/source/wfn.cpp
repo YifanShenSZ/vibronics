@@ -34,7 +34,7 @@ const std::shared_ptr<vibron::Options> & op, const std::string & prefix) {
             auto op = wfn.options();
             auto seg_state_vib = op->seg_state_vib(indices[j].item<int64_t>());
             size_t vib_index_abs = op->vib_index_abs(seg_state_vib);
-            ofs << "electronic state = " << seg_state_vib.second << ", phonons:\n";
+            ofs << "electronic state = " << seg_state_vib.second + 1 << ", phonons:\n";
             (*op->vib_sets[op->vib_irreds[seg_state_vib.second]])[vib_index_abs].pretty_print(ofs);
             ofs << "-----------------------------------------------\n";
         }

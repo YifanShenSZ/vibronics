@@ -1,0 +1,75 @@
+Generate Lanczos seed vector
+Yifan Shen 2021
+
+Echo of user command line input:
+/home/yshen/Software/Mine/vibronics/tools/seed/seed.exe -w wfn-2.in -v vibration1.in vibration2.in -i initial-freq-1.in initial-freq-2.in -f final-freq-1.in final-freq-2.in -t transformation-matrix.in -s shift-vector.in
+
+Thu Apr 22 14:49:37 2021
+
+Number of irreducible representations: 2
+Point group product table:
+    1    2
+    2    1
+Number of normal modes:
+    irreducible 0: 27
+    irreducible 1: 21
+Number of electronic states = 2
+Vibrational irreducible:
+    state 1: 2
+    state 2: 1
+Number of segmentations = 4
+Segment 1 owns:
+Electronic state 1: [0, 1152)
+Electronic state 2: [0, 2304)
+Segment 2 owns:
+Electronic state 1: [1152, 2304)
+Electronic state 2: [2304, 4608)
+Segment 3 owns:
+Electronic state 1: [2304, 3456)
+Electronic state 2: [4608, 6912)
+Segment 4 owns:
+Electronic state 1: [3456, 4608)
+Electronic state 2: [6912, 9216)
+Vibrational basis functions of irreducible 1:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+Vibrational basis functions of irreducible 2:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+Read initial-state harmonic frequencies from:
+    initial-freq-1.in
+    initial-freq-2.in
+Read final-state harmonic frequencies from:
+    final-freq-1.in
+    final-freq-2.in
+
+The 10 most contributing vibrational basis functions are:
+No. 1. overlap = 0.567934, phonons are:
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 2. overlap = 0.263833, phonons are:
+    0    0    0    0    0    0    0    0    0    0    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 3. overlap = 0.194912, phonons are:
+    0    0    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 4. overlap = 0.151791, phonons are:
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    2    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 5. overlap = 0.113136, phonons are:
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 6. overlap = 0.105555, phonons are:
+    0    0    1    0    0    0    0    0    0    0    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 7. overlap = 0.104174, phonons are:
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    1    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 8. overlap = 0.0997761, phonons are:
+    0    0    0    0    1    0    0    0    0    0    0    0    0    0    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 9. overlap = 0.0800955, phonons are:
+    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+No. 10. overlap = 0.0780134, phonons are:
+    0    0    0    0    0    0    0    0    0    0    0    0    1    0    1    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0
+
+Norm of the seed vector = 0.95354
+The seed vector can be found in seed-*-*.wfn
+
+Thu Apr 22 14:49:39 2021
+Mission success

@@ -1,13 +1,17 @@
 # Lanczos seed vector
 Generate the seed vector for Lanczos iteration
 
+The normal coordinate origin can be placed on (`initial`) or off (`final`) the initial-state equilibirum geometry
+
+This library depends on *vibron* to define vibronic wave function
+
 ## Theory
 Let the initial vibronic state be `d`, the final vibronic state be `D`, the transition dipole be `miu`. The spectral amplitude `A` is:
 ```
 A = d . miu . D    (1)
 ```
 
-By Lanczos diagonalization, if we set the seed vector to `d . miu_x`, then `A_x` emerges from the seed vector's contribution to `D`. Similarly `A_y` and `A_z`.
+By Lanczos diagonalization, if we set the seed vector to the unit vector along `d . miu_x`, then `A_x` emerges from the seed vector's contribution to `D` times `||d . miu_x||`. Similarly `A_y` and `A_z`.
 
 What we really want is the spectral strength:
 ```
