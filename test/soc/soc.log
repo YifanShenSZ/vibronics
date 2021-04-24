@@ -1,0 +1,83 @@
+Spin-orbit coupling for 2 nonrelativistic doublets
+Yifan Shen 2021
+
+Echo of user command line input:
+/home/yshen/Software/Mine/vibronics/tools/soc/soc.exe -w wfn-1.in wfn-2.in -v vibration1.in vibration2.in -l level-1.in level-2.in -x 0.000089405976 -y -0.000284487050 -z 0
+
+Fri Apr 23 20:54:26 2021
+
+Vibronic wave function definition for irreducible 1:
+Number of irreducible representations: 2
+Point group product table:
+    1    2
+    2    1
+Number of normal modes:
+    irreducible 0: 27
+    irreducible 1: 21
+Number of electronic states = 2
+Vibrational irreducible:
+    state 1: 1
+    state 2: 2
+Number of segmentations = 4
+Segment 1 owns:
+Electronic state 1: [0, 2304)
+Electronic state 2: [0, 1152)
+Segment 2 owns:
+Electronic state 1: [2304, 4608)
+Electronic state 2: [1152, 2304)
+Segment 3 owns:
+Electronic state 1: [4608, 6912)
+Electronic state 2: [2304, 3456)
+Segment 4 owns:
+Electronic state 1: [6912, 9216)
+Electronic state 2: [3456, 4608)
+Vibrational basis functions of irreducible 1:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+Vibrational basis functions of irreducible 2:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+Vibronic wave function definition for irreducible 2:
+Number of irreducible representations: 2
+Point group product table:
+    1    2
+    2    1
+Number of normal modes:
+    irreducible 0: 27
+    irreducible 1: 21
+Number of electronic states = 2
+Vibrational irreducible:
+    state 1: 2
+    state 2: 1
+Number of segmentations = 4
+Segment 1 owns:
+Electronic state 1: [0, 1152)
+Electronic state 2: [0, 2304)
+Segment 2 owns:
+Electronic state 1: [1152, 2304)
+Electronic state 2: [2304, 4608)
+Segment 3 owns:
+Electronic state 1: [2304, 3456)
+Electronic state 2: [4608, 6912)
+Segment 4 owns:
+Electronic state 1: [3456, 4608)
+Electronic state 2: [6912, 9216)
+Vibrational basis functions of irreducible 1:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+Vibrational basis functions of irreducible 2:
+Highest phonons among the vibrational basis functions:
+1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+
+The relativistic energy levels can be found in soc-level.txt
+The complex -> real arithmetic introduces 2-fold degeneracy
+Kramers degeneracy theorem introduces 2-fold degeneracy for doublets
+So for our 2 nonrelativistic doublets, there will be 4-fold degeneracy
+
+Fri Apr 23 20:54:27 2021
+Mission success

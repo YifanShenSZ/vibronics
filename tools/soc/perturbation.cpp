@@ -53,5 +53,18 @@ const double & x, const double & y, const double & z) {
     at::Tensor energy, state;
     std::tie(energy, state) = H.symeig(true);
 
-    std::cout << energy / 4.556335830019422e-6 << '\n';
+    std::cout << "The relativistic energy levels can be found in soc-level.txt\n"
+              << "The complex -> real arithmetic introduces 2-fold degeneracy\n"
+              << "Kramers degeneracy theorem introduces 2-fold degeneracy for doublets\n"
+              << "So for our 2 nonrelativistic doublets, there will be 4-fold degeneracy\n";
+    std::ofstream ofs; ofs.open("soc-level.txt");
+    double E0 = energy[0].item<double>() / 4.556335830019422e-6;
+    ofs << "Ground state energy = " << std::fixed << std::setprecision(2) << E0 << " cm^-1\n"
+        << "ΔE / cm^-1    E / Hartree\n";
+    for (size_t i = 0; i < 4 * Neig; i += 4) {
+        double E = energy[i].item<double>();
+        ofs << std::setw(10) << std::fixed << std::setprecision(2) << E / 4.556335830019422e-6 - E0 
+            << std::setw(25) << std::scientific << std::setprecision(15) << E
+            << '\n';
+    }
 }

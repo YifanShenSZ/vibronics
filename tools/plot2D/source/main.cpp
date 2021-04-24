@@ -125,6 +125,7 @@ int main(size_t argc, const char ** argv) {
     for (int64_t j = -NSteps_y; j <= NSteps_y; j++)
     xy << std::setw(25) << std::scientific << std::setprecision(15) << i * dx
        << std::setw(25) << std::scientific << std::setprecision(15) << j * dy << '\n';
+    xy.close();
 
     std::vector<std::ofstream> ofs(op->NStates);
     for (size_t i = 0; i < op->NStates; i++) ofs[i].open("state-" + std::to_string(i + 1) + ".txt");
