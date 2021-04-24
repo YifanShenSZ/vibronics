@@ -45,7 +45,7 @@ const double & x, const double & y, const double & z) {
     H.slice(0, 0, Neig).slice(1, 3 * Neig, 4 * Neig).copy_(-z * O);
     H.slice(0, Neig, 2 * Neig).slice(1, Neig, 2 * Neig).copy_(Enr);
     H.slice(0, Neig, 2 * Neig).slice(1, 2 * Neig, 3 * Neig).copy_(-z * O);
-    H.slice(0, Neig, 2 * Neig).slice(1, 3 * Neig, 4 * Neig).copy_(-y * O);
+    H.slice(0, Neig, 2 * Neig).slice(1, 3 * Neig, 4 * Neig).copy_( y * O);
     H.slice(0, 2 * Neig, 3 * Neig).slice(1, 2 * Neig, 3 * Neig).copy_(Enr);
     H.slice(0, 2 * Neig, 3 * Neig).slice(1, 3 * Neig, 4 * Neig).copy_(-x * O);
     H.slice(0, 3 * Neig, 4 * Neig).slice(1, 3 * Neig, 4 * Neig).copy_(Enr);
@@ -53,5 +53,5 @@ const double & x, const double & y, const double & z) {
     at::Tensor energy, state;
     std::tie(energy, state) = H.symeig(true);
 
-    std::cerr << energy / 4.556335830019422e-6 << '\n';
+    std::cout << energy / 4.556335830019422e-6 << '\n';
 }
