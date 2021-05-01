@@ -70,11 +70,11 @@ int main(size_t argc, const char ** argv) {
         w.read(wprefix);
     }
     else {
+        CL::utility::show_time(std::cout);
         std::cout << "Initial iteration\n";
         start = 1;
         alpha_ofs.open("alpha.txt");
          beta_ofs.open( "beta.txt");
-        CL::utility::show_time(std::cout);
         double alpha = kernel.initialize(v1, w);
         alpha_ofs << alpha << '\n';
     }
@@ -84,18 +84,17 @@ int main(size_t argc, const char ** argv) {
     if (args.gotArgument("max_iteration")) max_iteration = args.retrieve<size_t>("max_iteration");
     for (size_t i = start; i < start + max_iteration; i += 2) {
         double alpha, beta;
-        std::cout << "Iteration " << i + 1 << std::endl;
         CL::utility::show_time(std::cout);
+        std::cout << "Iteration " << i + 1 << '\n' << std::endl;
         std::tie(alpha, beta) = kernel.iterate(v1, v2, w);
         alpha_ofs << alpha << '\n';
          beta_ofs << beta  << '\n';
-         std::cout << "Iteration " << i + 2 << std::endl;
         CL::utility::show_time(std::cout);
+        std::cout << "Iteration " << i + 2 << '\n' << std::endl;
         std::tie(alpha, beta) = kernel.iterate(v2, v1, w);
         alpha_ofs << alpha << '\n';
          beta_ofs << beta  << '\n';
     }
-    std::cout << '\n';
 
     // Write checkpoint
     std::cout << "Restart Lanczos vectors are written to v*.wfn and w*.wfn\n";

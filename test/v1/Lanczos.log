@@ -5,7 +5,7 @@ Yifan Shen 2021
 Echo of user command line input:
 /home/yshen/Software/Mine/vibronics/v1/vibronics.exe -w wfn-1.in -v vibration1.in vibration2.in -H Hd_1-1.in Hd_1-2.in Hd_2-2.in -f final-freq-1.in final-freq-2.in -p seed -m 101 -s
 
-Mon Apr 19 12:22:09 2021
+Sat May  1 13:32:05 2021
 
 Number of irreducible representations: 2
 Point group product table:
@@ -56,211 +56,310 @@ Segment 2 owns 3456 rows, on average 92.9742 non-trivial elements per row
 Segment 3 owns 3456 rows, on average 94.0344 non-trivial elements per row
 Segment 4 owns 3456 rows, on average 95.2323 non-trivial elements per row
 
+Sat May  1 13:32:09 2021
 Iteration 0
-Mon Apr 19 12:22:13 2021
 
+Sat May  1 13:32:09 2021
 Iteration 1
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 2
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 3
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 4
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 5
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 6
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 7
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 8
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 9
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 10
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 11
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 12
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 13
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 14
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 15
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 16
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 17
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 18
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 19
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 20
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 21
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 22
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 23
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 24
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 25
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 26
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 27
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 28
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 29
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 30
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 31
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 32
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 33
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 34
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 35
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 36
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 37
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 38
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 39
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 40
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 41
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 42
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 43
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 44
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 45
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 46
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 47
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 48
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 49
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 50
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 51
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 52
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 53
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 54
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 55
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 56
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 57
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 58
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 59
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 60
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 61
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 62
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 63
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 64
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 65
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 66
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 67
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 68
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 69
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 70
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 71
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 72
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 73
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 74
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 75
-Mon Apr 19 12:22:13 2021
+
+Sat May  1 13:32:09 2021
 Iteration 76
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 77
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 78
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 79
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 80
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 81
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 82
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 83
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 84
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 85
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 86
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 87
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:09 2021
 Iteration 88
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 89
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 90
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 91
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 92
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 93
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 94
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 95
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 96
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 97
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 98
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 99
-Mon Apr 19 12:22:14 2021
+
+Sat May  1 13:32:10 2021
 Iteration 100
-Mon Apr 19 12:22:14 2021
 
-Krylove vectors are written to v*.wfn
+Krylov vectors are written to v*.wfn
 
-Mon Apr 19 12:22:14 2021
+Sat May  1 13:32:10 2021
 Mission success

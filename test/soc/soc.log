@@ -4,7 +4,7 @@ Yifan Shen 2021
 Echo of user command line input:
 /home/yshen/Software/Mine/vibronics/tools/soc/soc.exe -w wfn-1.in wfn-2.in -v vibration1.in vibration2.in -l level-1.in level-2.in -x 0.000089405976 -y -0.000284487050 -z 0
 
-Fri Apr 23 20:54:26 2021
+Sat May  1 14:04:41 2021
 
 Vibronic wave function definition for irreducible 1:
 Number of irreducible representations: 2
@@ -79,5 +79,5 @@ The complex -> real arithmetic introduces 2-fold degeneracy
 Kramers degeneracy theorem introduces 2-fold degeneracy for doublets
 So for our 2 nonrelativistic doublets, there will be 4-fold degeneracy
 
-Fri Apr 23 20:54:27 2021
+Sat May  1 14:04:41 2021
 Mission success

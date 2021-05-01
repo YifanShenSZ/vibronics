@@ -67,4 +67,13 @@ const double & x, const double & y, const double & z) {
             << std::setw(25) << std::scientific << std::setprecision(15) << E
             << '\n';
     }
+    ofs.close();
+
+    ofs.open("detail-eigval.txt");
+    ofs << energy / 4.556335830019422e-6  - E0;
+    ofs.close();
+
+    ofs.open("detail-eigvec.txt");
+    ofs << state;
+    ofs.close();
 }

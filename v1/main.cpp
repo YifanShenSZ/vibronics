@@ -64,16 +64,16 @@ int main(size_t argc, const char ** argv) {
     std::ofstream alpha_ofs, beta_ofs;
     alpha_ofs.open("alpha.txt");
      beta_ofs.open( "beta.txt");
-    std::cout << "Iteration 0\n";
     CL::utility::show_time(std::cout);
+    std::cout << "Iteration 0\n";
     double alpha = kernel.initialize(*wfns[0], w);
     alpha_ofs << alpha << '\n';
     std::cout << std::endl;
 
     for (size_t i = 1; i < max_iteration; i++) {
         double alpha, beta;
-        std::cout << "Iteration " << i << std::endl;
         CL::utility::show_time(std::cout);
+        std::cout << "Iteration " << i << '\n' << std::endl;
         std::tie(alpha, beta) = kernel.iterate(*wfns[i - 1], *wfns[i], w);
         alpha_ofs << alpha << '\n';
          beta_ofs << beta  << '\n';
@@ -85,8 +85,7 @@ int main(size_t argc, const char ** argv) {
     }
 
     if (args.gotArgument("save")) {
-        std::cout << '\n'
-                  << "Krylove vectors are written to v*.wfn\n";
+        std::cout << "Krylov vectors are written to v*.wfn\n";
         std::vector<std::vector<std::ofstream>> ofs(op->NSegs);
         for (size_t i = 0; i < op->NSegs; i++) {
             ofs[i].resize(op->NStates);
@@ -98,6 +97,7 @@ int main(size_t argc, const char ** argv) {
         for (const auto & wfn : wfns) wfn->write(ofs);
         for (auto & seg : ofs) for (auto & state : seg) state.close();
     }
+    else std::cout << "Krylov vectors are discarded\n";
 
     alpha_ofs.close();
      beta_ofs.close();
