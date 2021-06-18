@@ -28,7 +28,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     parser.add_argument("-b","--beta",  1, false, "beta (subdiag)");
 
     // optional arguments
-    parser.add_argument("-t","--threshold", 1, true, "intensity threshold (default = 1e-6)");
+    parser.add_argument("-t","--threshold", 1, true, "intensity threshold (default = 1e-7)");
     parser.add_argument("-V","--vector",  '+', true, "eigenvectors to compute");
 
     // wave function definition, required if eigenvector requested
@@ -66,7 +66,7 @@ int main(size_t argc, const char ** argv) {
         if (row[0] < 0.0) row *= -1.0;
     }
 
-    double threshold = 1e-6;
+    double threshold = 1e-7;
     if (args.gotArgument("threshold")) threshold = args.retrieve<double>("threshold");
     output_spectrum(alpha, eigvec, beta.back(), threshold);
 
