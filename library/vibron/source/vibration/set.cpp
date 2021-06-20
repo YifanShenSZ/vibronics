@@ -65,6 +65,7 @@ void VibrationSet::generate_all_(const std::vector<size_t> & excited_modes, cons
 // Given a vibrational basis function, try to locate its index within [lower, upper]
 // index = -1 if not found
 void VibrationSet::bisect_(const Vibration & vibration, const size_t & lower, const size_t & upper, int64_t & index) const {
+std::cerr << "bisection [" << lower << ", " << upper << "]\n"; 
     // Final round
     if (upper - lower == 1) {
         // Try lower
@@ -219,7 +220,11 @@ void VibrationSet::pretty_print(std::ostream & stream) const {
 // Given a vibrational basis function, return its index in this vibration set
 // Return -1 if not found
 int64_t VibrationSet::index_vibration(const Vibration & vibration) const {
-    if (vibrations_.empty()) return -1; // quick return if there is no vibrational basis function
+    // quick return if there is no vibrational basis function
+    if (vibrations_.empty()) return -1;
+    // quick return if the excitation is higher than the highest
+    if (vibration.excitation() > max_excitation_) return -1;
+    // normal procedure: binary search
     size_t lower = 0;
     for (size_t i = 0; i < vibration.excitation(); i++) lower += excitations_[i].size();
     size_t upper = lower + excitations_[vibration.excitation()].size() - 1;
