@@ -65,7 +65,6 @@ void VibrationSet::generate_all_(const std::vector<size_t> & excited_modes, cons
 // Given a vibrational basis function, try to locate its index within [lower, upper]
 // index = -1 if not found
 void VibrationSet::bisect_(const Vibration & vibration, const size_t & lower, const size_t & upper, int64_t & index) const {
-std::cerr << "bisection [" << lower << ", " << upper << "]\n"; 
     // Final round
     if (upper - lower == 1) {
         // Try lower
