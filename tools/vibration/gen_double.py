@@ -2,7 +2,7 @@
 According to user input generate vibration*.in,
 specifying the symmetry adapted vibrational basis
 
-The non-totally symmetric irreduciles are truncated to single excitations
+The non-totally symmetric irreduciles are truncated to single and double excitations
 
 User should write their input in section 'User input' in this script
 '''
@@ -50,12 +50,12 @@ def generate_base(excited_modes:List) -> List:
 # Given excited modes
 # Output all possible vibrations to files
 def generate_all(excited_modes:List, files:List) -> List:
-    # Single special: quick return if there are multiple excited non-totally symemtric modes
+    # Single and double special: quick return if there are > 2 excited non-totally symemtric modes
     count_asym = 0
     for mode in excited_modes:
         if mode[0] != 0:
             count_asym += 1
-            if count_asym > 1: return
+            if count_asym > 2: return
     # quick return if there are no such excitations
     for mode in excited_modes:
         if max_phonons[mode[0]][mode[1]] == 0: return
