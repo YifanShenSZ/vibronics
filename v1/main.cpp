@@ -70,7 +70,7 @@ int main(size_t argc, const char ** argv) {
     alpha_ofs << alpha << '\n';
     std::cout << std::endl;
 
-    for (size_t i = 1; i < max_iteration; i++) {
+    for (size_t i = 1; i < 1 + max_iteration; i++) {
         double alpha, beta;
         CL::utility::show_time(std::cout);
         std::cout << "Iteration " << i << '\n' << std::endl;
