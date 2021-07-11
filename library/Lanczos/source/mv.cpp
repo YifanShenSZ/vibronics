@@ -14,7 +14,7 @@ namespace {
 namespace Lanczos {
 
 SegStateVibValue::SegStateVibValue() {}
-SegStateVibValue::SegStateVibValue(const size_t & _seg, const size_t & _state, const size_t & _vib, const double & _value)
+SegStateVibValue::SegStateVibValue(const uint16_t & _seg, const uint16_t & _state, const uint32_t & _vib, const double & _value)
 : seg(_seg), state(_state), vib(_vib), value(_value) {}
 SegStateVibValue::~SegStateVibValue() {}
 

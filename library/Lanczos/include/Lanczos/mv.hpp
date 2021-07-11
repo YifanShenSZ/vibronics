@@ -9,11 +9,12 @@
 namespace Lanczos {
 
 struct SegStateVibValue {
-    size_t seg, state, vib;
+    uint16_t seg, state;
+    uint32_t vib;
     double value;
 
     SegStateVibValue();
-    SegStateVibValue(const size_t & _seg, const size_t & _state, const size_t & _vib, const double & _value);
+    SegStateVibValue(const uint16_t & _seg, const uint16_t & _state, const uint32_t & _vib, const double & _value);
     ~SegStateVibValue();
 };
 
