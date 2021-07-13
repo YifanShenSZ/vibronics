@@ -54,7 +54,7 @@ int main(size_t argc, const char ** argv) {
     size_t max_iteration = 100;
     if (args.gotArgument("max_iteration")) max_iteration = args.retrieve<size_t>("max_iteration");
     vibron::Wfn w(op);
-    std::vector<vibron::Wfn *> wfns(max_iteration);
+    std::vector<vibron::Wfn *> wfns(max_iteration + 1);
     for (auto & wfn : wfns) wfn = new vibron::Wfn(op);
 
     auto prefix = args.retrieve<std::string>("prefix");
