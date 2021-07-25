@@ -23,9 +23,9 @@ class VibrationSet {
         std::vector<Vibration> vibrations_;
 
         // Highest phonons among the vibrational basis functions
-        std::vector<std::vector<size_t>> max_phonons_;
+        std::vector<std::vector<uint16_t>> max_phonons_;
         // Highest excitation among the vibrational basis functions
-        size_t max_excitation_;
+        uint16_t max_excitation_;
         // A view to `vibrations_` grouped by excitation
         std::vector<std::vector<const Vibration *>> excitations_;
 
@@ -48,10 +48,10 @@ class VibrationSet {
         ~VibrationSet();
 
         size_t size() const;
-        const std::vector<std::vector<size_t>> & max_phonons() const;
-        const size_t & max_phonon(const size_t & irred, const size_t & mode) const;
-        const size_t & max_phonon(const std::pair<size_t, size_t> & irred_mode) const;
-        const size_t & max_excitation() const;
+        const std::vector<std::vector<uint16_t>> & max_phonons() const;
+        const uint16_t & max_phonon(const size_t & irred, const size_t & mode) const;
+        const uint16_t & max_phonon(const std::pair<size_t, size_t> & irred_mode) const;
+        const uint16_t & max_excitation() const;
         // A read-only accessor to vibrations_[index]
         const Vibration & operator[](const size_t & index) const;
 

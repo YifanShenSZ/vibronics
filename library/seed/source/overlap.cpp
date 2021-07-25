@@ -57,18 +57,18 @@ const at::Tensor & T, const at::Tensor & d)
     integrals_[0] = 1.0;
     for (size_t i = 1; i < vib_set_->size(); i++) {
         const vibron::Vibration & vib = (*vib_set_)[i];
-        std::vector<size_t> phonons = vib.phonons()[0];
+        std::vector<uint16_t> phonons = vib.phonons()[0];
         // Use the first non-zero mode as k
         size_t k;
         for (k = 0; k < phonons.size(); k++) if (phonons[k] > 0) break;
-        std::vector<size_t> n = phonons;
+        std::vector<uint16_t> n = phonons;
         n[k]--;
         int64_t index_n = vib_set_->index_vibration(vibron::Vibration({n}));
         if (index_n < 0) throw std::runtime_error(
         "seed::IFOverlap: recurse out of the generated vibration set");
         integrals_[i] = bT_Abar[k].item<double>() * integrals_[index_n];
         for (size_t l = 0; l < intdim; l++) {
-            std::vector<size_t> nl = n;
+            std::vector<uint16_t> nl = n;
             if (nl[l] == 0) continue; // * 0 has no contribution
             nl[l]--;
             int64_t index_nl = vib_set_->index_vibration(vibron::Vibration({nl}));
@@ -83,7 +83,7 @@ const at::Tensor & T, const at::Tensor & d)
                   * at::exp(-0.5 * d.dot(init_freq * d) + b.dot(Ainv.mv(b)))).item<double>();
     integrals_[0] *= Gtilde;
     for (size_t i = 1; i < vib_set_->size(); i++) {
-        const std::vector<size_t> & phonons = (*vib_set_)[i].phonons()[0];
+        const std::vector<uint16_t> & phonons = (*vib_set_)[i].phonons()[0];
         double coeff = 1.0;
         for (const size_t & phonon : phonons) if (phonon > 0)
         coeff *= pow(2, phonon) * CL::math::dFactorial(phonon);

@@ -4,7 +4,7 @@ namespace seed {
 
 Initial::Initial() {}
 Initial::Initial(const std::vector<double> & _dipole,
-const std::shared_ptr<vibron::Options> & _op, const std::vector<std::vector<size_t>> & _phonons)
+const std::shared_ptr<vibron::Options> & _op, const std::vector<std::vector<uint16_t>> & _phonons)
 : dipole_(_dipole), op_(_op), phonons_(_phonons) {
     if (_dipole.size() != _op->NStates) throw std::invalid_argument(
     "seed::Initial: inconsistent number of electronic states in dipole");

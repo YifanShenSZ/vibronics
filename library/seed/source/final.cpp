@@ -27,11 +27,11 @@ double Final::generate_seed(vibron::Wfn & wfn) const {
     for (size_t state = 0; state < op_->NStates; state++) {
         const auto & vib_set = op_->vib_sets[op_->vib_irreds[state]];
         for (size_t vib = 0; vib < op_->stops[seg][state] - op_->starts[seg][state]; vib++) {
-            std::vector<std::vector<size_t>> C1_phonons(1);
+            std::vector<std::vector<uint16_t>> C1_phonons(1);
             C1_phonons[0].resize(intdim);
             size_t count = 0;
             for (const auto & irred : (*vib_set)[op_->vib_index_abs(seg, state, vib)].phonons())
-            for (const size_t & phonon : irred) {
+            for (const auto & phonon : irred) {
                 C1_phonons[0][count] = phonon;
                 count++;
             }

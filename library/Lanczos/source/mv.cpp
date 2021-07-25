@@ -1,10 +1,10 @@
 #include <Lanczos/mv.hpp>
 
 namespace {
-    size_t NDiff(const std::vector<std::vector<size_t>> & a, const std::vector<std::vector<size_t>> & b) {
+    size_t NDiff(const std::vector<std::vector<uint16_t>> & a, const std::vector<std::vector<uint16_t>> & b) {
         size_t NDiff = 0;
-        for (size_t i = 0; i < a.size(); i++)
-        for (size_t j = 0; j < a[i].size(); j++)
+        for (uint16_t i = 0; i < a.size(); i++)
+        for (uint16_t j = 0; j < a[i].size(); j++)
         if (a[i][j] != b[i][j])
         NDiff += 1;
         return NDiff;

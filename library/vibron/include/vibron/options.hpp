@@ -28,7 +28,7 @@ struct Options {
         std::vector<VibrationSet *> vib_sets;
 
         // The highest phonon of each normal mode
-        std::vector<std::vector<size_t>> max_phonons;
+        std::vector<std::vector<uint16_t>> max_phonons;
 
         // number of segmentations
         size_t NSegs;
@@ -53,6 +53,7 @@ struct Options {
 
         // Given a vibrational basis function defined by phonons, return its irreducible
         size_t vib_irred(const std::vector<std::vector<size_t>> & phonons) const;
+        size_t vib_irred(const std::vector<std::vector<uint16_t>> & phonons) const;
 
         // Given segment, electronic state, vibrational index in this segment,
         // return the vibrational index in the vibrational basis function set

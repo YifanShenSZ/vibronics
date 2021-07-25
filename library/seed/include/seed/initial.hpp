@@ -13,11 +13,11 @@ class Initial {
         // vibronic wave function definition
         std::shared_ptr<vibron::Options> op_;
         // initial vibrational state phonons (under harmonic approximation)
-        std::vector<std::vector<size_t>> phonons_;
+        std::vector<std::vector<uint16_t>> phonons_;
     public:
         Initial();
         Initial(const std::vector<double> & _dipole,
-                const std::shared_ptr<vibron::Options> & _op, const std::vector<std::vector<size_t>> & _phonons);
+                const std::shared_ptr<vibron::Options> & _op, const std::vector<std::vector<uint16_t>> & _phonons);
         ~Initial();
 
         // Generate seed vector, return the norm of the seed vector and the corresponding unit vector

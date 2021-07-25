@@ -7,7 +7,7 @@ int main() {
 
     vibron::Wfn wfn(op);
 
-    std::vector<std::vector<size_t>> phonons(1);
+    std::vector<std::vector<uint16_t>> phonons(1);
     phonons[0] = {0, 0, 0};
     seed::Initial init_bias({1.0, 1.0}, op, phonons);
 

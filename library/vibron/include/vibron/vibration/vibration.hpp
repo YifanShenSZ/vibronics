@@ -9,25 +9,25 @@ class Vibration {
     private:
         // The j-th normal mode in i-th irreducible representation
         // contributes | phonons[i][j] > to the direct product
-        std::vector<std::vector<size_t>> phonons_;
+        std::vector<std::vector<uint16_t>> phonons_;
 
         // Number of excited normal modes
-        size_t excitation_;
+        uint16_t excitation_;
         // The irreducible and the index of each excited normal mode
-        std::vector<std::pair<size_t, size_t>> excited_modes_;
+        std::vector<std::pair<uint16_t, uint16_t>> excited_modes_;
 
         // Construct `excitation_` and `excited_modes_` given constructed `phonons_`
         void construct_excitation();
     public:
         Vibration();
-        Vibration(const std::vector<std::vector<size_t>> & _phonons);
+        Vibration(const std::vector<std::vector<uint16_t>> & _phonons);
         // Each line contains the phonons of all normal modes in one irreducible
         Vibration(const std::vector<std::string> & lines);
         ~Vibration();
 
-        const std::vector<std::vector<size_t>> & phonons() const;
-        const size_t & excitation() const;
-        const std::vector<std::pair<size_t, size_t>> & excited_modes() const;
+        const std::vector<std::vector<uint16_t>> & phonons() const;
+        const uint16_t & excitation() const;
+        const std::vector<std::pair<uint16_t, uint16_t>> & excited_modes() const;
 
         void pretty_print(std::ostream & stream) const;
 

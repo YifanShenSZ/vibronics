@@ -167,6 +167,20 @@ size_t Options::vib_irred(const std::vector<std::vector<size_t>> & phonons) cons
     }
     return irred;
 }
+size_t Options::vib_irred(const std::vector<std::vector<uint16_t>> & phonons) const {
+    if (phonons.size() != NIrreds) throw std::invalid_argument(
+    "vibron::Options::vib_irred: define phonons for every irreducible");
+    size_t irred = 0;
+    for (size_t i = 1; i < NIrreds; i++)
+    if (phonons[i].size() != NModes[i]) throw std::invalid_argument(
+    "vibron::Options::vib_irred: define phonons for every mode");
+    else {
+        size_t order = 0;
+        for (const size_t & phonon : phonons[i]) order += phonon;
+        if (order % 2 == 1) irred = product_table[irred][i];
+    }
+    return irred;
+}
 
 // Given segment, electronic state, vibrational index in this segment,
 // return the vibrational index in the vibrational basis function set

@@ -43,7 +43,7 @@ void VibrationSet::generate_all_(const std::vector<size_t> & excited_modes, cons
     for (const size_t & excited_mode : excited_modes)
     if (max_phonons[excited_mode] == 0) return;
     // basic case: the excited modes has |1>, others |0>
-    std::vector<size_t> phonons(max_phonons.size(), 0);
+    std::vector<uint16_t> phonons(max_phonons.size(), 0);
     for (const size_t & excited_mode : excited_modes) phonons[excited_mode] = 1;
     vibrations_.push_back(Vibration({phonons}));
     // Loop as a excited_modes.size()-nary counter
@@ -167,7 +167,7 @@ VibrationSet::VibrationSet(const std::vector<size_t> & max_phonons) {
     }
     size_t max_excitation = possible_modes.size();
     // |0>
-    vibrations_.push_back(Vibration({std::vector<size_t>(intdim, 0)}));
+    vibrations_.push_back(Vibration({std::vector<uint16_t>(intdim, 0)}));
     // excited ones
     for (size_t excitation = 1; excitation < max_excitation + 1; excitation++) {
         // basic case: the leading `excitation` modes in `possible_modes` are excited
@@ -201,10 +201,10 @@ VibrationSet::VibrationSet(const std::vector<size_t> & max_phonons) {
 VibrationSet::~VibrationSet() {}
 
 size_t VibrationSet::size() const {return vibrations_.size();}
-const std::vector<std::vector<size_t>> & VibrationSet::max_phonons() const {return max_phonons_;}
-const size_t & VibrationSet::max_phonon(const size_t & irred, const size_t & mode) const {return max_phonons_[irred][mode];}
-const size_t & VibrationSet::max_phonon(const std::pair<size_t, size_t> & irred_mode) const {return max_phonons_[irred_mode.first][irred_mode.second];}
-const size_t & VibrationSet::max_excitation() const {return max_excitation_;}
+const std::vector<std::vector<uint16_t>> & VibrationSet::max_phonons() const {return max_phonons_;}
+const uint16_t & VibrationSet::max_phonon(const size_t & irred, const size_t & mode) const {return max_phonons_[irred][mode];}
+const uint16_t & VibrationSet::max_phonon(const std::pair<size_t, size_t> & irred_mode) const {return max_phonons_[irred_mode.first][irred_mode.second];}
+const uint16_t & VibrationSet::max_excitation() const {return max_excitation_;}
 // A read-only accessor to vibrations_[index]
 const Vibration & VibrationSet::operator[](const size_t & index) const {return vibrations_[index];}
 
