@@ -39,6 +39,6 @@ lib/
 # Back up
 BAK
 
-# Large intermediate files
-vibration*.in
+# Outputs
+*.txt
 *.wfn

@@ -80,8 +80,8 @@ int main(size_t argc, const char ** argv) {
     }
     else {
         CL::utility::show_time(std::cout);
-        std::cout << "Initial iteration\n";
-        start = 1;
+        std::cout << "Iteration 0\n";
+        start = 0;
         alpha_ofs.open("alpha.txt");
          beta_ofs.open( "beta.txt");
         v1.read(fs);

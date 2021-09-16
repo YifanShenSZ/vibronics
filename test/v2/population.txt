@@ -1,620 +1,620 @@
 !!!!!!!!!! Vibronic wave function 1: !!!!!!!!!!
-population = 0.815694, electronic state = 1, phonons:
+population = 0.447452, electronic state = 1, phonons:
 Irreducible 1:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0579067, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0433831, electronic state = 1, phonons:
+population = 0.100946, electronic state = 1, phonons:
 Irreducible 1:
 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0213868, electronic state = 1, phonons:
+population = 0.0973706, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.0912868, electronic state = 2, phonons:
+Irreducible 1:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.0867407, electronic state = 1, phonons:
 Irreducible 1:
 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0136564, electronic state = 1, phonons:
+population = 0.0436567, electronic state = 1, phonons:
+Irreducible 1:
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.0135516, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.00943849, electronic state = 1, phonons:
 Irreducible 1:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0119051, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0112688, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00183215, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00177243, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00140396, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-
-!!!!!!!!!! Vibronic wave function 2: !!!!!!!!!!
-population = 0.0202523, electronic state = 1, phonons:
-Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00799676, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0076528, electronic state = 1, phonons:
-Irreducible 1:
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00622221, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00388548, electronic state = 1, phonons:
-Irreducible 1:
-0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00323622, electronic state = 2, phonons:
-Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00308612, electronic state = 1, phonons:
-Irreducible 1:
-0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00220928, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00213912, electronic state = 1, phonons:
+population = 0.00902497, electronic state = 1, phonons:
 Irreducible 1:
 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00208745, electronic state = 2, phonons:
+population = 0.00874056, electronic state = 1, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
-!!!!!!!!!! Vibronic wave function 3: !!!!!!!!!!
-population = 0.00319975, electronic state = 1, phonons:
+!!!!!!!!!! Vibronic wave function 2: !!!!!!!!!!
+population = 0.000348938, electronic state = 1, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 1 0 0 0 0 0 2 0 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000816007, electronic state = 1, phonons:
+population = 0.000240912, electronic state = 1, phonons:
 Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 1 0 0 0 0 0 2 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000811314, electronic state = 1, phonons:
+population = 0.00019235, electronic state = 1, phonons:
 Irreducible 1:
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000575382, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000471525, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000447587, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000353192, electronic state = 1, phonons:
-Irreducible 1:
-0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000330172, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000319564, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 1 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000294438, electronic state = 2, phonons:
+population = 0.000181615, electronic state = 1, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.000180022, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 1 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.000176155, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 1 1 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.000160475, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 1 1 0 0 0 0 0 1 0 0 0 2 0 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.000152748, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 1 1 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.000131101, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 1 1 0 0 0 0 0 2 0 0 0 2 0 1 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 0.000126546, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 1 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+
+!!!!!!!!!! Vibronic wave function 3: !!!!!!!!!!
+population = 1.51737e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 1.03832e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 1.01705e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 2 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 1.00212e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 6.68771e-06, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 6.6432e-06, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 6.33123e-06, electronic state = 2, phonons:
+Irreducible 1:
+0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 5.88076e-06, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 1 0 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 5.32373e-06, electronic state = 2, phonons:
+Irreducible 1:
+0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 5.29481e-06, electronic state = 2, phonons:
+Irreducible 1:
+0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
 !!!!!!!!!! Vibronic wave function 4: !!!!!!!!!!
-population = 0.131487, electronic state = 1, phonons:
+population = 0.000325285, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0407121, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0335266, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0292765, electronic state = 1, phonons:
-Irreducible 1:
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0230456, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 1 0 2 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.020518, electronic state = 1, phonons:
+population = 0.000172806, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 1 0 1 0 0 0 0 0 2 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0133917, electronic state = 1, phonons:
+population = 0.000105341, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 2 0 1 0 2 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0123976, electronic state = 1, phonons:
+population = 9.80603e-05, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 1 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
-0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0114917, electronic state = 1, phonons:
+population = 7.00173e-05, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 2 0 1 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00977158, electronic state = 2, phonons:
+population = 6.62029e-05, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 6.19977e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 1 0 1 0 0 0 0 0 2 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 5.52587e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 1 0 0 0 0 0 0 0 2 0 1 0 2 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 5.52248e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 1 0 0 0 0 0 0 0 0 0 0 0 2 1 0 0 0 1 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 4.67086e-05, electronic state = 2, phonons:
+Irreducible 1:
+1 0 1 0 1 0 0 0 0 0 1 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
 !!!!!!!!!! Vibronic wave function 5: !!!!!!!!!!
-population = 0.00132118, electronic state = 1, phonons:
+population = 2.62387e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000697706, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00063178, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000372562, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000285945, electronic state = 1, phonons:
+population = 1.79548e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000196204, electronic state = 1, phonons:
+population = 1.7587e-06, electronic state = 2, phonons:
 Irreducible 1:
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 2 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000122968, electronic state = 1, phonons:
+population = 1.15646e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000102255, electronic state = 1, phonons:
+population = 1.14876e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
-0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 4.68634e-05, electronic state = 1, phonons:
+population = 1.09481e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 4.50155e-05, electronic state = 2, phonons:
+population = 1.01692e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 9.15592e-07, electronic state = 2, phonons:
+Irreducible 1:
+0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 9.01298e-07, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 2 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 8.63125e-07, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
 !!!!!!!!!! Vibronic wave function 6: !!!!!!!!!!
-population = 0.0422699, electronic state = 1, phonons:
+population = 1.83616e-08, electronic state = 1, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0260373, electronic state = 1, phonons:
+population = 1.83616e-08, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0222849, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0132072, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0100829, electronic state = 1, phonons:
+population = 1.25646e-08, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 1.25646e-08, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 2 1 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00556373, electronic state = 1, phonons:
+population = 1.23072e-08, electronic state = 1, phonons:
 Irreducible 1:
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00379769, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00307924, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 2 0 0 0 2 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00123525, electronic state = 1, phonons:
+population = 1.23072e-08, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00109337, electronic state = 2, phonons:
-Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 2 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 8.09277e-09, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 8.09277e-09, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 8.0389e-09, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 8.0389e-09, electronic state = 1, phonons:
+Irreducible 1:
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
 !!!!!!!!!! Vibronic wave function 7: !!!!!!!!!!
-population = 0.00137442, electronic state = 1, phonons:
+population = 2.02863e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000953333, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000782325, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000465072, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000355187, electronic state = 1, phonons:
+population = 1.38817e-06, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000162839, electronic state = 1, phonons:
+population = 1.35973e-06, electronic state = 2, phonons:
 Irreducible 1:
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 2 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000119517, electronic state = 1, phonons:
+population = 8.94106e-07, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 9.4973e-05, electronic state = 1, phonons:
+population = 8.88155e-07, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
-0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 4.9083e-05, electronic state = 1, phonons:
+population = 8.46447e-07, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 4.51741e-05, electronic state = 1, phonons:
+population = 7.86222e-07, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 7.07884e-07, electronic state = 2, phonons:
+Irreducible 1:
+0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 6.96833e-07, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 2 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 6.67319e-07, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
 !!!!!!!!!! Vibronic wave function 8: !!!!!!!!!!
-population = 0.114941, electronic state = 1, phonons:
+population = 1.05796e-33, electronic state = 2, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.104184, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0781092, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.0466465, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 2 0 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0360742, electronic state = 1, phonons:
+population = 9.8212e-34, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0103735, electronic state = 1, phonons:
+population = 8.42416e-34, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 2 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.010219, electronic state = 1, phonons:
+population = 8.42416e-34, electronic state = 2, phonons:
 Irreducible 1:
-1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 2 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00909313, electronic state = 1, phonons:
+population = 7.27971e-34, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 2 0 0 0 2 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00866048, electronic state = 1, phonons:
+population = 7.0746e-34, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0072352, electronic state = 1, phonons:
+population = 4.9737e-34, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 2 0 0 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 4.9737e-34, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 2 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 4.59514e-34, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 4.59514e-34, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 2 0 0 0 2 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
 !!!!!!!!!! Vibronic wave function 9: !!!!!!!!!!
-population = 0.000366652, electronic state = 1, phonons:
+population = 8.22464e-08, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000223763, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00020235, electronic state = 1, phonons:
-Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000143164, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000133408, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.000111825, electronic state = 1, phonons:
+population = 5.62802e-08, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 6.05882e-05, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 4.90292e-05, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 2.33755e-05, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 1.62254e-05, electronic state = 2, phonons:
+population = 5.51273e-08, electronic state = 2, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 1 0 0 0 0 0 2 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 3.62496e-08, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 3.60084e-08, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 3.43174e-08, electronic state = 2, phonons:
+Irreducible 1:
+0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 3.18757e-08, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 1 0 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 2.86996e-08, electronic state = 2, phonons:
+Irreducible 1:
+0 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 2.82516e-08, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 2 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+Irreducible 2:
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 2.7055e-08, electronic state = 2, phonons:
+Irreducible 1:
+1 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
 !!!!!!!!!! Vibronic wave function 10: !!!!!!!!!!
-population = 0.00814905, electronic state = 1, phonons:
+population = 2.84445e-48, electronic state = 1, phonons:
 Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 2.84445e-48, electronic state = 1, phonons:
+Irreducible 1:
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 1 0 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 2.32964e-48, electronic state = 1, phonons:
+Irreducible 1:
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 1 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00543661, electronic state = 1, phonons:
+population = 2.32964e-48, electronic state = 1, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 1 0 0 0 0 1 0 0 0 0 0 0 
+Irreducible 2:
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 1.74225e-48, electronic state = 1, phonons:
+Irreducible 1:
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1 0 0 0 0 0 0 0 
+Irreducible 2:
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-----------------------------------------------
+population = 1.74225e-48, electronic state = 1, phonons:
+Irreducible 1:
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 1 0 0 1 1 0 0 0 0 0 0 
 Irreducible 2:
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00439404, electronic state = 1, phonons:
+population = 1.08979e-48, electronic state = 1, phonons:
 Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00273743, electronic state = 1, phonons:
+population = 1.08979e-48, electronic state = 1, phonons:
 Irreducible 1:
-0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 1 0 0 1 0 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.00259053, electronic state = 2, phonons:
+population = 7.1538e-49, electronic state = 1, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 
 Irreducible 2:
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
-population = 0.0023459, electronic state = 1, phonons:
+population = 7.1538e-49, electronic state = 1, phonons:
 Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 1 0 0 0 1 0 0 0 0 0 0 
 Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00173926, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00141086, electronic state = 1, phonons:
-Irreducible 1:
-0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.000720522, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
------------------------------------------------
-population = 0.00064294, electronic state = 2, phonons:
-Irreducible 1:
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Irreducible 2:
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 -----------------------------------------------
 
