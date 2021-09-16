@@ -19,7 +19,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     parser.add_argument("-s","--shift_vector",        1, false, "shift vector from final-state to initial-state normal mode");
 
     // optional arguments
-    parser.add_argument("-d","--dipole", '+', true, "one component or norm of transition dipole");
+    parser.add_argument("-d","--dipole", '+', true, "one component or norm of transition dipole for each electronic state");
 
     parser.parse_args(argc, argv);
     return parser;

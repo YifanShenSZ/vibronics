@@ -10,7 +10,7 @@ namespace seed {
 // Use final-state normal modes to define vibration
 class Final {
     private:
-        // one component or norm of transition dipole
+        // one component or norm of transition dipole for each electronic state
         std::vector<double> dipole_;
         // vibronic wave function definition
         std::shared_ptr<vibron::Options> op_;
