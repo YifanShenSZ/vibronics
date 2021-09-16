@@ -2,9 +2,9 @@ Generate Lanczos seed vector
 Yifan Shen 2021
 
 Echo of user command line input:
-/home/yshen/Software/Mine/vibronics/tools/seed/seed.exe -w wfn-1.in -v vibration1.in vibration2.in -i initial-freq-1.in initial-freq-2.in -f final-freq-1.in final-freq-2.in -t transformation-matrix.in -s shift-vector.in
+/global/homes/y/yifnshen/Software/Mine/vibronics/tools/seed/seed.exe -w wfn-1.in -v vibration1.in vibration2.in -i initial-freq-1.in initial-freq-2.in -f final-freq-1.in final-freq-2.in -t transformation-matrix.in -s shift-vector.in
 
-Fri Apr 16 19:13:24 2021
+Tue Sep  7 08:44:59 2021
 
 Number of irreducible representations: 2
 Point group product table:
@@ -71,5 +71,5 @@ No. 10. overlap = 0.0780134, phonons are:
 Norm of the seed vector = 0.95354
 The seed vector can be found in seed-*-*.wfn
 
-Fri Apr 16 19:13:25 2021
+Tue Sep  7 08:44:59 2021
 Mission success

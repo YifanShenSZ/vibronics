@@ -1,8 +1,7 @@
-for directory in vibron seed Lanczos plot; do
+for directory in eig plot2D seed soc; do
     echo
     echo "Entre "$directory
     cd $directory/build
-    rm lib*
     cmake --build .
     cd ../..
 done

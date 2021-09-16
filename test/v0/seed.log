@@ -2,9 +2,9 @@ Generate Lanczos seed vector
 Yifan Shen 2021
 
 Echo of user command line input:
-/home/yshen/Software/Mine/vibronics/tools/seed/seed.exe -w wfn-1.in -v vibration1.in vibration2.in -i initial-freq-1.in initial-freq-2.in -f final-freq-1.in final-freq-2.in -t transformation-matrix.in -s shift-vector.in
+/global/homes/y/yifnshen/Software/Mine/vibronics/tools/seed/seed.exe -w wfn-1.in -v vibration1.in vibration2.in -i initial-freq-1.in initial-freq-2.in -f final-freq-1.in final-freq-2.in -t transformation-matrix.in -s shift-vector.in
 
-Fri Apr 16 19:13:24 2021
+Tue Sep  7 08:42:34 2021
 
 Number of irreducible representations: 2
 Point group product table:
@@ -17,19 +17,199 @@ Number of electronic states = 2
 Vibrational irreducible:
     state 1: 1
     state 2: 2
-Number of segmentations = 4
+Number of segmentations = 64
 Segment 1 owns:
-Electronic state 1: [0, 2304)
-Electronic state 2: [0, 1152)
+Electronic state 1: [0, 144)
+Electronic state 2: [0, 72)
 Segment 2 owns:
-Electronic state 1: [2304, 4608)
-Electronic state 2: [1152, 2304)
+Electronic state 1: [144, 288)
+Electronic state 2: [72, 144)
 Segment 3 owns:
-Electronic state 1: [4608, 6912)
-Electronic state 2: [2304, 3456)
+Electronic state 1: [288, 432)
+Electronic state 2: [144, 216)
 Segment 4 owns:
-Electronic state 1: [6912, 9216)
-Electronic state 2: [3456, 4608)
+Electronic state 1: [432, 576)
+Electronic state 2: [216, 288)
+Segment 5 owns:
+Electronic state 1: [576, 720)
+Electronic state 2: [288, 360)
+Segment 6 owns:
+Electronic state 1: [720, 864)
+Electronic state 2: [360, 432)
+Segment 7 owns:
+Electronic state 1: [864, 1008)
+Electronic state 2: [432, 504)
+Segment 8 owns:
+Electronic state 1: [1008, 1152)
+Electronic state 2: [504, 576)
+Segment 9 owns:
+Electronic state 1: [1152, 1296)
+Electronic state 2: [576, 648)
+Segment 10 owns:
+Electronic state 1: [1296, 1440)
+Electronic state 2: [648, 720)
+Segment 11 owns:
+Electronic state 1: [1440, 1584)
+Electronic state 2: [720, 792)
+Segment 12 owns:
+Electronic state 1: [1584, 1728)
+Electronic state 2: [792, 864)
+Segment 13 owns:
+Electronic state 1: [1728, 1872)
+Electronic state 2: [864, 936)
+Segment 14 owns:
+Electronic state 1: [1872, 2016)
+Electronic state 2: [936, 1008)
+Segment 15 owns:
+Electronic state 1: [2016, 2160)
+Electronic state 2: [1008, 1080)
+Segment 16 owns:
+Electronic state 1: [2160, 2304)
+Electronic state 2: [1080, 1152)
+Segment 17 owns:
+Electronic state 1: [2304, 2448)
+Electronic state 2: [1152, 1224)
+Segment 18 owns:
+Electronic state 1: [2448, 2592)
+Electronic state 2: [1224, 1296)
+Segment 19 owns:
+Electronic state 1: [2592, 2736)
+Electronic state 2: [1296, 1368)
+Segment 20 owns:
+Electronic state 1: [2736, 2880)
+Electronic state 2: [1368, 1440)
+Segment 21 owns:
+Electronic state 1: [2880, 3024)
+Electronic state 2: [1440, 1512)
+Segment 22 owns:
+Electronic state 1: [3024, 3168)
+Electronic state 2: [1512, 1584)
+Segment 23 owns:
+Electronic state 1: [3168, 3312)
+Electronic state 2: [1584, 1656)
+Segment 24 owns:
+Electronic state 1: [3312, 3456)
+Electronic state 2: [1656, 1728)
+Segment 25 owns:
+Electronic state 1: [3456, 3600)
+Electronic state 2: [1728, 1800)
+Segment 26 owns:
+Electronic state 1: [3600, 3744)
+Electronic state 2: [1800, 1872)
+Segment 27 owns:
+Electronic state 1: [3744, 3888)
+Electronic state 2: [1872, 1944)
+Segment 28 owns:
+Electronic state 1: [3888, 4032)
+Electronic state 2: [1944, 2016)
+Segment 29 owns:
+Electronic state 1: [4032, 4176)
+Electronic state 2: [2016, 2088)
+Segment 30 owns:
+Electronic state 1: [4176, 4320)
+Electronic state 2: [2088, 2160)
+Segment 31 owns:
+Electronic state 1: [4320, 4464)
+Electronic state 2: [2160, 2232)
+Segment 32 owns:
+Electronic state 1: [4464, 4608)
+Electronic state 2: [2232, 2304)
+Segment 33 owns:
+Electronic state 1: [4608, 4752)
+Electronic state 2: [2304, 2376)
+Segment 34 owns:
+Electronic state 1: [4752, 4896)
+Electronic state 2: [2376, 2448)
+Segment 35 owns:
+Electronic state 1: [4896, 5040)
+Electronic state 2: [2448, 2520)
+Segment 36 owns:
+Electronic state 1: [5040, 5184)
+Electronic state 2: [2520, 2592)
+Segment 37 owns:
+Electronic state 1: [5184, 5328)
+Electronic state 2: [2592, 2664)
+Segment 38 owns:
+Electronic state 1: [5328, 5472)
+Electronic state 2: [2664, 2736)
+Segment 39 owns:
+Electronic state 1: [5472, 5616)
+Electronic state 2: [2736, 2808)
+Segment 40 owns:
+Electronic state 1: [5616, 5760)
+Electronic state 2: [2808, 2880)
+Segment 41 owns:
+Electronic state 1: [5760, 5904)
+Electronic state 2: [2880, 2952)
+Segment 42 owns:
+Electronic state 1: [5904, 6048)
+Electronic state 2: [2952, 3024)
+Segment 43 owns:
+Electronic state 1: [6048, 6192)
+Electronic state 2: [3024, 3096)
+Segment 44 owns:
+Electronic state 1: [6192, 6336)
+Electronic state 2: [3096, 3168)
+Segment 45 owns:
+Electronic state 1: [6336, 6480)
+Electronic state 2: [3168, 3240)
+Segment 46 owns:
+Electronic state 1: [6480, 6624)
+Electronic state 2: [3240, 3312)
+Segment 47 owns:
+Electronic state 1: [6624, 6768)
+Electronic state 2: [3312, 3384)
+Segment 48 owns:
+Electronic state 1: [6768, 6912)
+Electronic state 2: [3384, 3456)
+Segment 49 owns:
+Electronic state 1: [6912, 7056)
+Electronic state 2: [3456, 3528)
+Segment 50 owns:
+Electronic state 1: [7056, 7200)
+Electronic state 2: [3528, 3600)
+Segment 51 owns:
+Electronic state 1: [7200, 7344)
+Electronic state 2: [3600, 3672)
+Segment 52 owns:
+Electronic state 1: [7344, 7488)
+Electronic state 2: [3672, 3744)
+Segment 53 owns:
+Electronic state 1: [7488, 7632)
+Electronic state 2: [3744, 3816)
+Segment 54 owns:
+Electronic state 1: [7632, 7776)
+Electronic state 2: [3816, 3888)
+Segment 55 owns:
+Electronic state 1: [7776, 7920)
+Electronic state 2: [3888, 3960)
+Segment 56 owns:
+Electronic state 1: [7920, 8064)
+Electronic state 2: [3960, 4032)
+Segment 57 owns:
+Electronic state 1: [8064, 8208)
+Electronic state 2: [4032, 4104)
+Segment 58 owns:
+Electronic state 1: [8208, 8352)
+Electronic state 2: [4104, 4176)
+Segment 59 owns:
+Electronic state 1: [8352, 8496)
+Electronic state 2: [4176, 4248)
+Segment 60 owns:
+Electronic state 1: [8496, 8640)
+Electronic state 2: [4248, 4320)
+Segment 61 owns:
+Electronic state 1: [8640, 8784)
+Electronic state 2: [4320, 4392)
+Segment 62 owns:
+Electronic state 1: [8784, 8928)
+Electronic state 2: [4392, 4464)
+Segment 63 owns:
+Electronic state 1: [8928, 9072)
+Electronic state 2: [4464, 4536)
+Segment 64 owns:
+Electronic state 1: [9072, 9216)
+Electronic state 2: [4536, 4608)
 Vibrational basis functions of irreducible 1:
 Highest phonons among the vibrational basis functions:
 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 2, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
@@ -71,5 +251,5 @@ No. 10. overlap = 0.0780134, phonons are:
 Norm of the seed vector = 0.95354
 The seed vector can be found in seed-*-*.wfn
 
-Fri Apr 16 19:13:25 2021
+Tue Sep  7 08:42:35 2021
 Mission success
