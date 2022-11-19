@@ -61,87 +61,6 @@ void VibrationSet::generate_all_(const std::vector<size_t> & excited_modes, cons
     }
 }
 
-// Support `index_vibration`
-// Given a vibrational basis function, try to locate its index within [lower, upper]
-// index = -1 if not found
-void VibrationSet::bisect_(const Vibration & vibration, const size_t & lower, const size_t & upper, int64_t & index) const {
-    // Final round
-    if (upper - lower == 1) {
-        // Try lower
-        bool match = true;
-        const auto & phonons = vibration.phonons(),
-                   & phonons_lower = vibrations_[lower].phonons();
-        for (size_t i = 0; i < phonons.size(); i++)
-        for (size_t j = 0; j < phonons[i].size(); j++)
-        if (phonons[i][j] != phonons_lower[i][j]) {
-            match = false;
-            break;
-        }
-        if (match) {
-            index = lower;
-            return;
-        }
-        // Try upper
-        match = true;
-        const auto & phonons_upper = vibrations_[upper].phonons();
-        for (size_t i = 0; i < phonons.size(); i++)
-        for (size_t j = 0; j < phonons[i].size(); j++)
-        if (phonons[i][j] != phonons_upper[i][j]) {
-            match = false;
-            break;
-        }
-        if (match) {
-            index = upper;
-            return;
-        }
-        // Neither
-        index = -1;
-    }
-    // Normal bisection
-    else {
-        // Try bisection
-        size_t bisection = (lower + upper) / 2;
-        bool match = true;
-        // 1st, compare excited modes
-        const auto & modes = vibration.excited_modes(),
-                   & modes_ref = vibrations_[bisection].excited_modes();
-        size_t i;
-        for (i = 0; i < modes.size(); i++)
-        if (modes[i] != modes_ref[i]) {
-            match = false;
-            break;
-        }
-        // 2nd, compare phonons
-        if (match) {
-            const auto & phonons = vibration.phonons(),
-                       & phonons_ref = vibrations_[bisection].phonons();
-            int64_t i, j;
-            for (i = phonons.size() - 1; i >= 0; i--) {
-                for (j = phonons[i].size() - 1; j >= 0; j--)
-                if (phonons[i][j] != phonons_ref[i][j]) {
-                    match = false;
-                    break;
-                }
-                if (! match) break;
-            }
-            if (match) {
-                index = bisection;
-                return;
-            }
-            // Next range
-            else {
-                if (phonons[i][j] > phonons_ref[i][j]) bisect_(vibration, bisection, upper, index);
-                else                                   bisect_(vibration, lower, bisection, index);
-            }
-        }
-        // Next range
-        else {
-            if (modes[i] > modes_ref[i]) bisect_(vibration, bisection, upper, index);
-            else                         bisect_(vibration, lower, bisection, index);
-        }
-    }
-}
-
 VibrationSet::VibrationSet() {}
 VibrationSet::VibrationSet(const std::string & vib_file, const size_t & NIrreds) {
     std::ifstream ifs; ifs.open(vib_file);
@@ -226,10 +145,50 @@ int64_t VibrationSet::index_vibration(const Vibration & vibration) const {
     // normal procedure: binary search
     size_t lower = 0;
     for (size_t i = 0; i < vibration.excitation(); i++) lower += excitations_[i].size();
-    size_t upper = lower + excitations_[vibration.excitation()].size() - 1;
+    size_t upper = lower + excitations_[vibration.excitation()].size();
     int64_t index;
-    this->bisect_(vibration, lower, upper, index);
-    return index;
+    // try to locate within [lower, upper)
+    while (lower < upper) {
+        // Try bisection
+        size_t bisection = lower + (upper - lower) / 2;
+        bool match = true;
+        // 1st, compare excited modes
+        const auto& modes = vibration.excited_modes(),
+                  & modes_ref = vibrations_[bisection].excited_modes();
+        size_t i;
+        for (i = 0; i < modes.size(); i++)
+        if (modes[i] != modes_ref[i]) {
+            match = false;
+            break;
+        }
+        // 2nd, compare phonons
+        if (match) {
+            const auto& phonons = vibration.phonons(),
+                      & phonons_ref = vibrations_[bisection].phonons();
+            int64_t i, j;
+            for (i = phonons.size() - 1; i >= 0; i--) {
+                for (j = phonons[i].size() - 1; j >= 0; j--)
+                if (phonons[i][j] != phonons_ref[i][j]) {
+                    match = false;
+                    break;
+                }
+                if (! match) break;
+            }
+            if (match) return bisection;
+            // Next range
+            else {
+                if (phonons[i][j] > phonons_ref[i][j]) lower = bisection;
+                else                                   upper = bisection;
+            }
+        }
+        // Next range
+        else {
+            if (modes[i] > modes_ref[i]) lower = bisection;
+            else                         upper = bisection;
+        }
+    }
+    // not found
+    return -1;
 }
 
 } // namespace vibron
