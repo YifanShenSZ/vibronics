@@ -8,17 +8,17 @@ done
 
 for directory in plot; do
     echo
-    echo "Entre "$directory
-    cd $directory/build
+    echo "Entre "$directory"/test"
+    cd $directory/test/build
     rm test.exe
     cmake --build .
     cd ..
     if [ -d input ]; then
         cd input
         ../build/test.exe
-        cd ../..
+        cd ../../..
     else
        ./build/test.exe
-       cd ..
+       cd ../..
     fi
 done

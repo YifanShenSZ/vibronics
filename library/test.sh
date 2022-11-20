@@ -8,8 +8,8 @@ done
 
 for directory in plot; do
     echo
-    echo "Entre "$directory
-    cd $directory
+    echo "Entre "$directory"/test"
+    cd $directory/test
     # build
     if [ -d build ]; then rm -r build; fi
     mkdir build
@@ -21,9 +21,9 @@ for directory in plot; do
     if [ -d input ]; then
         cd input
         ../build/test.exe
-        cd ../..
+        cd ../../..
     else
        ./build/test.exe
-       cd ..
+       cd ../..
     fi
 done
