@@ -1,15 +1,10 @@
 for directory in harmonic vibration wfn; do
     echo
     echo "Entre "$directory
-    cd $directory
-    # build
-    if [ -d build ]; then rm -r build; fi
-    mkdir build
-    cd build
-    cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_Fortran_COMPILER=ifort ..
+    cd $directory/build
+    rm test.exe
     cmake --build .
     cd ..
-    # run
     if [ -d input ]; then
         cd input
         ../build/test.exe

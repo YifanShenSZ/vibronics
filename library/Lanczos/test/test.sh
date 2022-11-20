@@ -1,4 +1,9 @@
-for directory in harmonic vibration wfn; do
+echo "Entre symmetry"
+cd symmetry
+bash test.sh
+cd ..
+
+for directory in Hamiltonian mv Lanczos; do
     echo
     echo "Entre "$directory
     cd $directory

@@ -1,4 +1,12 @@
-for directory in harmonic vibration wfn; do
+for directory in vibron seed Lanczos; do
+    echo
+    echo "Entre "$directory"/test"
+    cd $directory/test
+    bash test.sh
+    cd ..
+done
+
+for directory in plot; do
     echo
     echo "Entre "$directory
     cd $directory

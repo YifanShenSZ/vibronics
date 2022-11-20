@@ -1,4 +1,4 @@
-for directory in harmonic vibration wfn; do
+for directory in C1 Cs-irred1 Cs-irred2; do
     echo
     echo "Entre "$directory
     cd $directory
